@@ -1,4 +1,6 @@
 class Pitch < ApplicationRecord
   belongs_to :user
   belongs_to :category
+
+  has_many :daily_schedules
 end
