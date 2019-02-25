@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_212324) do
     t.string "nickname"
     t.string "address"
     t.integer "cpf"
-    t.boolean "owner"
+    t.boolean "owner", default: false
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
