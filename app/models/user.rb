@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   has_many :pitches
   has_many :bookings
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone, presence: true
+  validates :nickname, presence: true
+  validates :address, presence: true
+  validates :cpf, presence: true
 end
