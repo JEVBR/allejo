@@ -6,6 +6,9 @@ class PitchesController < ApplicationController
     @pitches = policy_scope(Pitch).order(created_at: :desc)
   end
 
+  def show
+  end
+
   def new
     @pitch = Pitch.new
     authorize @pitch
@@ -20,9 +23,8 @@ class PitchesController < ApplicationController
 
     if @pitch.valid?
       @pitch.save
-      redirect_to root_path
+      redirect_to pitch_path(@pitch)
     else
-      raise
       render :new
     end
   end
