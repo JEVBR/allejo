@@ -6,13 +6,12 @@ class RegistrationsController < Devise::RegistrationsController
                                  :last_name,
                                  :phone,
                                  :nickname,
-                                 :CPF,
+                                 :cpf,
                                  :address,
                                  :email,
                                  :password,
                                  :password_confirmation,
-                                 :photo,
-                                 :description)
+                                 :photo)
   end
 
   def account_update_params
@@ -20,12 +19,11 @@ class RegistrationsController < Devise::RegistrationsController
                                  :last_name,
                                  :phone,
                                  :nickname,
-                                 :CPF,
+                                 :cpf,
                                  :email,
                                  :password,
                                  :password_confirmation,
                                  :current_password,
-                                 :photo,
-                                 :description)
+                                 :photo)
   end
 end
