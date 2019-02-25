@@ -34,6 +34,14 @@ class PitchesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @pitch.update(pitch_params)
+    redirect_to pitch_path(@pitch)
+  end
+
   private
 
   def set_pitch

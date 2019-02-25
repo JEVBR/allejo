@@ -24,4 +24,12 @@ class PitchPolicy < ApplicationPolicy
   def destroy?
     owner?
   end
+
+  def update?
+    owner?
+  end
+
+  def edit?
+    update?
+  end
 end
