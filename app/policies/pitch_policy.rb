@@ -4,4 +4,12 @@ class PitchPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    user.owner
+  end
+
+  def new?
+    create?
+  end
 end
