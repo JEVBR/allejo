@@ -1,0 +1,10 @@
+<h1>SHOW PITCH <%= @pitch.title %></h1>
+<% if policy(@pitch).destroy? %>
+  <%=  link_to 'delete pitch', pitch_path(@pitch),
+      method: :delete,
+      data: { confirm: "Are you sure?"} %>
+<% end %>
+
+<% if policy(@pitch).edit? %>
+  <%=  link_to 'edit pitch', edit_pitch_path(@pitch) %>
+<% end %>
