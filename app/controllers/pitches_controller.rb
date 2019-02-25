@@ -9,6 +9,11 @@ class PitchesController < ApplicationController
   def show
   end
 
+  def destroy
+    @pitch.destroy
+    redirect_to pitches_path
+  end
+
   def new
     @pitch = Pitch.new
     authorize @pitch

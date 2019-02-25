@@ -16,4 +16,12 @@ class PitchPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def owner?
+    record.user == user
+  end
+
+  def destroy?
+    owner?
+  end
 end
