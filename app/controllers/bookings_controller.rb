@@ -28,8 +28,9 @@ class BookingsController < ApplicationController
     @booking.end_time = end_time
     if @booking.valid?
       @booking.save
+      redirect_to pitch_path(@booking.pitch), notice: "Reserva efetuada com sucesso"
     else
-      raise
+      redirect_to pitch_path(@booking.pitch), alert: "Horário indisponível"
     end
   end
 
