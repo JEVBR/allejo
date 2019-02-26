@@ -9,9 +9,13 @@
 puts "Seeding categories"
 Category.create(name: 'Futsal')
 Category.create(name: 'Society')
-Category.create(name: 'Campo')
+category = Category.create(name: 'Campo')
 puts "Categories seeded"
 
 puts "Creating test user"
-User.create(email: 'test@test.com', password: '123123', first_name: 'test', last_name: 'last_name', phone: 12341234, nickname: 'nickname', address: 'address', cpf:1111, owner: true)
+user = User.create(email: 'test@test.com', password: '123123', first_name: 'test', last_name: 'last_name', phone: 12341234, nickname: 'nickname', address: 'address', cpf:1111, owner: true)
 puts "Test user created"
+
+puts "Creating test Pitch"
+Pitch.create(title: 'primeiro pitch', subtitle: 'teste', category: category, price: 100, address: 'rua mourato coelho 1404', cep: 1234, cnpj: 10000, user: user)
+puts
