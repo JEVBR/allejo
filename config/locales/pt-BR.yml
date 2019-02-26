@@ -1,0 +1,40 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        first_name: Nome
+        last_name: Sobrenome
+        password: Senha
+        password_confirmation: Confirmação
+        phone: Telefone
+        photo: Foto
+        address: Endereço
+        nickname: Apelido
+  devise:
+    confirmations:
+        confirmed: "Sua conta foi confirmada com sucesso. Você está logado."
+        send_instructions: "Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta."
+        send_paranoid_instructions: "Se o seu endereço de e-mail estiver cadastrado, você receberá uma mensagem com instruções para confirmação da sua conta."
+    failure:
+        already_authenticated: "Você já está logado."
+        inactive: "Sua conta ainda não foi ativada."
+        invalid: "%{authentication_keys} ou senha inválida."
+        locked: "Sua conta está bloqueada."
+        last_attempt: "Você tem mais uma tentativa antes de bloquear sua conta."
+        not_found_in_database: "%{authentication_keys} ou senha inválida."
+        timeout: "Sua sessão expirou, por favor, efetue login novamente para continuar."
+        unauthenticated: "Para continuar, efetue login ou registre-se."
+        unconfirmed: "Antes de continuar, confirme a sua conta."
+    sessions:
+        signed_in: "Login efetuado com sucesso!"
+        signed_out: "Saiu com sucesso."
+        already_signed_out: "Saiu com sucesso."
+    minimum_password_length:
+        one: "(Mínimo de %{count} caractere)"
+        other: "(Mínimo de %{count} caracteres)"
+  simple_form:
+    error_notification:
+      default_message: "Por gentileza, reveja o preenchimento das informações abaixo."
+
