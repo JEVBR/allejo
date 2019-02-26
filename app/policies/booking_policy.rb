@@ -5,8 +5,12 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def logged_in?
+    !user.nil?
+  end
+
   def create?
-    true
+    logged_in?
   end
 
   def new?
