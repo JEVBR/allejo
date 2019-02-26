@@ -4,6 +4,24 @@ class PitchesController < ApplicationController
 
   def index
     @pitches = policy_scope(Pitch).order(created_at: :desc)
+
+    # MAP:
+    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil)
+
+    @markers = @mark_pitches.map do |pitch|
+      {
+        lng: pitch.longitude,
+        lat: pitch.latitude,
+        infoWindow: pitch.address,
+        # pitch_description: pitch.description,
+        pitch_title: pitch.title,
+        pitch_link: pitch_path(pitch),
+        # home_photo: home.photo.url,
+        pitch_price: pitch.price,
+        home: true
+      }
+    end
+    #End of MAP
   end
 
   def show

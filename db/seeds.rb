@@ -17,5 +17,5 @@ user = User.create(email: 'test@test.com', password: '123123', first_name: 'test
 puts "Test user created"
 
 puts "Creating test Pitch"
-Pitch.create(title: 'primeiro pitch', subtitle: 'teste', category: category, price: 100, address: 'rua mourato coelho 1404', cep: 1234, cnpj: 10000, user: user)
-puts
+Pitch.create(title: 'Campo do Ze', user_id: 1, category_id: 1, subtitle: 'vem jogar', cep: 12341234, cnpj: 1111111, address: 'rua mourato coelho 1404 Sao Paulo', price:80)
+puts "Test pitch created"
