@@ -1,4 +1,7 @@
 class Pitch < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+
   belongs_to :user
   belongs_to :category
 
@@ -14,4 +17,6 @@ class Pitch < ApplicationRecord
   validates :cep, presence: true
   validates :cnpj, presence: true
   validates :price, presence: true
+
+  after_validation :geocode, if: :will_save_change_to_address?
 end

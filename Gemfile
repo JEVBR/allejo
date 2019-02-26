@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'pundit'
 gem "geocoder"
+gem 'mapbox-gl-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
