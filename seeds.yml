@@ -1,0 +1,98 @@
+users:
+  - email: "Alvaro@test.com"
+    password: 123456
+    phone: 011-912345678
+    CPF: 000.000.000.00
+    last_name: Palermo
+    first_name: Alvaro
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    description: "Sou calmo, porem nao gosta de barulho"
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 000
+  - email: "Ana@test.com"
+    password: 123456
+    phone: 011-812345678
+    CPF: 000.000.000.00
+    last_name: Riccetti
+    first_name: Ana
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853645/ylkzlxfr4kxfuwpehqgh.jpg"
+    description: "Coffee always ready"
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 000
+  - email: "Jeroen@test.com"
+    password: 123456
+    phone: 011-712345678
+    CPF: 000.000.000.00
+    last_name: Haisma
+    first_name: Jeroen
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853813/dy0k2eiwiozenxxzlnua.jpg"
+    description: "Estresso facil, faco barulho demais"
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 000
+  - email: "Marcelo@test.com"
+    password: 123456
+    phone: 011-612345678
+    CPF: 000.000.000.00
+    last_name: Miyachi
+    first_name: Marcelo
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550854135/xbpwdb82bxi4plirozvu.jpg"
+    description: "Nao deixa Bis perto de mim"
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 000
+  - email: "Rafael@test.com"
+    password: 123456
+    phone: 011-612345678
+    CPF: 000.000.000.00
+    last_name: Veenstra
+    first_name: Rafael
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856703/bphdmw7rv2pb8qeuu44t.jpg"
+    description: "Pilotando teclado"
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 000
+
+pitches:
+  - address: "Rua Mourato Coelho 1404 Sao Paulo"
+    user_id: 1
+    subtitle: "Pequeno apartamento para 20 estudantes"
+    title: "apartamento"
+    price: 850
+    cep: "054147-002"
+    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550847678/zgchnp4dlgst2hglh8go.jpg"
+    category_id: 1
+    cnpj: 0000000
+  - address: "Rua purpurina 10 Sao Paulo"
+    user_id: 2
+    subtitle: "melhor moradia do SP"
+    title: "Pequeno e barato"
+    price: 200
+    cep: "05415-002"
+    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550857127/ldcbbxl9n7zvwcdkpen3.jpg"
+    category_id: 1
+    cnpj: 0000000
+  - address: "Rua Ourania 200 Sao Paulo"
+    user_id: 3
+    subtitle: "espaco para 5 estudantes"
+    title: "Perto do USP"
+    price: 300
+    cep: "05415-002"
+    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550857160/oktmolavy25x4vogcx8n.jpg"
+    category_id: 1
+    cnpj: 0000000
+  - address: "Avenida Pedroso de Morais 888 Sao Paulo"
+    user_id: 4
+    subtitle: "Casa perto do estacao de metro"
+    title: "Vem morar feliz!"
+    price: 654
+    cep: "054315-002"
+    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550848679/cq2al1xszhvhmuzjefuv.jpg"
+    category_id: 1
+    cnpj: 0000000
+  - address: "Avenida Indianopolis 457 Sao Paulo"
+    user_id: 5
+    subtitle: "Casa a 5 minutos do Aeroporto"
+    title: "Casa Aeroporto!"
+    price: 654
+    cep: "054325-002"
+    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856573/syjamubuxpdwysndro3f.jpg"
+    category_id: 1
+    cnpj: 0000000
