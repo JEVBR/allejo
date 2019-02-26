@@ -4,6 +4,71 @@ body {
   color: $dark-gray;
 }
 
-h1 {
-  font-family: $geo;
+.home-index-upper-wrapper {
+  background-image: asset-url('grass.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-index-title {
+  display: flex;
+  align-items: center;
+  height: 160px;
+  color: white;
+}
+
+.home-index-search {
+  display: flex;
+  justify-content: center;
+  input {
+    opacity: 0.8;
+    margin-left: 8px;
+    height: 40px;
+    border-radius: 2px;
+    border-style: none;
+  }
+  button {
+    opacity: 0.9;
+    margin-left: 24px;
+    height: 40px;
+    width: 80px;
+    border-radius: 2px;
+    border-style: none;
+    color: $mint;
+    background-color: $dark-gray;
+    font-family: $geo;
+    font-size: 24px;
+  }
+}
+
+.home-index-lower-wrapper {
+  height: 500px;
+  background-color: rgb(250,250,250);
+}
+
+.home-index-map {
+  height: 500px;
+  width:100%;
+  background-color: rgb(140,140,140);
+}
+
+footer {
+  background-color: $dark-gray;
+  color: $mint;
+  height: 96px;
+  padding: 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  i {
+  color: $mint;
+  margin: 0 10px 10px 10px;
+  font-size: 24px;
+  }
 }

@@ -27,19 +27,19 @@
         <div class="dropdown">
           <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk7TZa1Gzxh4CuIIooAtjJ2ahA4pD3qlgE8NJ7RTRPVJCCqs", class: "avatar dropdown-toggle", id: "navbar-allejo-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-allejo-dropdown-toggle">
-            <li>
+            <li style="font-size:16px">
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %>
               <% end %>
             </li>
-            <li>
+            <li style="font-size:16px">
               <%= link_to "#" do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Configurações") %>
               <% end %>
             </li>
-            <li>
+            <li style="font-size:16px">
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -50,6 +50,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-allejo-item navbar-allejo-link" %>
     <% end %>
   </div>
-  <!-- End Avatari with dropdown menu -->
+  <!-- End Avatar with dropdown menu -->
 </div>
 
