@@ -1,7 +1,21 @@
 <h1>PITCH - INDEX</h1>
 <% @pitches.each do |pitch| %>
-<h3>Título: <%= pitch.title %></h3>
+ <!-- <h3>Título: <%= pitch.title %></h3> -->
 <% end %>
+
+ <!-- Search Form -->
+  <div class="row" class="col col-md-3">
+      <div class="homes-index-search">
+      <%= form_tag(pitches_path, method: :get) do %>
+        <%= label_tag 'Local de referência:' %>
+        <%= text_field_tag :location, params[:location], :class => 'searchfield' %>
+        <%= label_tag 'Distância máxima:' %>
+        <%= select_tag :max_dist, options_for_select([ ["-", "-"],["5km","5km"], ["10km", "10km"], ["15km", "15km"], ["30km", "30km"]], params[:max_dist])  %>
+        <%= submit_tag 'Pesquisar' %>
+      <% end %>
+      </div>
+  </div>
+  <!-- End Search Form -->
 
   <!-- Map Div -->
   <div class="map-wrapper">
