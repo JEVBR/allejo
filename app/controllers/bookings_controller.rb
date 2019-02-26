@@ -26,6 +26,11 @@ class BookingsController < ApplicationController
 
     @booking.start_time = start_time
     @booking.end_time = end_time
+    if @booking.valid?
+      @booking.save
+    else
+      raise
+    end
   end
 
   private
