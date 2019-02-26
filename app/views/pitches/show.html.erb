@@ -10,7 +10,7 @@
 <% end %>
 
 <%= simple_form_for [@pitch, @booking] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
+  <%= f.input :start_time, wrapper: :horizontal_select_date %>
+  <%= f.input :end_time, wrapper: :horizontal_select_date %>
   <%= f.submit %>
 <% end %>
