@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_212324) do
+
+ActiveRecord::Schema.define(version: 2019_02_26_171501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,14 +34,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_212324) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "daily_schedules", force: :cascade do |t|
-    t.integer "time_slot"
-    t.bigint "pitch_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["pitch_id"], name: "index_daily_schedules_on_pitch_id"
-  end
-
   create_table "pitches", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
@@ -52,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_212324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["category_id"], name: "index_pitches_on_category_id"
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
@@ -78,7 +73,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_212324) do
 
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
-  add_foreign_key "daily_schedules", "pitches"
   add_foreign_key "pitches", "categories"
   add_foreign_key "pitches", "users"
 end

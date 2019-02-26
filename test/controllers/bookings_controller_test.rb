@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DailyScheduleTest < ActiveSupport::TestCase
+class BookingsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
