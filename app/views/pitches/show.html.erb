@@ -8,3 +8,9 @@
 <% if policy(@pitch).edit? %>
   <%=  link_to 'edit pitch', edit_pitch_path(@pitch) %>
 <% end %>
+
+<%= simple_form_for [@pitch, @booking] do |f| %>
+  <%= f.input :start_time, wrapper: :horizontal_select_date %>
+  <%= f.input :end_time, wrapper: :horizontal_select_date %>
+  <%= f.submit %>
+<% end %>
