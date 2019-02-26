@@ -36,7 +36,8 @@ seeds["users"].each do |user|
                                "password",
                                "email",
                                "address",
-                               "cpf")
+                               "cpf",
+                               "owner")
   temp.remote_photo_url = user.slice(Tag)[Tag.to_s]
   temp.save
   p "saving:"
