@@ -357,3 +357,90 @@
 
 // --------------------------------//
 
+// -=-=-= End Users Forgot Password =-=-=- //
+
+.users-forgotpass-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.users-forgotpass-box {
+  background-color: rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.users-forgotpass-title {
+  display: flex;
+  margin-bottom: 48px;
+  justify-content: space-between;
+  height: 80px;
+  span {
+    margin-top: 56px;
+    color: white;
+  }
+  h2 {
+    font-family: $geo;
+    color: white;
+    font-size: 56px;
+  }
+}
+
+.users-forgotpass-middle-wrapper {
+  width: 100%;
+}
+
+.users-forgotpass-form {
+  input {
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  }
+  .form-check-label {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-forgotpass-signforgot-buttons {
+  a {
+  color: white;
+  }
+}
+
+
+.users-forgotpass-submit-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 32px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
