@@ -22,7 +22,6 @@
       <%= link_to 'reservar',
           pitch_bookings_path(
             pitch_id: @pitch.id,
-            # date: time_slot[:start_time].strftime("%y-%m-%d"),
             booking: {
               pitch_id: @pitch.id,
               start_time: time_slot[:start_time],
