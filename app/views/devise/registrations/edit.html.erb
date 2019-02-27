@@ -1,57 +1,113 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="users-edit-wrapper">
+ <div class="users-edit-box">
+  <div class="container">
+    <div class="col col-md-offset-1 col-md-10">
+      <!-- Title -->
+      <div class=" users-edit-upper-wrapper">
+        <div class="row">
+          <div class="users-edit-title">
+            <h2>Editar Perfil </h2>
+            <!-- <%= resource_name.to_s.humanize %> (manter?) -->
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+            <p><%= link_to "Voltar", :back %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Title -->
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <!-- Form -->
+    <div class="users-edit-middle-wrapper">
+      <div class="form-inputs">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-5">
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+            <!-- Form left seccion -->
+            <div class="users-edit-form-left">
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Bob" } %>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Squarepants" } %>
-    <%= f.input :phone,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "1111111111" } %>
-     <%= f.input :nickname,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "Squarepants" } %>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Squarepants" } %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.input :email, required: true, autofocus: true %>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+
+              <%= f.input :password,
+              hint: "Deixe em branco caso não deseje alterar a senha",
+              required: false,
+              input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+              required: false,
+              input_html: { autocomplete: "new-password" } %>
+              <%= f.input :current_password,
+              hint: "Para confirmar as alterações é necessário informar sua senha atual",
+              required: true,
+              input_html: { autocomplete: "current-password" } %>
+            </div>
+          </div>
+          <!-- End Form left seccion -->
+
+          <!-- Form right seccion -->
+          <div class="col col-md-6">
+            <div class="users-edit-form-right">
+
+              <%= f.input :first_name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Bob" } %>
+              <%= f.input :last_name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Squarepants" } %>
+              <%= f.input :phone,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "1111111111" } %>
+              <%= f.input :nickname,
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "Squarepants" } %>
+              <%= f.input :address,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Squarepants" } %>
+              <div class="users-edit-photo-input">
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End form right seccion -->
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <!-- End Form -->
+
+  <!-- Lower Wrapper -->
+  <div class="users-edit-lower-wrapper">
+    <div class="row">
+      <div class="form-actions">
+        <div class="users-edit-update-button">
+          <div class="col-md-12">
+            <%= f.button :submit, "Atualizar" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="users-edit-cancel">
+          <div class="col-md-offset-9 col-md-3"
+          <p><%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Ao cancelar sua conta todos os dados serão perdidos. Deseja seguir assim mesmo?" }, method: :delete %></p>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+  <!-- End Lower Wrapper -->
+</div>
+</div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

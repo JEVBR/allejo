@@ -8,6 +8,7 @@ pt-BR:
         last_name: Sobrenome
         password: Senha
         password_confirmation: Confirmação
+        current_password: Senha Atual
         phone: Telefone
         photo: Foto
         address: Endereço

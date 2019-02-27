@@ -64,9 +64,10 @@
   margin-top: 8px;
   color: white;
   font-size: 20px;
+  font-weight: lighter;
   }
   .form-control {
-    color: white;
+    color: $mint;
     font-size: 28px;
   }
 }
@@ -89,9 +90,10 @@
   label {
   color: white;
   font-size: 20px;
+  font-weight: lighter;
   }
   .form-control {
-    color: white;
+    color: $mint;
     font-size: 28px;
   }
 }
@@ -191,7 +193,7 @@
   font-weight: lighter;
   }
   .form-control {
-    color: white;
+    color: $mint;
     font-size: 28px;
   }
 }
@@ -217,3 +219,141 @@
     }
   }
 }
+
+// -=-=-= End Users Sign In =-=-=- //
+
+// --------------------------------//
+
+// -=-=-= Users Edit =-=-=- //
+
+
+.users-edit-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.users-edit-box {
+  background-color: rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.users-edit-title {
+  display: flex;
+  margin-bottom: 48px;
+  justify-content: flex-start;
+  height: 80px;
+  min-width: 400px;
+  position: relative;
+  h2 {
+    font-family: $geo;
+    color: white;
+    font-size: 56px;
+  }
+  p, a {
+    color: white;
+    position: absolute;
+    font-family: $geo;
+    top: 48px;
+    left: 2px;
+  }
+}
+
+.users-edit-form-left {
+  padding: 32px;
+  input {
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-edit-form-right {
+  padding: 32px;
+  input {
+  margin-top: 8px;
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-edit-photo-input {
+  background-color: none;
+  input {
+    width: 400px;
+    background-color: transparent;
+  }
+  #user_photo {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  }
+}
+
+.users-edit-update-button {
+  text-align: center;
+  width: 100%;
+  margin: 20px 10px 40px 10px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 32px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
+
+.users-edit-cancel {
+  a {
+    color: white;
+    font-size: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+// -=-=-= End Users Edit =-=-=- //
+
+// --------------------------------//
+
