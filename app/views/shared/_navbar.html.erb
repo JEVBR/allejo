@@ -1,55 +1,52 @@
 <div class="navbar-allejo">
-  <!-- Dropdown -->
-  <div class="navbar-allejo-toggler">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" style="font-size:24px"></i>
-      <ul class="dropdown-menu dropdown-menu-left navbar-allejo-dropdown-toggle">
-        <li><%= link_to "Página Inicial", "#", class: "navbar-allejo-item navbar-allejo-link" %></li>
-        <li><%= link_to "Quadras", "#", class: "navbar-allejo-item navbar-allejo-link" %></li>
-        <li><%= link_to "Jogos", "#", class: "navbar-allejo-item navbar-allejo-link" %></li>
-      </ul>
-    </div>
-  </div>
-  <!-- End Dropdown  -->
-
   <!-- Logo -->
   <div class="navbar-logo">
     Allejo
   </div>
   <!-- End Logo -->
 
-  <!-- Right Navigation -->
-  <div class="navbar-allejo-right">
-    <% if user_signed_in? %>
+  <!-- Dropdown -->
+  <div class="navbar-allejo-toggler">
+    <div class="dropdown">
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-allejo-item">
-        <div class="dropdown">
-          <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk7TZa1Gzxh4CuIIooAtjJ2ahA4pD3qlgE8NJ7RTRPVJCCqs", class: "dropdown-toggle", id: "navbar-allejo-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-allejo-dropdown-toggle">
-            <li style="font-size:16px">
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %>
-              <% end %>
-            </li>
-            <li style="font-size:16px">
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Configurações") %>
-              <% end %>
-            </li>
-            <li style="font-size:16px">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-allejo-item navbar-allejo-link" %>
-    <% end %>
+    </div>
   </div>
-  <!-- End Avatar with dropdown menu -->
+  <!-- End Dropdown  -->
+
+  <!-- Hamburger Menu Navbar -->
+  <nav role='navigation'>
+    <div id="menuToggle">
+      <!--
+      A fake / hidden checkbox is used as click reciever,
+      so you can use the :checked selector on it.
+    -->
+    <input type="checkbox"/>
+      <!--
+      Spans hamburger.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    <!-- Menu -->
+    <ul id="menu">
+      <div class="picture">
+      <% if user_signed_in? %>
+      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk7TZa1Gzxh4CuIIooAtjJ2ahA4pD3qlgE8NJ7RTRPVJCCqs", class: "", id: "", "data-toggle" => "" %>
+      </div>
+      <a href="#"><li style="font-size:16px"><%= link_to "#" do %><i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %><% end %></li></a>
+      <a href="#"><li style="font-size:16px"><%= link_to "#" do %><i class="fa fa-cog"></i>  <%= t(".settings", default: "Configurações") %><% end %></li></a>
+      <a href="#"><li style="font-size:16px"><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %><% end %></li>
+      </a>
+      <% else %>
+      <!-- Login link (when logged out) -->
+      <div class="navbar-allejo-link">
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-allejo-item navbar-allejo-link" %>
+      <% end %>
+      </div>
+    </ul>
+    <!-- End Menu -->
+  </div>
+</nav>
+</div>
 </div>
 
