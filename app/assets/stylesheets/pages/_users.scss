@@ -1,0 +1,359 @@
+// All Users Model CSS Files //
+
+
+// -=-=-= Users Sign Up =-=-=- //
+
+.users-signup-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.users-signup-already-login-button {
+  a {
+  color: $heavy-green;
+  }
+}
+
+  // This box is just for the background img filter!
+.users-signup-box {
+  background-color:  rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.users-signup-upper-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  height: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  span {
+    margin-top: 56px;
+    color: white;
+  }
+  h2 {
+    font-family: $geo;
+    color: white;
+    font-size: 56px;
+  }
+}
+
+.users-signup-middle-wrapper {
+
+}
+
+.users-signup-form-left {
+  padding: 32px;
+  input {
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-signup-form-right {
+  padding: 32px;
+  input {
+  margin-top: 8px;
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-signup-photo-input {
+  background-color: none;
+  input {
+    width: 400px;
+    background-color: transparent;
+  }
+  #user_photo {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  }
+}
+
+.users-signup-button {
+  text-align: center;
+  width: 100%;
+  margin: 20px 10px 40px 10px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 32px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
+
+// -=-=-= End Users Sign Up =-=-=- //
+
+// --------------------------------//
+
+// -=-=-= Users Sign In =-=-=- //
+
+.users-signin-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.users-signin-box {
+  background-color: rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.users-signin-title {
+  display: flex;
+  margin-bottom: 48px;
+  justify-content: space-between;
+  height: 80px;
+  span {
+    margin-top: 56px;
+    color: white;
+  }
+  h2 {
+    font-family: $geo;
+    color: white;
+    font-size: 56px;
+  }
+}
+
+.users-signin-middle-wrapper {
+  width: 100%;
+}
+
+.users-signin-form {
+  input {
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  }
+  .form-check-label {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-signin-signforgot-buttons {
+  a {
+  color: white;
+  }
+}
+
+.users-signin-submit-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 32px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
+
+// -=-=-= End Users Sign In =-=-=- //
+
+// --------------------------------//
+
+// -=-=-= Users Edit =-=-=- //
+
+
+.users-edit-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.users-edit-box {
+  background-color: rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.users-edit-title {
+  display: flex;
+  margin-bottom: 48px;
+  justify-content: flex-start;
+  height: 80px;
+  min-width: 400px;
+  position: relative;
+  h2 {
+    font-family: $geo;
+    color: white;
+    font-size: 56px;
+  }
+  p, a {
+    color: white;
+    position: absolute;
+    font-family: $geo;
+    top: 48px;
+    left: 2px;
+  }
+}
+
+.users-edit-form-left {
+  padding: 32px;
+  input {
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-edit-form-right {
+  padding: 32px;
+  input {
+  margin-top: 8px;
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  }
+  }
+  label {
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 28px;
+  }
+}
+
+.users-edit-photo-input {
+  background-color: none;
+  input {
+    width: 400px;
+    background-color: transparent;
+  }
+  #user_photo {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  }
+}
+
+.users-edit-update-button {
+  text-align: center;
+  width: 100%;
+  margin: 20px 10px 40px 10px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 32px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
+
+.users-edit-cancel {
+  a {
+    color: white;
+    font-size: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+// -=-=-= End Users Edit =-=-=- //
+
+// --------------------------------//
+

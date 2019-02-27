@@ -8,8 +8,31 @@
   color: white;
 }
 .alert-info {
-  background: $green;
+  background: rgba(65, 173, 73,0.7);
+  border-style: none;
 }
 .alert-warning {
-  background: $red;
+  background: rgba(228, 87, 46,0.7);
+  border-style: none;
+}
+
+.alert-danger {
+  background-color: rgba(228, 87, 46,0.7);
+  border-style: none;
+}
+
+.alert.alert-warning.alert-dismissible {
+  background-color: rgba(228, 87, 46,0.7);
+  border-style: none;
+}
+
+.invalid-feedback {
+  color: $flame;
+  font-size: 14px;
+}
+
+.form-text {
+color: $mint;
+font-size: 14px;
+font-weight: lighter;
 }
