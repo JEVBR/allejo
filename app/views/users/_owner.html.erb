@@ -8,13 +8,19 @@
 
 Meus campos
 
-<% pitch = @pitches.first %>
+<%= form_tag(users_show_path, method: :get) do |f| %>
+  <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
+  <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title") %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
+<h3><%= @pitch.title %></h3>
 <div class="row">
   <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
 
-    <% date = Date.today + (c.days) %>
+    <% date = @date_select + (c.days) %>
     <div class="col-md-3">
-      <% day_schedule = Booking.pitch_daily_schedule(date, pitch, 60) %>
+      <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
 
       <h4><%= date.strftime("%d/%m") %></h4>
       <% day_schedule.each do |time_slot| %>
@@ -24,9 +30,9 @@ Meus campos
         <% if time_slot[:available] == true %>
           <%= link_to 'reservar',
               pitch_bookings_path(
-                pitch_id: pitch.id,
+                pitch_id: @pitch.id,
                 booking: {
-                  pitch_id: pitch.id,
+                  pitch_id: @pitch.id,
                   start_time: time_slot[:start_time],
                   end_time: time_slot[:end_time]
                 }),
