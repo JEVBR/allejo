@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'pundit'
 gem "geocoder"
+gem 'rails-i18n'
 gem 'mapbox-gl-rails'
 
 group :development do

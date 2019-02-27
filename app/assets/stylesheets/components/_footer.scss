@@ -1,0 +1,21 @@
+// Footer CSS
+
+
+footer {
+  background-color: $dark-gray;
+  color: $mint;
+  height: 96px;
+  padding: 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  i {
+  color: $mint;
+  margin: 0 10px 10px 10px;
+  font-size: 24px;
+  &:hover {
+    color: $inter-green;
+    }
+  }
+}

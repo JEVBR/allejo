@@ -5,6 +5,21 @@ class PitchesController < ApplicationController
   def index
     @pitches = policy_scope(Pitch).order(created_at: :desc)
 
+    max_dist = params[:max_dist].to_i
+    max_dist = 1_000_000 if max_dist.to_i.zero?
+    location = params[:location]
+
+    if location.nil? || location == ""
+      lat = request.location.latitude.to_f
+      lng = request.location.longitude.to_f
+    elsif Geocoder.search(location).first.nil? == false
+      lat = Geocoder.search(location).first.boundingbox[0].to_f
+      lng = Geocoder.search(location).first.boundingbox[2].to_f
+    end
+
+    coordinates_hash = { lng: lng, lat: lat, home: false }
+    coordinates_array = [lat, lng]
+
     # MAP:
     @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil)
 
@@ -22,6 +37,12 @@ class PitchesController < ApplicationController
       }
     end
     #End of MAP
+
+    if location.nil? || location == ""
+      @markers << { lng: request.location.longitude.to_f, lat: request.location.latitude.to_f, home: false }
+    elsif Geocoder.search(location).first.nil? == false
+      @markers << coordinates_hash
+    end
   end
 
   def show
