@@ -34,24 +34,29 @@ const addWhereAmI = (marker) => {
 };
 
 const addCircleToMarker =(map, marker) => {
-  console.log(map);
-  console.log(marker);
+  console.log("Adding circle to map at:" + marker);
+  const radiusInKm = 5;
 
-  map.addSource("polygon", createGeoJSONCircle([marker.lng, marker.lat], 10,20));
+  var mapLayer = map.getLayer('polygon');
 
-map.addLayer({
+  if(typeof mapLayer !== 'undefined') {
+    // Remove map layer & source.
+    map.removeLayer('polygon').removeSource('polygon');
+  }
+
+  map.addSource("polygon", createGeoJSONCircle([marker.lng, marker.lat], radiusInKm, 64));
+  map.addLayer({
     "id": "polygon",
     "type": "fill",
     "source": "polygon",
     "layout": {
-'visibility': 'visible'
-},
+      'visibility': 'visible'
+    },
     "paint": {
-        "fill-color": "blue",
+        "fill-color": "pink",
         "fill-opacity": 0.6
     }
-});
-
+  });
 }
 
 const addMarkersToMap = (map, markers) => {
@@ -63,15 +68,15 @@ const addMarkersToMap = (map, markers) => {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
-      map.flyTo({ center: [ marker.lng, marker.lat ] });
+      map.jumpTo({ center: [ marker.lng, marker.lat ] });
     } else{
       const popup = addWhereAmI(marker)
       new mapboxgl.Marker({color: 'red'})
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
-      addCircleToMarker(map,marker);
-      map.flyTo({ center: [ marker.lng, marker.lat ] });
+        addCircleToMarker(map,marker);
+      map.easeTo({ center: [ marker.lng, marker.lat ] });
     }
   });
 };
@@ -90,8 +95,21 @@ const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
     // initSearchForm(map);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
+    map.on('load', function() {
+      console.log("sarsf");
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(map, markers);
+    });
+    map.on('click', function(e) {
+    console.log("Clicked at:" + e.lngLat.lng + " / " + e.lngLat.lat);
+    //const radiusInKm=5;
+    //addCircleToMarker(map,[ e.lngLat.lng, e.lngLat.lat ]);
+    //console.log(createGeoJSONCircle([ e.lngLat.lng, e.lngLat.lat ], radiusInKm, 64));
+
+    addCircleToMarker(map,[e.lngLat.lng, e.lngLat.lat]);
+    map.panTo([e.lngLat.lng, e.lngLat.lat]);
+    //map.getSource('polygon').setData(createGeoJSONCircle([ e.lngLat.lng, e.lngLat.lat ], radiusInKm, 64));
+});
   }
 };
 
@@ -133,6 +151,7 @@ var createGeoJSONCircle = function(center, radiusInKm, points) {
         }
     };
 };
+
 
 export { initMapbox };
 
