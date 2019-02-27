@@ -27,6 +27,10 @@ class PitchesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @booking
+
+    params[:date].present? ? date = params[:date].to_datetime : date = Date.today
+
+    @daily_schedule = Booking.pitch_daily_schedule(date, @pitch, 120)
   end
 
   def destroy
