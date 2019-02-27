@@ -2,9 +2,13 @@
   <div class="users-signup-box">
     <div class="container">
       <div class="row">
-        <div class="users-signup-upper-wrapper">
-          <h2>Cadastro</h2>
-          <span class="users-signup-already-login-button">Já tem cadastro? Faça seu <%= render  "devise/shared/links" %> </span>
+        <div class="row">
+          <div class="col col-md-offset-1 col-md-10">
+            <div class="users-signup-upper-wrapper">
+              <h2>Cadastro</h2>
+              <span class="users-signup-already-login-button">Já tem cadastro? Faça seu <%= render  "devise/shared/links" %> </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,10 +63,10 @@
               required: true,
               autofocus: true,
               input_html: { autocomplete: "Seu endereço" } %>
-            <div class="users-signup-photo-input">
-              <%= f.input :photo %>
-              <%= f.input :photo_cache, as: :hidden %>
-            </div>
+              <div class="users-signup-photo-input">
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
             </div>
           </div>
           <!-- End Form middle seccion -->
