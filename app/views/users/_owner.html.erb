@@ -6,7 +6,7 @@
 <p><%= @user.phone %></p>
 <p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
 
-Meus campos
+<h2>Meus campos (<%= @pitches.size %>)</h2>
 
 <%= form_tag(users_show_path, method: :get) do |f| %>
   <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
