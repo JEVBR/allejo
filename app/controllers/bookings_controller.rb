@@ -8,9 +8,11 @@ class BookingsController < ApplicationController
 
     if @booking.valid?
       @booking.save
-      redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
+      # redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
+      redirect_to request.env["HTTP_REFERER"], notice: "Reserva efetuada com sucesso"
     else
-      redirect_to pitch_path(@booking.pitch), alert: "Horário indisponível"
+      # redirect_to pitch_path(@booking.pitch), alert: "Horário indisponível"
+      redirect_to request.env["HTTP_REFERER"], alert: "Horário indisponível"
     end
   end
 
