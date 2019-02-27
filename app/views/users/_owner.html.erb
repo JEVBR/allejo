@@ -1,0 +1,42 @@
+<h2>Painel de controle</h2>
+
+<p><%= @user.email%></p>
+<p><%= @user.first_name %>
+<p><%= @user.last_name  %></p>
+<p><%= @user.phone %></p>
+<p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
+
+Meus campos
+
+<% pitch = @pitches.first %>
+<div class="row">
+  <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
+
+    <% date = Date.today + (c.days) %>
+    <div class="col-md-3">
+      <% day_schedule = Booking.pitch_daily_schedule(date, pitch, 60) %>
+
+      <h4><%= date.strftime("%d/%m") %></h4>
+      <% day_schedule.each do |time_slot| %>
+
+
+        <p><%= time_slot[:start_time].strftime("%Hh%Mm") %> - <%= time_slot[:end_time].strftime("%Hh%Mm") %> | <%= time_slot[:available] %>
+        <% if time_slot[:available] == true %>
+          <%= link_to 'reservar',
+              pitch_bookings_path(
+                pitch_id: pitch.id,
+                booking: {
+                  pitch_id: pitch.id,
+                  start_time: time_slot[:start_time],
+                  end_time: time_slot[:end_time]
+                }),
+                method: 'post' %>
+        <% end %>
+
+
+        </p>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>

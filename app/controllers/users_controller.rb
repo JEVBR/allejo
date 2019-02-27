@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     authorize @user
+    @pitches = @user.pitches.all
   end
 
   private
