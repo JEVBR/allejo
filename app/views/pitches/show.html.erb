@@ -9,8 +9,26 @@
   <%=  link_to 'edit pitch', edit_pitch_path(@pitch) %>
 <% end %>
 
-<%= simple_form_for [@pitch, @booking] do |f| %>
-  <%= f.input :start_time, wrapper: :horizontal_select_date %>
-  <%= f.input :end_time, wrapper: :horizontal_select_date %>
-  <%= f.submit %>
+<%= form_tag(pitch_path(@pitch), method: :get) do |f| %>
+  <%= label_tag :data %>
+  <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
+<h3>Preço: R$<%= @pitch.price %></h3>
+<% @daily_schedule.each do |time_slot| %>
+  <p><%= time_slot[:start_time].strftime("%Hh%Mm") %> - <%= time_slot[:end_time].strftime("%Hh%Mm") %> | <%= time_slot[:available] %>
+    <% if time_slot[:available] == true %>
+      <%= link_to 'reservar',
+          pitch_bookings_path(
+            pitch_id: @pitch.id,
+            # date: time_slot[:start_time].strftime("%y-%m-%d"),
+            booking: {
+              pitch_id: @pitch.id,
+              start_time: time_slot[:start_time],
+              end_time: time_slot[:end_time]
+            }),
+            method: 'post' %>
+    <% end %>
+  </p>
 <% end %>

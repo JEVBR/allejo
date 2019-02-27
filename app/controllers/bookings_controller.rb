@@ -19,16 +19,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     authorize @booking
-    @booking.pitch_id = params[:pitch_id]
-    @booking.user_id = current_user.id
+    @booking.user = current_user
 
-    @booking.start_time = start_time
-    @booking.end_time = end_time
+    params[:date].present? ? date = params[:date].to_datetime : date = Date.today
+    # pitch_id = params[:pitch_id]
+    # @pitch = Pitch.find(pitch_id)
+    # @daily_schedule = Booking.pitch_daily_schedule(date, @pitch, 120)
+    # @booking.start_time = start_time
+    # @booking.end_time = end_time
     if @booking.valid?
       @booking.save
-      redirect_to pitch_path(@booking.pitch), notice: "Reserva efetuada com sucesso"
+      # render "pitches/show", :daily_schedule => @daily_schedule, :pitch => @pitch, :date => params[:date]
+      redirect_to pitch_path(@booking.pitch, date: params[:date]), notice: "Reserva efetuada com sucesso"
     else
       redirect_to pitch_path(@booking.pitch), alert: "Horário indisponível"
     end
@@ -37,6 +41,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time, :pitch_id, :date)
   end
 end
