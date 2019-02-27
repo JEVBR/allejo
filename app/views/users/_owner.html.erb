@@ -15,6 +15,7 @@
 <% end %>
 
 <h3><%= @pitch.title %></h3>
+<h6><%= link_to 'Editar campo', edit_pitch_path(@pitch) %></h6>
 
 <%= link_to 'Voltar 4 dias',
     users_show_path(
