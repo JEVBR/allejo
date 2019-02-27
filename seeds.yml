@@ -9,6 +9,7 @@ users:
     description: "Sou calmo, porem nao gosta de barulho"
     address: "Rua Mourato Coelho 1404 Sao Paulo"
     cpf: 000
+    owner: true
   - email: "Ana@test.com"
     password: 123456
     phone: 011-812345678
@@ -29,6 +30,7 @@ users:
     description: "Estresso facil, faco barulho demais"
     address: "Rua Mourato Coelho 1404 Sao Paulo"
     cpf: 000
+    owner: true
   - email: "Marcelo@test.com"
     password: 123456
     phone: 011-612345678
@@ -39,6 +41,7 @@ users:
     description: "Nao deixa Bis perto de mim"
     address: "Rua Mourato Coelho 1404 Sao Paulo"
     cpf: 000
+    owner: true
   - email: "Rafael@test.com"
     password: 123456
     phone: 011-612345678
@@ -49,6 +52,7 @@ users:
     description: "Pilotando teclado"
     address: "Rua Mourato Coelho 1404 Sao Paulo"
     cpf: 000
+    owner: true
 
 pitches:
   - address: "Rua Mourato Coelho 1404 Sao Paulo"

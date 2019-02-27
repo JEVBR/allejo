@@ -37,4 +37,24 @@ class Booking < ApplicationRecord
       errors.add(:start_time, "start_time can't be equal end_time")
     end
   end
+
+  def self.pitch_daily_schedule(day = Date.today, pitch, slot_duration)
+    booking = Booking.new
+    booking.pitch = pitch
+    booking.user = User.first # random user, just to booking be valid
+    daily_schedule = []
+    (0..((1440 - slot_duration) / slot_duration)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
+      duration = slot_duration
+      booking.start_time = day + (duration.minutes * slot)
+      booking.end_time = day + (duration.minutes * (slot + 1))
+
+      init_time = day + (duration.minutes * slot)
+      end_time = day + (duration.minutes * (slot + 1))
+
+      booking.valid? ? available = true : available = false
+
+      daily_schedule << { start_time: init_time, end_time: end_time, available: available }
+    end
+    daily_schedule
+  end
 end
