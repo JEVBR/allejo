@@ -1,18 +1,70 @@
-<h1>PITCH - INDEX</h1>
-<% @pitches.each do |pitch| %>
-<h3>Título: <%= pitch.title %></h3>
-<% end %>
+<div class="home-index-wrapper">
+  <!-- Upper Index -->
+  <div class="home-index-upper-wrapper">
+    <div class="home-index-upper-box">
+      <div class="row">
+        <div class="col col-md-12">
+          <!-- Title -->
+          <div class="home-index-title">
+            <h2>Seu trabalho é jogar futeb<i class="fas fa-futbol"></i>l,  resto é com a gente. </h2>
+          </div>
+          <!-- End Title -->
 
-  <!-- Map Div -->
-  <div class="map-wrapper">
-    <div
-      id="map"
-      style="width: 100%;
-      height: 530px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+          <!-- Search Input -->
+          <div class="home-index-search">
+            <input type="text" value=" Buscar quadras em São Paulo" style="width: 480px">
+            <input type="text" value="26/02/2018" style="width: 96px">
+            <input type="text" value="20:00 - 23:00" style="width: 120px">
+            <input type="text" value=" Society" style="width: 80px">
+            <button>Buscar</button>
+          </div>
+          <!-- End Search Input -->
+        </div>
+      </div>
+    </div>
   </div>
-  <!--END MAP-->
+  <!-- End Upper Index -->
+
+  <!-- Lower Wrapper -->
+  <div class="home-index-middle-wrapper">
+    <div class="row">
+      <div class="col col-md-12">
+
+        <!-- Map -->
+        <div class="home-index-map">
+          <!-- Map Div -->
+          <div class="map-wrapper">
+            <div
+            id="map"
+            style="width: 100%;
+            height: 700px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+            ></div>
+          </div>
+
+        </div>
+        <!-- End Map -->
+      </div>
+    </div>
+  </div>
+  <!-- End Lower Wrapper -->
+
+  <div class="home-index-lower-wrapper">
+    <div class="home-index-lower-box">
+
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <p>Copyright</p>
+    <div>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</div>
+
 
 
