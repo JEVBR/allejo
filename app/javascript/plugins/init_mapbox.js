@@ -1,92 +1,101 @@
 import mapboxgl from 'mapbox-gl';
 
+// STYLES and CONFIGURATIONS:
+
+const markerPopUp = (marker) => {
+  return (
+    `<a href ="${marker.pitch_link}">
+    <h6>${marker.pitch_title} - R$${marker.pitch_price}</h6>
+    <p>${marker.pitch_address}</p>
+    <img src="${marker.pitch_photo}" alt="No photos" style="width:200px;height:200px;">
+    </a>`
+  )
+};
+
+const whereAmIPopUp = (marker) => {
+  return (
+    `<a href ="${marker.pitch_link}">
+    <h6>Voce esta aqui</h6>
+    </a>`
+  )
+};
+
+const mapBoxSetup = () => {
+  return(
+    {
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      zoom: 12,
+      center: [-46.741735, -23.55762]
+    }
+  )
+};
+
+const polygonLayer = {
+  "id": "polygon",
+  "type": "fill",
+  "source": "polygon",
+  "layout": {
+    'visibility': 'visible'
+  },
+  "paint": {
+      "fill-color": "#F4F4F4",
+      "fill-opacity": 0.6
+  }
+};
+
+const markerOptions = {color: 'green'};
+const whereAmIMarkerOptions = {color: 'red'};
+const mapBounds = { padding: 70, maxZoom: 15 };
+
+// end of STYLES and CONFIGURATIONS:
+
 const mapElement = document.getElementById('map');
 
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    zoom: 12,
-//    center: [-46.741735, -23.55762]
-  });
-};
-
-
-const addPopUps = (marker) => {
-  console.log(marker.pitch_link);
-  const popup = new mapboxgl.Popup()
-                  .setHTML(`<a href ="${marker.pitch_link}">
-                              <h6>${marker.pitch_title} - R$${marker.pitch_price}</h6>
-                              <p>${marker.pitch_address}</p>
-                              <img src="${marker.pitch_photo}" alt="No photos" style="width:200px;height:200px;">
-                            </a>`);
-
-  return popup;
-};
-
-const addWhereAmI = (marker) => {
-  const popup = new mapboxgl.Popup()
-                  .setHTML(`<a href ="${marker.pitch_link}">
-                            <h6>Voce esta aqui</h6>
-                            </a>`);
-  return popup;
+  return new mapboxgl.Map(mapBoxSetup());
 };
 
 const addCircleToMarker =(map, marker) => {
-  console.log("Adding circle to map at:" + marker);
-  const radiusInKm = 5;
-
-  var mapLayer = map.getLayer('polygon');
-
-  if(typeof mapLayer !== 'undefined') {
-    // Remove map layer & source.
+  // console.log("Adding circle to map at:" + marker);
+  const radiusInKm = parseInt(max_dist.value);
+  //console.log(parseInt(max_dist.value));
+  if(typeof map.getLayer('polygon') !== 'undefined') {
     map.removeLayer('polygon').removeSource('polygon');
   }
 
   map.addSource("polygon", createGeoJSONCircle([marker.lng, marker.lat], radiusInKm, 64));
-  map.addLayer({
-    "id": "polygon",
-    "type": "fill",
-    "source": "polygon",
-    "layout": {
-      'visibility': 'visible'
-    },
-    "paint": {
-        "fill-color": "pink",
-        "fill-opacity": 0.6
-    }
-  });
+  map.addLayer(polygonLayer);
 }
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    console.log(marker)
+
     if (marker.home) {
-      const popup = addPopUps(marker)
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
+      new mapboxgl.Marker(markerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
       map.jumpTo({ center: [ marker.lng, marker.lat ] });
+
     } else{
-      const popup = addWhereAmI(marker)
-      new mapboxgl.Marker({color: 'red'})
+      const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
+      new mapboxgl.Marker(whereAmIMarkerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
         addCircleToMarker(map,marker);
-      map.easeTo({ center: [ marker.lng, marker.lat ] });
+      map.jumpTo({ center: [ marker.lng, marker.lat ] });
     }
   });
 };
 
-
-
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, mapBounds);
 };
 
 
@@ -94,22 +103,17 @@ const initMapbox = () => {
 
   if (mapElement) {
     const map = buildMap();
-    // initSearchForm(map);
+
     map.on('load', function() {
-      console.log("sarsf");
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers);
     });
-    map.on('click', function(e) {
-    console.log("Clicked at:" + e.lngLat.lng + " / " + e.lngLat.lat);
-    //const radiusInKm=5;
-    //addCircleToMarker(map,[ e.lngLat.lng, e.lngLat.lat ]);
-    //console.log(createGeoJSONCircle([ e.lngLat.lng, e.lngLat.lat ], radiusInKm, 64));
 
-    addCircleToMarker(map,[e.lngLat.lng, e.lngLat.lat]);
+    map.on('click', function(e) {
+    const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
+    addCircleToMarker(map,place);
     map.panTo([e.lngLat.lng, e.lngLat.lat]);
-    //map.getSource('polygon').setData(createGeoJSONCircle([ e.lngLat.lng, e.lngLat.lat ], radiusInKm, 64));
-});
+    });
   }
 };
 
@@ -136,7 +140,6 @@ var createGeoJSONCircle = function(center, radiusInKm, points) {
         ret.push([coords.longitude+x, coords.latitude+y]);
     }
     ret.push(ret[0]);
-    console.log(ret);
     return {
         "type": "geojson",
         "data": {
