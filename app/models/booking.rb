@@ -2,6 +2,9 @@ class Booking < ApplicationRecord
   belongs_to :pitch
   belongs_to :user
 
+  has_one :player_list
+  has_many :users, through: :player_lists
+
   validates :pitch, presence: true
   validates :user, presence: true
 
