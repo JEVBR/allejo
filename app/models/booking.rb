@@ -11,6 +11,7 @@ class Booking < ApplicationRecord
   validate :check_end_time_greater_start_time
   validate :check_availability
   validate :check_start_time_equal_end_time
+  validate :check_start_time_in_the_past
 
   def check_end_time_greater_start_time
     if start_time > end_time
@@ -35,6 +36,12 @@ class Booking < ApplicationRecord
   def check_start_time_equal_end_time
     if start_time == end_time
       errors.add(:start_time, "start_time can't be equal end_time")
+    end
+  end
+
+  def check_start_time_in_the_past
+    if start_time < DateTime.now
+      errors.add(:start_time, "start_time can't be in the past")
     end
   end
 
