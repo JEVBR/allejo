@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show]
+
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
@@ -21,7 +23,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :pitch_id, :date)
