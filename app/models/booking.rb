@@ -48,7 +48,8 @@ class Booking < ApplicationRecord
     end
   end
 
-  def self.pitch_daily_schedule(day = Date.today, pitch, slot_duration)
+  def self.pitch_daily_schedule(day, pitch, slot_duration)
+    day = day.in_time_zone(-3)+3.hours
     booking = Booking.new
     booking.pitch = pitch
     booking.user = User.first # random user, just to booking be valid
