@@ -10,17 +10,21 @@
 <h2>Meus jogos</h2>
 
 <% @user.participants.each do |game| %>
-  <%= game.booking.pitch.title %> (<%= game.booking.start_time.strftime("%d-%m") %>) - <%= game.booking.start_time.strftime("%Hh%M") %> - <%= game.booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(game.booking) %>
+  <p>
+    <%= game.booking.pitch.title %> (<%= game.booking.start_time.strftime("%d-%m") %>) - <%= game.booking.start_time.strftime("%Hh%M") %> - <%= game.booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(game.booking) %>
+  </p>
 <% end %>
 <h2>Meus amigos (<%= @user.friendships.size %>)</h2>
 <% @user.friendships.each do |friendship| %>
-  <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
+  <p>
+    <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
+  </p>
 <% end %>
 
 
 <h4>Adicionar amigo</h4>
 
-<%= form_tag(friendships_path, method: :post) do %>
+<%= form_tag(friendships_path(friendship: Friendship.new)) do %>
   <%= text_field_tag :email, nil, placeholder: 'email' %>
   <%= submit_tag 'Pesquisar' %>
 <% end %>
