@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :participants
 
+  has_many :friendships, foreign_key: :user_id
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :phone, presence: true
