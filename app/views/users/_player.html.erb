@@ -20,7 +20,7 @@
 
 <h4>Adicionar amigo</h4>
 
-<%= form_tag(friends_path, method: :post) do %>
+<%= form_tag(friendships_path, method: :post) do %>
   <%= text_field_tag :email, nil, placeholder: 'email' %>
   <%= submit_tag 'Pesquisar' %>
 <% end %>
