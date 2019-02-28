@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_170508) do
+ActiveRecord::Schema.define(version: 2019_02_28_193407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 2019_02_28_170508) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "friends", force: :cascade do |t|
+  create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friend_id"], name: "index_friends_on_friend_id"
-    t.index ["user_id"], name: "index_friends_on_user_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_170508) do
 
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
-  add_foreign_key "friends", "users", column: "friend_id"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "participants", "bookings"
   add_foreign_key "participants", "users"
   add_foreign_key "pitches", "categories"
