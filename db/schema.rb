@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_221033) do
+ActiveRecord::Schema.define(version: 2019_02_28_150451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_02_27_221033) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_participants_on_booking_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "pitches", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
@@ -49,6 +58,15 @@ ActiveRecord::Schema.define(version: 2019_02_27_221033) do
     t.string "photo"
     t.index ["category_id"], name: "index_pitches_on_category_id"
     t.index ["user_id"], name: "index_pitches_on_user_id"
+  end
+
+  create_table "player_lists", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_player_lists_on_booking_id"
+    t.index ["user_id"], name: "index_player_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +91,10 @@ ActiveRecord::Schema.define(version: 2019_02_27_221033) do
 
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
+  add_foreign_key "participants", "bookings"
+  add_foreign_key "participants", "users"
   add_foreign_key "pitches", "categories"
   add_foreign_key "pitches", "users"
+  add_foreign_key "player_lists", "bookings"
+  add_foreign_key "player_lists", "users"
 end

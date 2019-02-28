@@ -1,0 +1,12 @@
+<h2>Painel de controle</h2>
+
+<p><%= @user.email%></p>
+<p><%= @user.first_name %>
+<p><%= @user.last_name  %></p>
+<p><%= @user.phone %></p>
+<p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
+
+<h2>Meus jogos</h2>
+<% @user.participants.each do |game| %>
+  <%= game.booking.pitch.title %> (<%= game.booking.start_time.strftime("%d-%m") %>) - <%= game.booking.start_time.strftime("%Hh%M") %> - <%= game.booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(game.booking) %>
+<% end %>
