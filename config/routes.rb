@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
-
+  post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
 
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -11,8 +11,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show] do
+    resources :participants, only: [:create]
+  end
 
   resources :friendships, only: [:create]
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
