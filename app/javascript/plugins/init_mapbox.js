@@ -25,9 +25,10 @@ const mapBoxSetup = () => {
   return(
     {
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/navigation-guidance-day-v4',
       zoom: 12,
       center: [-46.741735, -23.55762]
+
     }
   )
 };
@@ -40,7 +41,7 @@ const polygonLayer = {
     'visibility': 'visible'
   },
   "paint": {
-      "fill-color": "#F4F4F4",
+      "fill-color": "#CEE5D3",
       "fill-opacity": 0.6
   }
 };
