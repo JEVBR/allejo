@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :destroy]
 
   def create
     @booking = Booking.new(booking_params)
@@ -22,6 +22,11 @@ class BookingsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to users_show_path
   end
 
   private

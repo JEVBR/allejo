@@ -20,4 +20,12 @@ class ParticipantPolicy < ApplicationPolicy
   def change_confirm?
     record.user == user
   end
+
+  def confirmed?
+    record.confirmed == true
+  end
+
+  def current_user?
+    record.user == user
+  end
 end
