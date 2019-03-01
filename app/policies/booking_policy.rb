@@ -24,4 +24,8 @@ class BookingPolicy < ApplicationPolicy
   def organizer?
     record.user == user
   end
+
+  def have_participants?
+    record.participants.size.positive?
+  end
 end
