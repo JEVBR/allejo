@@ -43,16 +43,16 @@
                   <div class="col-md-6">
                     <div class="users-show-pitch-info-filters">
                       <div class="users-show-pitch-info-filters-title">
-                        <h3>Agenda&nbsp<%= @pitch.subtitle %></h3>
+                        <h3>Agenda&nb<%= @pitch.subtitle %></h3>
                       </div>
                       <div>
                         <%= form_tag(users_show_path, method: :get) do |f| %>
 
                           <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id), :class => 'selecttag' %>
 
-                          <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %>
+                          <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %></span>
 
-                          <%= submit_tag 'Pesquisar', :class => 'pitchsearch' %>
+                         <span style="margin-left: 24px"><%= submit_tag 'Pesquisar', :class => 'pitchsearch' %></span>
                         <% end %>
                       </div>
                       <div class="users-show-pitch-info-filters-backadv">
