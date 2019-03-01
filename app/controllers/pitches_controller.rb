@@ -41,7 +41,7 @@ class PitchesController < ApplicationController
         # pitch_description: pitch.description,
         pitch_title: pitch.title,
         pitch_link: pitch_path(pitch),
-        # home_photo: home.photo.url,
+        pitch_photo: pitch.photo.url,
         pitch_price: pitch.price,
         home: true
       }
