@@ -1,63 +1,151 @@
-<h2>Painel de controle</h2>
+<div class="users-show-wrapper">
+  <div class="users-show-box">
+    <div class="container">
+      <div>
 
-<p><%= @user.email%></p>
-<p><%= @user.first_name %>
-<p><%= @user.last_name  %></p>
-<p><%= @user.phone %></p>
-<p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
+          <div class="users-show-title">
+            <h2>Painel de Controle</h2>
+          </div>
 
-<h2>Meus campos (<%= @pitches.size %>)</h2>
+        <!-- Owner Info -->
+<!--         <div class="users-show-info-white-card">
+          <div class="row">
+            <div class="col col-md-12 col-xs-4">
+              <div class="users-show-info-wrapper">
+                <div class="users-show-info-photo">
+                  <%= cl_image_tag @user.photo.url, height: 200, width: 200 %>
+                </div>
+                <div class="users-show-info">
+                  <p><i class="fas fa-envelope"></i> <%= @user.email%></p>
+                  <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name %></p>
+                  <p><i class="fas fa-portrait"></i> <%= @user.nickname %></p>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
+                  <p><i class="fas fa-mobile"></i> <%= @user.phone %></p>
+                </div>
+                <div>
+                  <%= link_to 'Editar', edit_user_registration_path(@user) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- End User Info -->
 
-<%= form_tag(users_show_path, method: :get) do |f| %>
-  <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
-  <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id) %>
-  <%= submit_tag 'Pesquisar' %>
-<% end %>
+        <!-- Pitch Info -->
 
-<h3><%= @pitch.title %></h3>
-<h6><%= link_to 'Editar campo', edit_pitch_path(@pitch) %></h6>
+        <div class="users-show-pitch-white-card">
+          <div class="row">
+                <!-- Pitches Menu -->
+                <div class="users-show-pitch-white-card-title">
+                <h2><%= @pitch.title %></h2>
+                </div>
+                <div class="users-show-pitch-info">
+                  <div class="col-md-6">
+                    <div class="users-show-pitch-info-filters">
+                      <div class="users-show-pitch-info-filters-title">
+                        <h3>Agenda&nbsp<%= @pitch.subtitle %></h3>
+                      </div>
+                      <div>
+                        <%= form_tag(users_show_path, method: :get) do |f| %>
 
-<%= link_to 'Voltar 4 dias',
-    users_show_path(
-      pitch: @pitch,
-      date: (@date_select.to_date - 4.days)),
-      method: 'get' %>
+                          <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id), :class => 'selecttag' %>
 
-<%= link_to 'Avançar 4 dias',
-    users_show_path(
-      pitch: @pitch,
-      date: (@date_select.to_date + 4.days)),
-      method: 'get' %>
+                          <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %>
 
+                          <%= submit_tag 'Pesquisar', :class => 'pitchsearch' %>
+                        <% end %>
+                      </div>
+                      <div class="users-show-pitch-info-filters-backadv">
+                        <div class="back4">
+                        <%= link_to 'Voltar 4 dias',
+                            users_show_path(
+                              pitch: @pitch,
+                              date: (@date_select.to_date - 4.days)),
+                              method: 'get' %>
+                        </div>
+                        <div class="adv4">
+                        <%= link_to 'Avançar 4 dias',
+                            users_show_path(
+                              pitch: @pitch,
+                              date: (@date_select.to_date + 4.days)),
+                              method: 'get' %>
 
-<div class="row">
-  <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
-
-    <% date = @date_select + (c.days) %>
-    <div class="col-md-3">
-      <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
-
-      <h4><%= date.strftime("%d/%m") %></h4>
-      <% day_schedule.each do |time_slot| %>
-
-
-        <p><%= time_slot[:start_time].strftime("%Hh%Mm") %> - <%= time_slot[:end_time].strftime("%Hh%Mm") %> | <%= time_slot[:available] %>
-        <% if time_slot[:available] == true %>
-          <%= link_to 'reservar',
-              pitch_bookings_path(
-                pitch_id: @pitch.id,
-                booking: {
-                  pitch_id: @pitch.id,
-                  start_time: time_slot[:start_time],
-                  end_time: time_slot[:end_time]
-                }),
-                method: 'post' %>
-        <% end %>
+                        </div>
+                      </div>
+                    </div>
 
 
-        </p>
-      <% end %>
+                  </div>
+                  <div class="col-md-6">
+                  <!-- <p>Quadras Cadastradas - <%= @pitches.size %></p> -->
+                    <div class="users-show-pitch-photo">
+                    <%= cl_image_tag @pitch.photo.url %>
+                    </div>
+
+                    <h4><%= @pitch.subtitle %></h4>
+
+                    <h6><%= link_to 'Editar', edit_pitch_path(@pitch) %></h6>
+                  </div>
+
+                </div>
+              <!-- Pitch Details -->
+
+          </div>
+                <!-- End Pitch Details -->
+
+          <div class="row">
+            <div class="col col-md-12">
+              <!-- Pitch Schedules -->
+              <div>
+
+
+                  <div class="row">
+                    <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
+
+                      <% date = @date_select + (c.days) %>
+                      <div class="col-md-3">
+                        <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
+
+                        <h4><%= date.strftime("%d/%m") %></h4>
+                        <% day_schedule.each do |time_slot| %>
+                          <% if time_slot[:available] == true %>
+                          <div class="users-show-schedule-button">
+
+                          <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
+
+                            <%= link_to 'Reservar',
+                                pitch_bookings_path(
+                                  pitch_id: @pitch.id,
+                                  booking: {
+                                    pitch_id: @pitch.id,
+                                    start_time: time_slot[:start_time],
+                                    end_time: time_slot[:end_time]
+                                  }),
+                                  method: 'post' %></p>
+
+                          <% else %>
+
+                          <div class="users-show-schedule-button" id="false">
+                          <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
+                            <% end %>
+                            </p>
+                          </div>
+
+                          <% end %> <!-- NÃO MOVER ESSA PARTE (compromete a formatação)-->
+                          </div> <!-- NÃO MOVER ESSA PARTE (compromete a formatação)-->
+                        <% end %> <!-- NÃO MOVER ESSA PARTE (compromete a formatação)-->
+                  </div>
+                </div>
+              <!-- End Pitch Scedules -->
+            </div>
+          </div>
+        </div>
+
+        <!-- End Pitch Info -->
+      </div>
     </div>
-
-  <% end %>
+  </div>
 </div>
+
+
+
