@@ -8,3 +8,8 @@
       <%= participant.user.first_name %>
     <% end %>
 <% end %>
+
+<%= form_tag(users_show_path, method: :get) do |f| %>
+  <%= select_tag :participant, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
+  <%= submit_tag 'Adicionar amigo a partida' %>
+<% end %>
