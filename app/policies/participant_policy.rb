@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ParticipantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -17,11 +17,7 @@ class BookingPolicy < ApplicationPolicy
     create?
   end
 
-  def show?
-    true
-  end
-
-  def organizer?
+  def change_confirm?
     record.user == user
   end
 end
