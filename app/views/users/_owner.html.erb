@@ -8,56 +8,58 @@
 
 <h2>Meus campos (<%= @pitches.size %>)</h2>
 
-<%= form_tag(users_show_path, method: :get) do |f| %>
-  <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
-  <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id) %>
-  <%= submit_tag 'Pesquisar' %>
-<% end %>
-
-<h3><%= @pitch.title %></h3>
-<h6><%= link_to 'Editar campo', edit_pitch_path(@pitch) %></h6>
-
-<%= link_to 'Voltar 4 dias',
-    users_show_path(
-      pitch: @pitch,
-      date: (@date_select.to_date - 4.days)),
-      method: 'get' %>
-
-<%= link_to 'Avançar 4 dias',
-    users_show_path(
-      pitch: @pitch,
-      date: (@date_select.to_date + 4.days)),
-      method: 'get' %>
-
-
-<div class="row">
-  <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
-
-    <% date = @date_select + (c.days) %>
-    <div class="col-md-3">
-      <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
-
-      <h4><%= date.strftime("%d/%m") %></h4>
-      <% day_schedule.each do |time_slot| %>
-
-
-        <p><%= time_slot[:start_time].strftime("%Hh%Mm") %> - <%= time_slot[:end_time].strftime("%Hh%Mm") %> | <%= time_slot[:available] %>
-        <% if time_slot[:available] == true %>
-          <%= link_to 'reservar',
-              pitch_bookings_path(
-                pitch_id: @pitch.id,
-                booking: {
-                  pitch_id: @pitch.id,
-                  start_time: time_slot[:start_time],
-                  end_time: time_slot[:end_time]
-                }),
-                method: 'post' %>
-        <% end %>
-
-
-        </p>
-      <% end %>
-    </div>
-
+<% unless @pitches.empty? %>
+  <%= form_tag(users_show_path, method: :get) do |f| %>
+    <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
+    <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id) %>
+    <%= submit_tag 'Pesquisar' %>
   <% end %>
-</div>
+
+  <h3><%= @pitch.title %></h3>
+  <h6><%= link_to 'Editar campo', edit_pitch_path(@pitch) %></h6>
+
+  <%= link_to 'Voltar 4 dias',
+      users_show_path(
+        pitch: @pitch,
+        date: (@date_select.to_date - 4.days)),
+        method: 'get' %>
+
+  <%= link_to 'Avançar 4 dias',
+      users_show_path(
+        pitch: @pitch,
+        date: (@date_select.to_date + 4.days)),
+        method: 'get' %>
+
+
+  <div class="row">
+    <% (0..3).to_a.each do |c| %> <!-- Gera 4 colunas de dia -->
+
+      <% date = @date_select + (c.days) %>
+      <div class="col-md-3">
+        <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
+
+        <h4><%= date.strftime("%d/%m") %></h4>
+        <% day_schedule.each do |time_slot| %>
+
+
+          <p><%= time_slot[:start_time].strftime("%Hh%Mm") %> - <%= time_slot[:end_time].strftime("%Hh%Mm") %> | <%= time_slot[:available] %>
+          <% if time_slot[:available] == true %>
+            <%= link_to 'reservar',
+                pitch_bookings_path(
+                  pitch_id: @pitch.id,
+                  booking: {
+                    pitch_id: @pitch.id,
+                    start_time: time_slot[:start_time],
+                    end_time: time_slot[:end_time]
+                  }),
+                  method: 'post' %>
+          <% end %>
+
+
+          </p>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+<% end %>
