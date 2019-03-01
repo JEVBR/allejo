@@ -6,8 +6,8 @@ class CreatePitches < ActiveRecord::Migration[5.2]
       t.references :category, foreign_key: true
       t.string :subtitle
       t.string :address
-      t.integer :cep
-      t.integer :cnpj
+      t.string :cep
+      t.string :cnpj
 
       t.timestamps
     end
