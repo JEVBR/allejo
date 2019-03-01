@@ -4,15 +4,17 @@ class PitchesController < ApplicationController
 
   def index
     @pitches = policy_scope(Pitch).order(created_at: :desc)
+    @categories = policy_scope(Category).order(created_at: :desc)
+    params[:category_id] = 2 if params[:category_id].nil?
 
     max_dist = params[:max_dist].to_i
     max_dist = 1_000_000 if max_dist.to_i.zero?
     location = params[:location]
-    date = params[:date]
+    params[:date] = Date.today if params[:date].nil?
+    params[:category_id] = 2 if params[:category_id].nil?
 
     @searchfield = location.nil? || location == '' ? "Procurar endereco" : location
     @distfield = max_dist == 1_000_000 ? "distancia (km)" : max_dist
-    @datefield = date == "" ? Time.now.strftime('%d-%m-%Y') : date
 
     # determine default addres if loged in or not
     if user_signed_in?
@@ -31,7 +33,7 @@ class PitchesController < ApplicationController
     coordinates_array = [lat, lng]
 
     # MAP:
-    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).near(coordinates_array, max_dist)
+    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).where(category_id: params[:category_id].to_i).near(coordinates_array, max_dist)
 
     @markers = @mark_pitches.map do |pitch|
       {
