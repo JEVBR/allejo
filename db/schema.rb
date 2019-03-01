@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "phone"
+    t.bigint "phone"
     t.string "nickname"
     t.string "address"
     t.integer "cpf"
