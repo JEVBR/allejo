@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def have_friendships?
+    record.friendships.present?
+  end
 end
