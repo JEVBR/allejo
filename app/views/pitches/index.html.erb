@@ -19,15 +19,11 @@
             :style => "width: 480px",
             :class => 'searchfield' %>
 
-          <%= date_field_tag :date,
-            params[:date],
-            :style => "width: 200px",
-            :value => @datefield  %>
-
           <%= text_field_tag :max_dist,
             params[:max_dist],
             :value => @distfield,
             :style => "width: 200px" %>
+          <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", params[:category_id]) %>
         <%= submit_tag 'Pesquisar' %>
 
         <% end %>
