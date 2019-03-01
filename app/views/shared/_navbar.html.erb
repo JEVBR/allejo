@@ -1,7 +1,7 @@
 <div class="navbar-allejo">
   <!-- Logo -->
   <div class="navbar-logo">
-    Allejo
+    <%= link_to 'Allejo', pitches_path %>
   </div>
   <!-- End Logo -->
 
@@ -31,7 +31,7 @@
     <ul id="menu">
       <div class="picture">
       <% if user_signed_in? %>
-      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk7TZa1Gzxh4CuIIooAtjJ2ahA4pD3qlgE8NJ7RTRPVJCCqs", class: "", id: "", "data-toggle" => "" %>
+      <%= cl_image_tag current_user.photo, class: "", id: "", "data-toggle" => "" %>
       </div>
       <a href="#"><li style="font-size:16px"><%= link_to users_show_path do %><i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %><% end %></li></a>
       <a href="#"><li style="font-size:16px"><%= link_to edit_user_registration_path(@user) do %><i class="fa fa-cog"></i>  <%= t(".settings", default: "Configurações") %><% end %></li></a>
