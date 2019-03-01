@@ -15,17 +15,18 @@
       <%= form_tag(pitches_path, method: :get) do %>
         <%= text_field_tag  :location,
             params[:location],
-            :value => ' Buscar quadras',
+            :value => @searchfield,
             :style => "width: 480px",
             :class => 'searchfield' %>
 
-
           <%= date_field_tag :date,
             params[:date],
-            :style => "width: 200px" %>
+            :style => "width: 200px",
+            :value => @datefield  %>
+
           <%= text_field_tag :max_dist,
             params[:max_dist],
-            :value => '20',
+            :value => @distfield,
             :style => "width: 200px" %>
         <%= submit_tag 'Pesquisar' %>
 

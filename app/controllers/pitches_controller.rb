@@ -8,6 +8,11 @@ class PitchesController < ApplicationController
     max_dist = params[:max_dist].to_i
     max_dist = 1_000_000 if max_dist.to_i.zero?
     location = params[:location]
+    date = params[:date]
+
+    @searchfield = location.nil? || location == '' ? "Procurar endereco" : location
+    @distfield = max_dist == 1_000_000 ? "distancia (km)" : max_dist
+    @datefield = date == "" ? Time.now.strftime('%d-%m-%Y') : date
 
     # determine default addres if loged in or not
     if user_signed_in?
