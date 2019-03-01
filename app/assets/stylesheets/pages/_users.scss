@@ -201,6 +201,7 @@
 .users-signin-signforgot-buttons {
   a {
   color: white;
+  font-weight: lighter;
   }
 }
 
@@ -375,7 +376,7 @@
 
 .users-forgotpass-title {
   display: flex;
-  margin-bottom: 48px;
+  margin-bottom: 72px;
   justify-content: space-between;
   height: 80px;
   span {
@@ -425,6 +426,7 @@
 .users-forgotpass-signforgot-buttons {
   a {
   color: white;
+  font-weight: lighter;
   }
 }
 
@@ -436,7 +438,7 @@
   .btn {
   height: 64px;
   width: 240px;
-  font-size: 32px;
+  font-size: 30px;
   font-family: $geo;
   background-color: rgba(250,250,250,0.8);
   &:hover {
@@ -553,9 +555,8 @@
 .datepicker {
   border-radius: 2px;
   border-style: none;
-  margin-left: 16px;
   width: 160px;
-  height: 48px;
+  height: 40px;
   background-color: white;
 
 }
@@ -579,7 +580,7 @@ select {
   border-style: none;
   margin-left: 8px;
   width: 120px;
-  height: 48px;
+  height: 40px;
   font-weight: lighter;
   font-size: 16px;
 }
@@ -593,9 +594,9 @@ select {
 
   border-radius: 2px;
   border-style: none;
-  margin-left: 48px;
+  margin-left: 16px;
   margin-top: 16px;
-  width: 160px;
+  width: 120px;
   height: 32px;
   background-color: $dark-gray;
   color: white;

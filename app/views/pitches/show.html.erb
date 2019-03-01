@@ -14,18 +14,24 @@
                   <img src="<%= @pitch.photo.url %>" alt="No photos" style="width:200px;height:200px;">
                 </div>
                 <div class="pitches-left-info-wrap">
-                  <h3>Nome da Quadra: <%= @pitch.title %></h3>
-                  <% if policy(@pitch).destroy? %>
-                  <p><%=  link_to 'delete pitch', pitch_path(@pitch),
-                  method: :delete,
-                  data: { confirm: "Are you sure?"} %>
-                  <% end %></p>
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Mauris placerat eleifend leo.</p>
+                  <div class="pitches-left-info-title">
+                    <h3><%= @pitch.title %></h3>
+                    <p>R$<%= @pitch.price %>/hr</p>
+                  </div>
+                    <div class="pitches-left-info-wrap-editdelete">
+                      <% if policy(@pitch).edit? %>
+                      <p><%=  link_to 'Editar', edit_pitch_path(@pitch) %>
+                      <% end %></p>
 
-                  <% if policy(@pitch).edit? %>
-                  <p><%=  link_to 'edit pitch', edit_pitch_path(@pitch) %>
-                    <% end %></p>
-
+                      <% if policy(@pitch).destroy? %>
+                      <p style="margin-left: 80px"><%=  link_to 'Deletar', pitch_path(@pitch),
+                      method: :delete,
+                      data: { confirm: "Sua quadra será deletada. Aperte OK para confirmar."} %>
+                      <% end %></p>
+                    </div>
+                    <div class="pitches-left-info-wrap-description">
+                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Mauris placerat eleifend leo.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Mauris placerat eleifend leo.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -35,15 +41,16 @@
               <div class="col-md-6">
                 <div class="pitches-right-seccion">
 
+                    <h5><%= @pitch.subtitle %></h5>
                   <div class="pitches-show-schedule-search">
                     <%= form_tag(pitch_path(@pitch), method: :get) do |f| %>
 
                     <% label_tag :data, %>
                     <span class="-pitches-show-search-field">
-                    <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker' %>
+                      <%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => "datepicker" %>
                     </span>
                     <span class="pitches-show-search-button">
-                    <%= submit_tag 'Pesquisar' %>
+                      <%= submit_tag 'Pesquisar', :class => 'pitchsearch'  %>
                     </span>
                     <% end %>
                   </div>
@@ -52,9 +59,9 @@
                   <div class="pitches-show-schedule">
                     <% @daily_schedule.each do |time_slot| %>
                     <% if time_slot[:available] == true %>
-                      <div class="pitches-show-schedule-button">
+                    <div class="pitches-show-schedule-button">
 
-                        <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>  <% time_slot[:available] %>
+                      <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>  <% time_slot[:available] %>
 
                         <%= link_to 'reservar',
                         pitch_bookings_path(
@@ -66,31 +73,31 @@
                           }),
                           method: 'post' %></p>
 
-                      <% else %>
+                          <% else %>
 
-                      <div class="pitches-show-schedule-button" id="false">
+                          <div class="pitches-show-schedule-button" id="false">
 
-                        <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>  <% time_slot[:available] %>
-                        <% end %>
-                      </p>
-                    </div>
-                      <% end %>
-                    </div>
-                    <div class="pitches-show-schedule-price">
-                    <h3>R$<%= @pitch.price %>/hr</h3>
+                            <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>  <% time_slot[:available] %>
+                              <% end %>
+                            </p>
+                          </div>
+                          <% end %>
+                        </div>
+                        <div class="pitches-show-schedule-price">
+
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <!-- End Right Seccion -->
                 </div>
               </div>
-              <!-- End Right Seccion -->
             </div>
+            <!-- End Upper Wrapper -->
           </div>
         </div>
-        <!-- End Upper Wrapper -->
       </div>
     </div>
-  </div>
-</div>
 
 
 
