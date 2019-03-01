@@ -10,7 +10,9 @@
     <% end %>
 <% end %>
 
-<%= form_tag(booking_participants_path(@booking)) do |f| %>
-  <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
-  <%= submit_tag 'Adicionar amigo a partida' %>
+<%if policy(@booking).organizer? %>
+  <%= form_tag(booking_participants_path(@booking)) do |f| %>
+    <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
+    <%= submit_tag 'Adicionar amigo a partida' %>
+  <% end %>
 <% end %>
