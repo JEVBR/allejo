@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show]
+
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
@@ -8,6 +10,9 @@ class BookingsController < ApplicationController
 
     if @booking.valid?
       @booking.save
+
+      participant = Participant.new(booking: @booking, user: current_user, confirmed: true)
+      participant.save
       # redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
       redirect_to request.env["HTTP_REFERER"], notice: "Reserva efetuada com sucesso"
     else
@@ -16,7 +21,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :pitch_id, :date)
