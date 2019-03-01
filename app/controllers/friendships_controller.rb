@@ -8,8 +8,8 @@ class FriendshipsController < ApplicationController
     authorize friendship2
 
     if friend.present?
-      friendship = Friendship.new(user: current_user, friend_id: friend.id)
-      friendship2 = Friendship.new(user: friend, friend_id: current_user.id)
+      friendship = Friendship.new(user: current_user, friend_id: friend.id, name: "#{friend.first_name} #{friend.last_name}")
+      friendship2 = Friendship.new(user: friend, friend_id: current_user.id, name: "#{current_user.first_name} #{current_user.last_name}")
     end
 
     if friendship.valid? && friendship2.valid?
