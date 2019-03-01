@@ -12,6 +12,7 @@ const markerPopUp = (marker) => {
   )
 };
 
+// not used now
 const whereAmIPopUp = (marker) => {
   return (
     `<a href ="${marker.pitch_link}">
@@ -84,7 +85,6 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
       new mapboxgl.Marker(whereAmIMarkerOptions)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
         .addTo(map);
         addCircleToMarker(map,marker);
       map.jumpTo({ center: [ marker.lng, marker.lat ] });
@@ -108,13 +108,28 @@ const initMapbox = () => {
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers);
     });
-
-    map.on('click', function(e) {
-    const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
-    addCircleToMarker(map,place);
-    map.panTo([e.lngLat.lng, e.lngLat.lat]);
-    });
+// draw a circle on map where clicked:
+  //   map.on('click', function(e) {
+  //    const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
+  //    addCircleToMarker(map,place);
+  //    map.panTo([e.lngLat.lng, e.lngLat.lat]);
+  //    console.log([e.lngLat.lng, e.lngLat.lat]);
+      // $.ajax({
+      //         type: "POST",
+      //         url: "/pitches",
+      //         data: "blaaaaaa",
+      //         contentType: "application/json",
+      //         success: function (form) {
+      //             $("#contact-success").modal('show');
+      //         }
+      //   });
+      // });
+  //  });
   }
+};
+
+function onSuccess(result) {
+  console.log(result.Response.View[0].Result[0]);
 };
 
 var createGeoJSONCircle = function(center, radiusInKm, points) {
