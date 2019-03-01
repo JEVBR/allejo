@@ -23,5 +23,10 @@ class ParticipantsController < ApplicationController
     authorize @participant
     @participant.confirmed = !@participant.confirmed
     @participant.save
+    if @participant.confirmed == true
+      redirect_to request.env["HTTP_REFERER"], notice: "Presença confirmada"
+    else
+      redirect_to request.env["HTTP_REFERER"], alert: "Presença cancelada"
+    end
   end
 end
