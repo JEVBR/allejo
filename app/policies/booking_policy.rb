@@ -21,8 +21,16 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def owner?(pitch)
+    pitch.user == user
+  end
+
   def organizer?
     record.user == user
+  end
+
+  def destroy?
+    organizer? || owner?(record)
   end
 
   def have_participants?
