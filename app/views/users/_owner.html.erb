@@ -31,6 +31,7 @@
         </div> -->
         <!-- End User Info -->
 
+
         <!-- Pitch Info -->
 
         <div class="users-show-pitch-white-card">
@@ -70,6 +71,7 @@
                               date: (@date_select.to_date + 4.days)),
                               method: 'get' %>
 
+
                         </div>
                       </div>
                     </div>
@@ -82,13 +84,16 @@
                     <%= cl_image_tag @pitch.photo.url %>
                     </div>
 
+
                     <h4><%= @pitch.subtitle %></h4>
 
                     <h6><%= link_to 'Editar', edit_pitch_path(@pitch) %></h6>
                   </div>
 
+
                 </div>
               <!-- Pitch Details -->
+
 
           </div>
                 <!-- End Pitch Details -->
@@ -146,6 +151,5 @@
     </div>
   </div>
 </div>
-
 
 
