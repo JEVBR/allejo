@@ -3,16 +3,22 @@
 <h4><%= @booking.pitch.address %></h4>
 <h4>R$<%= @booking.pitch.price %></h4>
 
-<h3>Participantes (<%= @booking.participants.size %>) - (R$<%= @booking.pitch.price / @booking.participants.size %> pra cada jogador)</h3>
-<% if @booking.participants.size.positive? %>
-    <% @booking.participants.each do |participant| %>
-      <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
-    <% end %>
-<% end %>
+<% unless current_user.owner? %>
+  <h3>Participantes (<%= @booking.participants.size %>) - (R$<%= @booking.pitch.price / @booking.participants.size %> pra cada jogador)</h3>
+  <% if @booking.participants.size.positive? %>
+      <% @booking.participants.each do |participant| %>
+        <% if participant.confirmed == true %>
+          <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
+        <% else %>
+          <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
+        <% end %>
+      <% end %>
+  <% end %>
 
-<%if policy(@booking).organizer? %>
-  <%= form_tag(booking_participants_path(@booking)) do |f| %>
-    <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
-    <%= submit_tag 'Adicionar amigo a partida' %>
+  <%if policy(@booking).organizer? %>
+    <%= form_tag(booking_participants_path(@booking)) do |f| %>
+      <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
+      <%= submit_tag 'Adicionar amigo a partida' %>
+    <% end %>
   <% end %>
 <% end %>

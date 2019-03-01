@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "confirm", default: false
+    t.boolean "confirmed", default: false
     t.index ["booking_id"], name: "index_participants_on_booking_id"
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "phone"
+    t.integer "phone"
     t.string "nickname"
     t.string "address"
     t.integer "cpf"
