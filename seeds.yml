@@ -28,7 +28,7 @@ users:
     first_name: Jeroen
     photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853813/dy0k2eiwiozenxxzlnua.jpg"
     description: "Estresso facil, faco barulho demais"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    address: "Rua Bororos 301 Barueri"
     cpf: 000
     owner: true
   - email: "Marcelo@test.com"
