@@ -34,6 +34,10 @@
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
               <% end %>
 
+              <%= f.input :current_password,
+              hint: "Para confirmar as alterações é necessário informar sua senha atual",
+              required: true,
+              input_html: { autocomplete: "current-password" } %>
               <%= f.input :password,
               hint: "Deixe em branco caso não deseje alterar a senha",
               required: false,
@@ -41,10 +45,6 @@
               <%= f.input :password_confirmation,
               required: false,
               input_html: { autocomplete: "new-password" } %>
-              <%= f.input :current_password,
-              hint: "Para confirmar as alterações é necessário informar sua senha atual",
-              required: true,
-              input_html: { autocomplete: "current-password" } %>
             </div>
           </div>
           <!-- End Form left seccion -->
