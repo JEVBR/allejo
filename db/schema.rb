@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.bigint "category_id"
     t.string "subtitle"
     t.string "address"
-    t.integer "cep"
-    t.integer "cnpj"
+    t.string "cep"
+    t.string "cnpj"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.bigint "phone"
     t.string "nickname"
     t.string "address"
-    t.integer "cpf"
+    t.string "cpf"
     t.boolean "owner", default: false
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
