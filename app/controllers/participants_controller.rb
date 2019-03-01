@@ -16,6 +16,12 @@ class ParticipantsController < ApplicationController
     else
       redirect_to request.env["HTTP_REFERER"], alert: "#{user.first_name} #{user.last_name} já foi adicionado a sua partida"
     end
+  end
 
+  def change_confirm
+    @participant = Participant.find(params[:format])
+    authorize @participant
+    @participant.confirmed = !@participant.confirmed
+    @participant.save
   end
 end

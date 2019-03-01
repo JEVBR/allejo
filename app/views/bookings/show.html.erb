@@ -8,9 +8,15 @@
   <% if @booking.participants.size.positive? %>
       <% @booking.participants.each do |participant| %>
         <% if participant.confirmed == true %>
-          <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
+          <h5><%= participant.user.first_name %> <%= participant.user.last_name %> - Confirmado</h5>
         <% else %>
-          <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
+          <h5><%= participant.user.first_name %> <%= participant.user.last_name %> - Não confirmado</h5>
+
+          <% if participant.user == current_user %>
+            <%= link_to 'Confirm', change_confirm_path(participant),
+                  method: 'post' %>
+          <% end %>
+
         <% end %>
       <% end %>
   <% end %>

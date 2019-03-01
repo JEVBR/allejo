@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     if @booking.valid?
       @booking.save
 
-      participant = Participant.new(booking: @booking, user: current_user)
+      participant = Participant.new(booking: @booking, user: current_user, confirmed: true)
       participant.save
       # redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
       redirect_to request.env["HTTP_REFERER"], notice: "Reserva efetuada com sucesso"

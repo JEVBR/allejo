@@ -16,4 +16,8 @@ class ParticipantPolicy < ApplicationPolicy
   def new?
     create?
   end
+
+  def change_confirm?
+    record.user == user
+  end
 end
