@@ -64,11 +64,14 @@ class Booking < ApplicationRecord
 
   def self.pitch_daily_schedule(day, pitch, slot_duration)
     day = day.to_date.beginning_of_day
+
     booking = Booking.new
     booking.pitch = pitch
     booking.user = User.first # random user, just to booking be valid
+
     daily_schedule = []
-    (0..((1440 - slot_duration) / slot_duration)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
+
+    (pitch.opening_time..(pitch.closing_time - 1)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
       duration = slot_duration
       booking.start_time = day + (duration.minutes * slot)
       booking.end_time = day + (duration.minutes * (slot + 1))
