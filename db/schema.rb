@@ -59,16 +59,16 @@ ActiveRecord::Schema.define(version: 2019_03_02_221334) do
     t.bigint "category_id"
     t.string "subtitle"
     t.string "address"
-    t.integer "cep"
-    t.integer "cnpj"
+    t.string "cep"
+    t.string "cnpj"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
-    t.datetime "opening_time"
-    t.datetime "closing_time"
+    t.integer "opening_time"
+    t.integer "closing_time"
     t.index ["category_id"], name: "index_pitches_on_category_id"
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_03_02_221334) do
     t.bigint "phone"
     t.string "nickname"
     t.string "address"
-    t.integer "cpf"
+    t.string "cpf"
     t.boolean "owner", default: false
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
