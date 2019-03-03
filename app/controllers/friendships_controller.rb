@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+before_action :set_friendships, only: [:destroy]
+
   def create
     friend = User.find_by(email: params[:email])
     friendship = Friendship.new
@@ -19,5 +21,20 @@ class FriendshipsController < ApplicationController
     else
       redirect_to request.env["HTTP_REFERER"], alert: "#{params[:email]} não foi encontrado ou já adicionado"
     end
+  end
+
+  def destroy
+    @friendship2.destroy
+    @friendship.destroy
+    redirect_to users_show_path
+  end
+
+  private
+
+  def set_friendships
+    @friendship = Friendship.find(params[:id])
+    @friendship2 = Friendship.find_by(user: @friendship.friend_id, friend_id: current_user.id)
+    authorize @friendship
+    authorize @friendship2
   end
 end

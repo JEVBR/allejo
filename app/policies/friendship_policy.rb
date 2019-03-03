@@ -16,4 +16,8 @@ class FriendshipPolicy < ApplicationPolicy
   def new?
     create?
   end
+
+  def destroy?
+    create?
+  end
 end
