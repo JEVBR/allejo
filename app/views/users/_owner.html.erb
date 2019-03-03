@@ -49,7 +49,7 @@
                       <div>
                         <%= form_tag(users_show_path, method: :get) do |f| %>
 
-                          <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id), :class => 'selecttag' %>
+                          <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "subtitle", @pitch.id), :class => 'selecttag' %>
 
                           <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %></span>
 
