@@ -12,9 +12,9 @@ class ParticipantsController < ApplicationController
 
     if participant.valid?
       participant.save
-      redirect_to request.env["HTTP_REFERER"], notice: "#{user.first_name} #{user.last_name} foi adicionado a sua partida"
+      redirect_to request.env["HTTP_REFERER"], notice: "#{user.full_name} foi adicionado a sua partida"
     else
-      redirect_to request.env["HTTP_REFERER"], alert: "#{user.first_name} #{user.last_name} já foi adicionado a sua partida"
+      redirect_to request.env["HTTP_REFERER"], alert: "#{user.full_name} já foi adicionado a sua partida"
     end
   end
 
