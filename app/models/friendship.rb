@@ -10,4 +10,8 @@ class Friendship < ApplicationRecord
       errors.add(:friend, "can't add yourself")
     end
   end
+
+  def self.friends?(user1, user2)
+    Friendship.where(user_id: user1.id, friend_id: user2.id).present?
+  end
 end

@@ -7,7 +7,7 @@
 <% if policy(@booking).have_participants? %>
     <% @confirmed_list.each do |participant| %>
       <% if policy(participant).confirmed? %>
-        <h5><%= participant.user.full_name %> - Confirmado</h5>
+        <h5><%= participant.user.full_name %></h5>
       <% end %>
       <% if policy(@booking).organizer? && !policy(participant).current_user? %>
         <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
@@ -21,7 +21,13 @@
 <h3>Não confirmados (<%= @not_confirmed_list.size %>)</h3>
 <% if @not_confirmed_list.present? %>
   <% @not_confirmed_list.each do |participant| %>
-    <h5><%= participant.user.full_name %> - Não confirmado</h5>
+    <h5><%= participant.user.full_name %></h5>
+
+    <% unless Friendship.friends?(current_user, participant.user) %>
+      <%= link_to 'Adicionar amigo',
+            friendships_path(Friendship.new, email: participant.user.email),
+            method: 'post' %>
+    <% end %>
 
     <% if policy(participant).current_user? %>
       <%= link_to 'Confirmar presença', change_confirm_path(participant),
