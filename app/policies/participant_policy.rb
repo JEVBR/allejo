@@ -17,6 +17,10 @@ class ParticipantPolicy < ApplicationPolicy
     create?
   end
 
+  def destroy?
+    record.booking.user == user
+  end
+
   def change_confirm?
     record.user == user
   end

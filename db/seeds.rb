@@ -58,7 +58,9 @@ seeds["pitches"].each do |pitch|
                               "cep",
                               "description",
                               "category_id",
-                              "cnpj")
+                              "cnpj",
+                              "opening_time",
+                              "closing_time")
   #x.remote_photo_url = "http://res.cloudinary.com/dpkbckolo/image/upload/v1550847678/zgchnp4dlgst2hglh8go.jpg"
   temp.remote_photo_url = pitch.slice(Tag)[Tag.to_s]
   temp.save
