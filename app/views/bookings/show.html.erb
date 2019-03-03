@@ -3,11 +3,14 @@
 <h4><%= @booking.pitch.address %></h4>
 <h4>R$<%= @booking.pitch.price %></h4>
 <h4>link da partida: <%= request.url %></h4>
-<% if Participant.participant?(current_user, @booking) %>
-  <%= link_to 'Confirmar presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
-        method: 'post' %>
-<% else %>
-  <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
+
+<% unless policy(@booking).organizer? %>
+  <% if Participant.participant?(current_user, @booking) %>
+    <%= link_to 'Confirmar presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
+          method: 'post' %>
+  <% else %>
+    <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
+  <% end %>
 <% end %>
 
 <h3>Confirmados (<%= @confirmed_list.size %>) - (R$<%= @booking.pitch.price / @confirmed_list.size %> pra cada jogador)</h3>
