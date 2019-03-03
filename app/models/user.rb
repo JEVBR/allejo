@@ -18,4 +18,8 @@ class User < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
   # validates :cpf, presence: true
+
+  after_create do
+    self.full_name = "#{first_name} #{last_name}"
+  end
 end
