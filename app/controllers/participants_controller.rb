@@ -1,4 +1,6 @@
 class ParticipantsController < ApplicationController
+  before_action :set_participant, only: [:destroy]
+
   def create
     user = User.find(params[:participant_id])
     booking = Booking.find(params[:booking_id])
@@ -18,6 +20,11 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def destroy
+    @participant.destroy
+    redirect_to request.env["HTTP_REFERER"], alert: "#{@participant.user.full_name} foi removido da partida"
+  end
+
   def change_confirm
     @participant = Participant.find(params[:format])
     authorize @participant
@@ -28,5 +35,12 @@ class ParticipantsController < ApplicationController
     else
       redirect_to request.env["HTTP_REFERER"], alert: "Presença cancelada"
     end
+  end
+
+  private
+
+  def set_participant
+    @participant = Participant.find(params[:id])
+    authorize @participant
   end
 end

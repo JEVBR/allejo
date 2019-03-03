@@ -16,6 +16,12 @@
                 method: 'post' %>
         <% end %>
 
+        <% if policy(@booking).organizer? %>
+          <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
+                                                method: :delete,
+                                                data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %>
+        <% end %>
+
       <% end %>
     <% end %>
 <% end %>
