@@ -7,9 +7,9 @@
 <% if policy(@booking).have_participants? %>
     <% @booking.participants.each do |participant| %>
       <% if policy(participant).confirmed? %>
-        <h5><%= participant.user.first_name %> <%= participant.user.last_name %> - Confirmado</h5>
+        <h5><%= participant.user.full_name %> - Confirmado</h5>
       <% else %>
-        <h5><%= participant.user.first_name %> <%= participant.user.last_name %> - Não confirmado</h5>
+        <h5><%= participant.user.full_name %> - Não confirmado</h5>
 
         <% if policy(participant).current_user? %>
           <%= link_to 'Confirmar presença', change_confirm_path(participant),
