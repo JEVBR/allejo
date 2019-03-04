@@ -25,8 +25,8 @@ class ParticipantPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def confirmed?
-    record.confirmed == true
+  def confirmed?(participant, booking)
+    booking.participants.find_by(user: participant).confirmed
   end
 
   def current_user?

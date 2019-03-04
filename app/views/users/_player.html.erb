@@ -10,9 +10,15 @@
 <h2>Próximos jogos (<%= @upcoming_bookings.size %>)</h2>
 
 <% @upcoming_bookings.each do |booking| %>
-  <p>
-    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
-  </p>
+  <% if policy(Participant).confirmed?(current_user, booking) %>
+    <p>
+      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - (Presença confirmada) - <%= link_to 'Ver jogo', booking_path(booking) %>
+    </p>
+  <% else %>
+    <p>
+      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - <%= link_to 'Ver jogo', booking_path(booking) %>
+    </p>
+  <% end %>
 <% end %>
 
 <h2>Jogos anteriores</h2>
