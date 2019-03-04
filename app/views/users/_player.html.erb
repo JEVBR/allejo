@@ -7,13 +7,22 @@
 <p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
 
 
-<h2>Meus jogos</h2>
+<h2>Próximos jogos (<%= @upcoming_bookings.size %>)</h2>
 
-<% @user.participants.each do |game| %>
+<% @upcoming_bookings.each do |booking| %>
   <p>
-    <%= game.booking.pitch.title %> (<%= game.booking.start_time.strftime("%d-%m") %>) - <%= game.booking.start_time.strftime("%Hh%M") %> - <%= game.booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(game.booking) %>
+    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
   </p>
 <% end %>
+
+<h2>Jogos anteriores</h2>
+
+<% @past_bookings.each do |booking| %>
+  <p>
+    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
+  </p>
+<% end %>
+
 <h2>Meus amigos (<%= @user.friendships.size %>)</h2>
 <% @user.friendships.each do |friendship| %>
   <p>
