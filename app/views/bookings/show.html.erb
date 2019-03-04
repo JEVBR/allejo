@@ -16,9 +16,15 @@
 <h3>Confirmados (<%= @confirmed_list.size %>) - (R$<%= @booking.pitch.price / @confirmed_list.size %> pra cada jogador)</h3>
 <% if policy(@booking).have_participants? %>
     <% @confirmed_list.each do |participant| %>
-      <% if policy(participant).confirmed? %>
-        <h5><%= participant.user.full_name %></h5>
+
+      <h5><%= participant.user.full_name %></h5>
+
+      <% unless Friendship.friends?(current_user, participant.user) %>
+        <%= link_to 'Adicionar amigo',
+              friendships_path(Friendship.new, email: participant.user.email),
+              method: 'post' %>
       <% end %>
+
       <% if policy(@booking).organizer? && !policy(participant).current_user? %>
         <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
                                               method: :delete,
