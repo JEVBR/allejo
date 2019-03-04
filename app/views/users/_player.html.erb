@@ -1,30 +1,65 @@
-<h2>Painel de controle</h2>
+<div class="users-show-player-wrapper">
+  <div class="users-show-player-box">
+    <div class="container">
 
-<p><%= @user.email%></p>
-<p><%= @user.first_name %>
-<p><%= @user.last_name  %></p>
-<p><%= @user.phone %></p>
-<p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
+          <div class="users-show-player-title">
+            <h2>Meu Perfil</h2>
+          </div>
+
+      <div class="users-show-player-white-card">
+
+        <div class="users-show-player-info">
+
+            <div class="users-show-player-photo">
+            <%= cl_image_tag current_user.photo %>
+            </div>
+
+            <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
+            <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name  %></p>
+            <p><i class="fa fa-user"></i> <%= @user.nickname %></p>
+            <p><i class="fa fa-phone"></i> <%= @user.phone %></p>
+            <p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
+
+        </div>
+
+        <div class="users-show-player-games">
+
+          <div class="users-show-player-games-title">
+            <h2>Meus jogos</h2>
+          </div>
+          <div class="users-show-player-games-each">
+            <% @user.participants.each do |game| %>
+              <p>
+                <%= game.booking.pitch.title %> | <%= game.booking.start_time.strftime("%d/%m") %> | <%= game.booking.start_time.strftime("%H:%M") %> - <%= game.booking.end_time.strftime("%H:%M") %> || <%= link_to 'Ver detalhes', booking_path(game.booking) %>
+              </p>
+            <% end %>
+          </div>
+
+        </div>
 
 
-<h2>Meus jogos</h2>
+        <div class="users-show-player-friends">
 
-<% @user.participants.each do |game| %>
-  <p>
-    <%= game.booking.pitch.title %> (<%= game.booking.start_time.strftime("%d-%m") %>) - <%= game.booking.start_time.strftime("%Hh%M") %> - <%= game.booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(game.booking) %>
-  </p>
-<% end %>
-<h2>Meus amigos (<%= @user.friendships.size %>)</h2>
-<% @user.friendships.each do |friendship| %>
-  <p>
-    <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
-  </p>
-<% end %>
+          <h2>Meus amigos (<%= @user.friendships.size %>)</h2>
+          <% @user.friendships.each do |friendship| %>
+            <p>
+              <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
+            </p>
+          <% end %>
 
 
-<h4>Adicionar amigo</h4>
+          <h4>Adicionar amigo</h4>
 
-<%= form_tag(friendships_path(friendship: Friendship.new)) do %>
-  <%= text_field_tag :email, nil, placeholder: 'email' %>
-  <%= submit_tag 'Pesquisar' %>
-<% end %>
+          <%= form_tag(friendships_path(friendship: Friendship.new)) do %>
+            <%= text_field_tag :email, nil, placeholder: 'email' %>
+            <%= submit_tag 'Pesquisar' %>
+          <% end %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
