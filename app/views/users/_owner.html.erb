@@ -154,12 +154,14 @@
                           <div class="users-show-schedule-button" id="false">
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
 
-                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
-
+                          <% if time_slot[:booking].present? %>
+                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
+                          <% end %>
                           </p>
 
 
                           <!-- INICIO MODAL DE INFORMAÇÕES DE RESERVA -->
+                          <% if time_slot[:booking].present? %>
                             <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
                               <div class="modal-dialog">
 
@@ -182,6 +184,7 @@
 
                               </div>
                             </div>
+                          <% end %>
                             <!-- FIM DO MODAL DE INFORMAÇÕES DE RESERVA -->
 
                           <% end %>
