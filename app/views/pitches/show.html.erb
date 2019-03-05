@@ -71,7 +71,8 @@
                             start_time: time_slot[:start_time],
                             end_time: time_slot[:end_time]
                           }),
-                          method: 'post' %></p>
+                          method: 'post',
+                          data: { confirm: "Reservar #{@pitch.title} para o dia #{time_slot[:start_time].strftime("%d/%m")} entre as #{time_slot[:start_time].strftime("%Hh%Mm")} e #{time_slot[:end_time].strftime("%Hh%Mm")}"} %></p>
 
                           <% else %>
 
