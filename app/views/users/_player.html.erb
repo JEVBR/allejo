@@ -2,98 +2,134 @@
   <div class="users-show-player-box">
     <div class="container">
 
-          <div class="users-show-player-title">
-            <h2>Meu Perfil</h2>
-          </div>
+      <div class="users-show-player-title">
+        <h2>Meu Perfil</h2>
+      </div>
 
       <div class="users-show-player-white-card">
 
-<!-- <<<<<<< users-show-player-front -->
+        <!-- <<<<<<< users-show-player-front -->
         <div class="users-show-player-info">
 
-            <div class="users-show-player-photo">
-            <%= cl_image_tag current_user.photo %>
+          <div class="users-show-player-info-details">
+            <div class="users-show-player-info-description">
+              <h2>Perfil</h2>
+              <div class="users-show-player-photo">
+                <%= cl_image_tag current_user.photo, :class => 'img-thumbnail' %>
+              </div>
+
+              <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name  %></p>
+              <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
+              <p><i class="far fa-futbol"></i> <%= @user.nickname %></p>
+              <p><i class="fa fa-phone"></i> <%= @user.phone %></p>
+              <p><%= link_to 'editar', edit_user_registration_path(@user) %></p>
+              <h4></h4>
             </div>
-<!-- ======= -->
-<h2>Próximos jogos (<%= @upcoming_bookings.size %>)</h2>
 
-<% @upcoming_bookings.each do |booking| %>
-  <% if policy(Participant).confirmed?(current_user, booking) %>
-    <p>
-      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - (Presença confirmada) - <%= link_to 'Ver jogo', booking_path(booking) %>
-    </p>
-  <% else %>
-    <p>
-      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - <%= link_to 'Ver jogo', booking_path(booking) %>
-    </p>
-  <% end %>
-<% end %>
+          </div>
+          <!-- Friends Menu -->
+          <div class="users-show-player-friends">
 
-<h2>Jogos anteriores</h2>
+              <h2>Você tem <strong><%= @user.friendships.size %></strong> contatos</h2>
+              <% @user.friendships.each do |friendship| %>
 
-<% @past_bookings.each do |booking| %>
-  <p>
-    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
-  </p>
-<% end %>
+              <div class="users-show-player-friends-list">
+                <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
+                <%= link_to friendship_path(friendship), method: :delete,
+                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.first_name} #{friendship.friend.last_name} da sua lista de contatos?"} do %>
+                  <i class="fas fa-user-times"></i>
+                  <% end %>
+              </div>
+                <% end %>
 
-<h2>Meus amigos (<%= @user.friendships.size %>)</h2>
-<% @user.friendships.each do |friendship| %>
-  <p>
-    <%= friendship.friend.first_name %> <%= friendship.friend.last_name %> -
-    <%=  link_to 'Desfazer amizade', friendship_path(friendship),
-                                                method: :delete,
-                                                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.first_name} #{friendship.friend.last_name} da sua lista de amigos?"} %>
-  </p>
-<% end %>
-<!-- >>>>>>> master -->
 
-            <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
-            <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name  %></p>
-            <p><i class="fa fa-user"></i> <%= @user.nickname %></p>
-            <p><i class="fa fa-phone"></i> <%= @user.phone %></p>
-            <p><%= link_to 'edit', edit_user_registration_path(@user) %></p>
 
+              <h4>
+
+              <p>Adicionar contato</p>
+              <%= form_tag(friendships_path(friendship: Friendship.new)) do %>
+              <%= text_field_tag :email, nil, placeholder: 'email' %>
+              <%= submit_tag '+' %>
+              <% end %>
+              </h4>
+          </div>
+          <!-- End Friends Menu -->
         </div>
-
-        <div class="users-show-player-games">
 
           <div class="users-show-player-games-title">
             <h2>Meus jogos</h2>
           </div>
-          <div class="users-show-player-games-each">
-            <% @user.participants.each do |game| %>
-              <p>
-                <%= game.booking.pitch.title %> | <%= game.booking.start_time.strftime("%d/%m") %> | <%= game.booking.start_time.strftime("%H:%M") %> - <%= game.booking.end_time.strftime("%H:%M") %> || <%= link_to 'Ver detalhes', booking_path(game.booking) %>
-              </p>
+
+
+                  <!-- ======= -->
+
+          <div class="users-show-player-invited-games">
+
+            <h2>Próximos jogos (<%= @upcoming_bookings.size %>)</h2>
+
+            <% @upcoming_bookings.each do |booking| %>
+            <% if policy(Participant).confirmed?(current_user, booking) %>
+            <p>
+              <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - (Presença confirmada) - <%= link_to 'Ver jogo', booking_path(booking) %>
+            </p>
+            <% else %>
+            <p>
+              <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - <%= link_to 'Ver jogo', booking_path(booking) %>
+            </p>
             <% end %>
+            <% end %>
+
+            <h2>Jogos anteriores</h2>
+
+            <% @past_bookings.each do |booking| %>
+            <p>
+              <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
+            </p>
+            <% end %>
+
           </div>
 
+
+          <!-- End Jogos Convidado -->
+
+
+        <!-- Jogos Organizador -->
+        <div class="users-show-player-games">
+
+          <div class="row">
+            <!-- <div class="col-md-6 col-md-offset-5"> -->
+              <% @user.participants.each do |game| %>
+              <div class="users-show-player-games-each">
+                <div class="users-show-player-games-each-details">
+                  <p><%= game.booking.pitch.title %></p>
+                  <p><i class="far fa-clock"></i> <%= game.booking.start_time.strftime("%H:%M") %> - <%= game.booking.end_time.strftime("%H:%M") %> </p>
+                  <%= link_to 'Ver detalhes', booking_path(game.booking) %>
+
+                </div>
+                <div class="users-show-player-games-each-calendar">
+
+                  <time datetime="#" class="icon">
+                    <em><%= game.booking.start_time.strftime("%A") %></em>
+                    <strong><%= game.booking.start_time.strftime("%B") %></strong>
+                    <span> <%= game.booking.start_time.strftime("%d") %> </span>
+                  </time>
+
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
         </div>
 
 
-        <div class="users-show-player-friends">
 
-          <h2>Meus amigos (<%= @user.friendships.size %>)</h2>
-          <% @user.friendships.each do |friendship| %>
-            <p>
-              <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
-            </p>
-          <% end %>
-
-
-          <h4>Adicionar amigo</h4>
-
-          <%= form_tag(friendships_path(friendship: Friendship.new)) do %>
-            <%= text_field_tag :email, nil, placeholder: 'email' %>
-            <%= submit_tag 'Pesquisar' %>
-          <% end %>
-
-        </div>
 
       </div>
+
     </div>
   </div>
+</div>
 </div>
 
 
