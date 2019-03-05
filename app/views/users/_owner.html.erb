@@ -117,10 +117,10 @@
                           <div class="users-show-schedule-button">
 
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
-                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%Hh%Mm') %>">Reservar</a> <!-- BOTAO DO MODAL -->
+                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>">Reservar</a> <!-- BOTAO DO MODAL -->
 
                             <!-- INICIO MODAL DE RESERVA -->
-                            <div id="Modal-<%= time_slot[:start_time].strftime('%Hh%Mm') %>" class="modal fade" role="dialog">
+                            <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
                               <div class="modal-dialog">
 
                                 <!-- Modal content-->
