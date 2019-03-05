@@ -12,12 +12,12 @@
         <div class="users-show-player-info">
 
           <div class="users-show-player-info-details">
-            <div class="users-show-player-photo">
-              <%= cl_image_tag current_user.photo %>
-            </div>
-
             <div class="users-show-player-info-description">
-              <h2></h2>
+              <h2>Perfil</h2>
+              <div class="users-show-player-photo">
+                <%= cl_image_tag current_user.photo, :class => 'img-thumbnail' %>
+              </div>
+
               <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name  %></p>
               <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
               <p><i class="far fa-futbol"></i> <%= @user.nickname %></p>

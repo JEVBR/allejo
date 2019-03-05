@@ -771,6 +771,7 @@ grid-column: 1 / span 1;
 .users-show-player-info-description {
   margin-top: 24px;
   position: relative;
+  background-color: white;
   p {
     font-size: 16px;
     padding: 0 0 0 8px;
@@ -782,11 +783,12 @@ grid-column: 1 / span 1;
   }
   h2 {
     margin-bottom: 0;
-    height: 24px;
+    // height: 24px;
+    font-size: 24px;
     background-color: gray;
     max-width: 100%;
     padding: 8px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 2px 2px 0 0;
     text-align: right;
   }
   h4 {
@@ -795,7 +797,7 @@ grid-column: 1 / span 1;
     background-color: gray;
     max-width: 100%;
     padding: 8px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 2px 2px;
   }
 }
 
@@ -843,7 +845,7 @@ grid-column: 1 / span 1;
     background-color: gray;
     max-width: 100%;
     padding: 8px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 2px 2px 0 0;
     text-align: right;
   }
   h4 {
@@ -854,7 +856,7 @@ grid-column: 1 / span 1;
     background-color: gray;
     max-width: 100%;
     padding: 8px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 2px 2px;
   }
 }
 
