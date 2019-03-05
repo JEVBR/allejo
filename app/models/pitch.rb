@@ -19,4 +19,16 @@ class Pitch < ApplicationRecord
   validates :price, presence: true
 
   after_validation :geocode, if: :will_save_change_to_address?
+
+  after_destroy do
+    if user.pitches.empty?
+      user.owner = false
+      user.save
+    end
+  end
+
+  after_create do
+    user.owner = true
+    user.save
+  end
 end
