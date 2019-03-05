@@ -117,16 +117,37 @@
                           <div class="users-show-schedule-button">
 
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
+                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%Hh%Mm') %>">Reservar</a> <!-- BOTAO DO MODAL -->
 
-                            <%= link_to 'Reservar',
-                                pitch_bookings_path(
-                                  pitch_id: @pitch.id,
-                                  booking: {
-                                    pitch_id: @pitch.id,
-                                    start_time: time_slot[:start_time],
-                                    end_time: time_slot[:end_time]
-                                  }),
-                                  method: 'post' %></p>
+                            <!-- INICIO MODAL DE RESERVA -->
+                            <div id="Modal-<%= time_slot[:start_time].strftime('%Hh%Mm') %>" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Nova reserva</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
+                                      <%= label_tag 'Nome' %>
+                                      <%= text_field_tag 'booking[player_name]'  %>
+                                      <%= label_tag 'Telefone' %>
+                                      <%= text_field_tag 'booking[player_phone]' %>
+                                      <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
+                                      <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
+                                      <%= submit_tag 'Reservar' %>
+                                    <% end %>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <!-- FIM DO MODAL DE RESERVA -->
 
                           <% else %>
 

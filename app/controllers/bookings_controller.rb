@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.pitch_id = params[:pitch_id]
     authorize @booking
     @booking.user = current_user
 
@@ -39,6 +40,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :pitch_id, :date)
+    params.require(:booking).permit(:start_time, :end_time, :pitch_id, :date, :player_name, :player_phone)
   end
 end
