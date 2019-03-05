@@ -154,7 +154,7 @@
                           <div class="users-show-schedule-button" id="false">
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
 
-                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].user.first_name %></a> <!-- BOTAO DO MODAL -->
+                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
 
                           </p>
 

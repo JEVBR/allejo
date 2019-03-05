@@ -17,6 +17,11 @@ class Booking < ApplicationRecord
   validate :check_start_time_in_the_past
   validate :check_business_hours
 
+  after_create do
+    update_column(:player_name, user.full_name) if player_name.to_s.empty?
+    update_column(:player_phone, user.phone.to_s) if player_phone.to_s.empty?
+  end
+
   def check_end_time_greater_start_time
     if start_time > end_time
       errors.add(:start_time, "start_time can't be greater than end_time")

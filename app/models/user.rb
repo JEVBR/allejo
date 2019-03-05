@@ -20,6 +20,6 @@ class User < ApplicationRecord
   # validates :cpf, presence: true
 
   after_save do
-    self.full_name = "#{first_name} #{last_name}"
+    update_column(:full_name, "#{first_name} #{last_name}")
   end
 end
