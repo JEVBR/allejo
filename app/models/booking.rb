@@ -73,15 +73,21 @@ class Booking < ApplicationRecord
 
     (pitch.opening_time..(pitch.closing_time - 1)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
       duration = slot_duration
-      booking.start_time = day + (duration.minutes * slot)
-      booking.end_time = day + (duration.minutes * (slot + 1))
 
       init_time = day + (duration.minutes * slot)
       end_time = day + (duration.minutes * (slot + 1))
 
-      booking.valid? ? available = true : available = false
+      booking.start_time = init_time
+      booking.end_time = end_time
 
-      daily_schedule << { start_time: init_time, end_time: end_time, available: available }
+      if booking.valid?
+        available = true
+      else
+        available = false
+        booked = pitch.bookings.find_by("(? < start_time AND ? > end_time) OR (? > start_time AND ? < end_time)", init_time, end_time, end_time, init_time)
+      end
+
+      daily_schedule << { start_time: init_time, end_time: end_time, available: available, booking: booked }
     end
     daily_schedule
   end
