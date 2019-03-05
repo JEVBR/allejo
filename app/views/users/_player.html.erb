@@ -40,10 +40,10 @@
 <h2>Meus amigos (<%= @user.friendships.size %>)</h2>
 <% @user.friendships.each do |friendship| %>
   <p>
-    <%= friendship.friend.full_name %> -
+    <%= friendship.friend.first_name %> <%= friendship.friend.last_name %> -
     <%=  link_to 'Desfazer amizade', friendship_path(friendship),
                                                 method: :delete,
-                                                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.full_name} da sua lista de amigos?"} %>
+                                                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.first_name} #{friendship.friend.last_name} da sua lista de amigos?"} %>
   </p>
 <% end %>
 <!-- >>>>>>> master -->

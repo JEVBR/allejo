@@ -1,68 +1,119 @@
-<h1><%= @booking.pitch.title %> - <%= @booking.start_time.strftime("%d/%m") %></h1>
-<h4><%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></h4>
-<h4><%= @booking.pitch.address %></h4>
-<h4>R$<%= @booking.pitch.price %></h4>
-<h4>link da partida: <%= request.url %></h4>
+<div class="bookings-show-wrapper">
+  <div class="bookings-show-box">
+    <div class="container">
 
-<% unless policy(@booking).organizer? %>
-  <% if Participant.participant?(current_user, @booking) %>
-    <%= link_to 'Confirmar presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
-          method: 'post' %>
-  <% else %>
-    <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
-  <% end %>
-<% end %>
+      <div class="bookings-show-title">
+      <!-- Booking Title -->
+        <h1><%= @booking.pitch.title %> - <%= @booking.start_time.strftime("%d/%m") %></h1>
+      <!-- End Booking Title -->
+      </div>
 
-<h3>Confirmados (<%= @confirmed_list.size %>) - (R$<%= @booking.pitch.price / @confirmed_list.size %> pra cada jogador)</h3>
-<% if policy(@booking).have_participants? %>
-    <% @confirmed_list.each do |participant| %>
+      <div class="bookings-show-white-card">
 
-      <h5><%= participant.user.full_name %></h5>
+        <h4><%= @booking.pitch.subtitle %> | <%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></h4>
+        <p><%= @booking.pitch.address %></p>
+        <h4>R$<%= @booking.pitch.price %></h4>
+        <!-- <h4>link da partida: <%= request.url %></h4> -->
 
-      <% unless Friendship.friends?(current_user, participant.user) %>
-        <%= link_to 'Adicionar amigo',
-              friendships_path(Friendship.new, email: participant.user.email),
-              method: 'post' %>
-      <% end %>
+                        <%if policy(@booking).organizer? %>
+                    <%=  link_to 'Cancelar reserva', booking_path(@booking),
+                    method: :delete,
+                    data: { confirm: "Are you sure?"} %>
+                  <% end %>
 
-      <% if policy(@booking).organizer? && !policy(participant).current_user? %>
-        <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
-                                              method: :delete,
-                                              data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %>
-      <% end %>
-    <% end %>
-<% end %>
+        <% unless policy(@booking).organizer? %>
+          <% if Participant.participant?(current_user, @booking) %>
+            <%= link_to 'Confirmar presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
+                  method: 'post' %>
 
 
-<h3>Não confirmados (<%= @not_confirmed_list.size %>)</h3>
-<% if @not_confirmed_list.present? %>
-  <% @not_confirmed_list.each do |participant| %>
-    <h5><%= participant.user.full_name %></h5>
+          <% else %>
+            <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
+          <% end %>
+        <% end %>
 
-    <% unless Friendship.friends?(current_user, participant.user) %>
-      <%= link_to 'Adicionar amigo',
-            friendships_path(Friendship.new, email: participant.user.email),
-            method: 'post' %>
-    <% end %>
 
-    <% if policy(@booking).organizer? %>
-      <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
-                                            method: :delete,
-                                            data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %>
+            <!-- Confirmed List  -->
+            <div class="row">
 
-    <% end %>
-  <% end %>
-<% end %>
+                  <div class="col-md-12 text-center">
 
-<% if policy(current_user).have_friendships? %>
-  <%= form_tag(booking_participants_path(@booking)) do |f| %>
-    <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %>
-    <%= submit_tag 'Adicionar amigo a partida' %>
-  <% end %>
-<% end %>
+                    <div style="min-width: 400px;">
+                      <!-- Add Friend Search + Button -->
+                      <% if policy(current_user).have_friendships? %>
+                       <span> <%= form_tag(booking_participants_path(@booking)) do |f| %>
+                          <%= select_tag :participant_id, options_from_collection_for_select(current_user.friendships, "friend_id", "name") %> </span>
+                         <span style="margin-left: 24px"> <%= submit_tag 'Convidar', :class => 'submit-add-friend'%></span>
+                        <% end %>
+                      <% end %>
+                      <!-- End Add Friend Search + Button  -->
+                    </div>
 
-<%if policy(@booking).organizer? %>
-  <%=  link_to 'Cancelar reserva', booking_path(@booking),
-  method: :delete,
-  data: { confirm: "Are you sure?"} %>
-<% end %>
+                  </div>
+
+              <div class="col-md-3">
+                <div class="bookings-show-white-card-confirmedlist">
+
+                  <h3><strong><%= @confirmed_list.size %></strong> Confirmados </h3> <p>(R$<%= @booking.pitch.price / @confirmed_list.size %> pra cada jogador)</p>
+                  <% if policy(@booking).have_participants? %>
+                      <% @confirmed_list.each do |participant| %>
+
+                        <h5><%= participant.user.first_name %> <%= participant.user.last_name %></h5>
+
+
+                        <% if policy(@booking).organizer? && !policy(participant).current_user? %>
+                          <%=  link_to 'Remover da partida', booking_participant_path(@booking, participant),
+                                                                method: :delete,
+                                                                data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %>
+                        <% end %>
+                      <% end %>
+                  <% end %>
+
+                </div>
+              </div>
+              <!-- End Confirmed List -->
+
+
+              <!-- Not Confirmed List -->
+              <div class="col-md-3">
+                <div class="bookings-show-white-card-notconfirmedlist">
+
+                  <h3><strong><%= @not_confirmed_list.size %></strong> não confirmados</h3>
+
+                  <% if @not_confirmed_list.present? %>
+                    <% @not_confirmed_list.each do |participant| %>
+                      <h5><%= participant.user.full_name %>
+
+
+                    <!-- Not Confirmed Player Edit -->
+                     <p> <% unless Friendship.friends?(current_user, participant.user) %>
+                        <%= link_to '+',
+                              friendships_path(Friendship.new, email: participant.user.email),
+                              method: 'post' %> </p>
+                      <% end %>
+
+                      <% if policy(@booking).organizer? %>
+                        <%=  link_to 'x', booking_participant_path(@booking, participant),
+                                                              method: :delete,
+                                                              data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %> </h5>
+
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  <!-- End Not Confirmed Player Edit -->
+
+
+
+                </div>
+              </div>
+
+            </div>
+            <!-- End Not Confirmed List -->
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
