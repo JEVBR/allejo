@@ -17,6 +17,11 @@ class Booking < ApplicationRecord
   validate :check_start_time_in_the_past
   validate :check_business_hours
 
+  after_save do
+    update_column(:player_name, user.full_name) if player_name.to_s.empty?
+    update_column(:player_phone, user.phone.to_s) if player_phone.to_s.empty?
+  end
+
   def check_end_time_greater_start_time
     if start_time > end_time
       errors.add(:start_time, "start_time can't be greater than end_time")
@@ -73,15 +78,21 @@ class Booking < ApplicationRecord
 
     (pitch.opening_time..(pitch.closing_time - 1)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
       duration = slot_duration
-      booking.start_time = day + (duration.minutes * slot)
-      booking.end_time = day + (duration.minutes * (slot + 1))
 
       init_time = day + (duration.minutes * slot)
       end_time = day + (duration.minutes * (slot + 1))
 
-      booking.valid? ? available = true : available = false
+      booking.start_time = init_time
+      booking.end_time = end_time
 
-      daily_schedule << { start_time: init_time, end_time: end_time, available: available }
+      if booking.valid?
+        available = true
+      else
+        available = false
+        booked = pitch.bookings.find_by("(? < start_time AND ? > end_time) OR (? > start_time AND ? < end_time)", init_time, end_time, end_time, init_time)
+      end
+
+      daily_schedule << { start_time: init_time, end_time: end_time, available: available, booking: booked }
     end
     daily_schedule
   end

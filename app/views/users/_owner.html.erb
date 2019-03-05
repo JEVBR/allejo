@@ -127,7 +127,7 @@
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Nova reserva</h4>
+                                    <h4 class="modal-title">Nova reserva - <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %></h4>
                                   </div>
                                   <div class="modal-body">
                                     <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
@@ -153,8 +153,39 @@
 
                           <div class="users-show-schedule-button" id="false">
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
-                            <% end %>
-                            </p>
+
+                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
+
+                          </p>
+
+
+                          <!-- INICIO MODAL DE INFORMAÇÕES DE RESERVA -->
+                            <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Informações de reserva <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <h4>Nome</h4>
+                                    <%= time_slot[:booking].player_name %>
+                                    <h4>Telefone</h4>
+                                    <%= time_slot[:booking].player_phone %>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <!-- FIM DO MODAL DE INFORMAÇÕES DE RESERVA -->
+
+                          <% end %>
+
                           </div>
 
                           <% end %> <!-- NÃO MOVER ESSA PARTE (compromete a formatação)-->
