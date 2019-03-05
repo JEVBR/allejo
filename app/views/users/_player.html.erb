@@ -8,11 +8,45 @@
 
       <div class="users-show-player-white-card">
 
+<!-- <<<<<<< users-show-player-front -->
         <div class="users-show-player-info">
 
             <div class="users-show-player-photo">
             <%= cl_image_tag current_user.photo %>
             </div>
+<!-- ======= -->
+<h2>Próximos jogos (<%= @upcoming_bookings.size %>)</h2>
+
+<% @upcoming_bookings.each do |booking| %>
+  <% if policy(Participant).confirmed?(current_user, booking) %>
+    <p>
+      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - (Presença confirmada) - <%= link_to 'Ver jogo', booking_path(booking) %>
+    </p>
+  <% else %>
+    <p>
+      <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - <%= link_to 'Ver jogo', booking_path(booking) %>
+    </p>
+  <% end %>
+<% end %>
+
+<h2>Jogos anteriores</h2>
+
+<% @past_bookings.each do |booking| %>
+  <p>
+    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
+  </p>
+<% end %>
+
+<h2>Meus amigos (<%= @user.friendships.size %>)</h2>
+<% @user.friendships.each do |friendship| %>
+  <p>
+    <%= friendship.friend.full_name %> -
+    <%=  link_to 'Desfazer amizade', friendship_path(friendship),
+                                                method: :delete,
+                                                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.full_name} da sua lista de amigos?"} %>
+  </p>
+<% end %>
+<!-- >>>>>>> master -->
 
             <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
             <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name  %></p>

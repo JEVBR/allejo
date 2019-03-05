@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_024119) do
+ActiveRecord::Schema.define(version: 2019_03_03_005649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
+    t.integer "opening_time"
+    t.integer "closing_time"
     t.index ["category_id"], name: "index_pitches_on_category_id"
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_024119) do
     t.string "cpf"
     t.boolean "owner", default: false
     t.string "photo"
+    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

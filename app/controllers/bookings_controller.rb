@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @confirmed_list = @booking.participants.where(confirmed: true)
+    @not_confirmed_list = @booking.participants.where(confirmed: false)
   end
 
   def destroy

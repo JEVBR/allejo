@@ -15,6 +15,7 @@ class Booking < ApplicationRecord
   validate :check_availability
   validate :check_start_time_equal_end_time
   validate :check_start_time_in_the_past
+  validate :check_business_hours
 
   def check_end_time_greater_start_time
     if start_time > end_time
@@ -48,13 +49,29 @@ class Booking < ApplicationRecord
     end
   end
 
+  def check_business_hours
+    opening_time = start_time.to_date.beginning_of_day + pitch.opening_time.hours
+    closing_time = start_time.to_date.beginning_of_day + pitch.closing_time.hours
+
+    if start_time < opening_time || start_time >= closing_time
+      errors.add(:start_time, "start_time should be included in business_hours")
+    end
+
+    if end_time < opening_time || end_time > closing_time
+      errors.add(:end_time, "end_time should be included in business_hours")
+    end
+  end
+
   def self.pitch_daily_schedule(day, pitch, slot_duration)
-    day = day.in_time_zone(-3) + 3.hours
+    day = day.to_date.beginning_of_day
+
     booking = Booking.new
     booking.pitch = pitch
     booking.user = User.first # random user, just to booking be valid
+
     daily_schedule = []
-    (0..((1440 - slot_duration) / slot_duration)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
+
+    (pitch.opening_time..(pitch.closing_time - 1)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
       duration = slot_duration
       booking.start_time = day + (duration.minutes * slot)
       booking.end_time = day + (duration.minutes * (slot + 1))

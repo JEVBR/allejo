@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:show, :destroy] do
-    resources :participants, only: [:create]
+    resources :participants, only: [:create, :destroy]
   end
 
-  resources :friendships, only: [:create]
-
+  resources :friendships, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

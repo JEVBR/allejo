@@ -17,12 +17,16 @@ class ParticipantPolicy < ApplicationPolicy
     create?
   end
 
+  def destroy?
+    record.booking.user == user
+  end
+
   def change_confirm?
     record.user == user
   end
 
-  def confirmed?
-    record.confirmed == true
+  def confirmed?(participant, booking)
+    booking.participants.find_by(user: participant).confirmed
   end
 
   def current_user?
