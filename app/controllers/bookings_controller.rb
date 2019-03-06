@@ -32,6 +32,16 @@ class BookingsController < ApplicationController
     redirect_to users_show_path
   end
 
+  def unblock_day
+    start_time = params[:booking][:start_time]
+    end_time = params[:booking][:end_time]
+    pitch = Pitch.find(params[:pitch_id])
+    booking = pitch.bookings.find_by(start_time: start_time, end_time: end_time)
+    authorize booking
+    booking.destroy
+    redirect_to request.env["HTTP_REFERER"], notice: "Dia desbloqueado"
+  end
+
   private
 
   def set_booking

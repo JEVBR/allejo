@@ -36,4 +36,8 @@ class BookingPolicy < ApplicationPolicy
   def have_participants?
     record.participants.size.positive?
   end
+
+  def unblock_day?
+    owner?(record.pitch)
+  end
 end
