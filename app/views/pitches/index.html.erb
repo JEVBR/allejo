@@ -10,7 +10,7 @@
           </div>
           <!-- End Title -->
 
-          <!-- Search Input -->
+          <!-- Search Input
       <div class="homes-index-search">
       <%= form_tag(pitches_path, method: :get, remote: true) do %>
         <%= text_field_tag  :location,
@@ -30,7 +30,7 @@
             :style => "width: 200px" %>
         <%= submit_tag 'AJAXTEST' %>
 
-        <% end %>
+        <% end %> -->
         <%= form_tag(pitches_path, method: :get) do %>
         <%= text_field_tag  :location,
             params[:location],
