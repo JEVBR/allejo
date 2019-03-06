@@ -112,6 +112,16 @@
                         <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
 
                         <h4><%= date.strftime("%d/%m") %></h4>
+                        <%= link_to 'Bloquear dia',
+                        pitch_bookings_path(
+                          pitch_id: @pitch.id,
+                          booking: {
+                            pitch_id: @pitch.id,
+                            start_time: date.beginning_of_day + @pitch.opening_time.hours,
+                            end_time: date.beginning_of_day + @pitch.closing_time.hours
+                          }),
+                          method: 'post',
+                          data: { confirm: "Tem certeza que deseja bloquear #{@pitch.title} para o dia"} %>
                         <% day_schedule.each do |time_slot| %>
                           <% if time_slot[:available] %>
                           <div class="users-show-schedule-button">
