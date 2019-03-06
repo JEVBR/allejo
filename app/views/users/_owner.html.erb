@@ -71,7 +71,6 @@
                               date: (@date_select.to_date + 4.days)),
                               method: 'get' %>
 
-
                         </div>
                       </div>
                     </div>
@@ -112,8 +111,34 @@
                         <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
 
                         <h4><%= date.strftime("%d/%m") %></h4>
+
+                        <% if policy(@pitch).day_blocked?(date) %>
+                          <%= link_to 'Desbloquear dia',
+                              unblock_day_path(
+                                pitch_id: @pitch.id,
+                                booking: {
+                                  start_time: date.beginning_of_day + @pitch.opening_time.hours,
+                                  end_time: date.beginning_of_day + @pitch.closing_time.hours
+                                }),
+                                method: 'delete' %>
+                        <% else %>
+                          <%= link_to 'Bloquear dia',
+                                pitch_bookings_path(
+                                  pitch_id: @pitch.id,
+                                  booking: {
+                                    pitch_id: @pitch.id,
+                                    start_time: date.beginning_of_day + @pitch.opening_time.hours,
+                                    end_time: date.beginning_of_day + @pitch.closing_time.hours,
+                                    blocked: true
+                                  }),
+                                  method: 'post',
+                                  data: { confirm: "Tem certeza que deseja bloquear #{@pitch.title} para o dia #{date.strftime("%d/%m")}"} %>
+                        <% end %>
+
+
+
                         <% day_schedule.each do |time_slot| %>
-                          <% if time_slot[:available] == true %>
+                          <% if time_slot[:available] %>
                           <div class="users-show-schedule-button">
 
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
@@ -132,9 +157,9 @@
                                   <div class="modal-body">
                                     <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
                                       <%= label_tag 'Nome' %>
-                                      <%= text_field_tag 'booking[player_name]'  %>
+                                      <%= text_field_tag 'booking[player_name]', nil, required: true %>
                                       <%= label_tag 'Telefone' %>
-                                      <%= text_field_tag 'booking[player_phone]' %>
+                                      <%= text_field_tag 'booking[player_phone]', nil, required: true %>
                                       <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
                                       <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
                                       <%= submit_tag 'Reservar' %>

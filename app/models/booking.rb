@@ -18,8 +18,10 @@ class Booking < ApplicationRecord
   validate :check_business_hours
 
   after_save do
-    update_column(:player_name, user.full_name) if player_name.to_s.empty?
-    update_column(:player_phone, user.phone.to_s) if player_phone.to_s.empty?
+    unless user.owner
+      update_column(:player_name, user.full_name) if player_name.to_s.empty?
+      update_column(:player_phone, user.phone.to_s) if player_phone.to_s.empty?
+    end
   end
 
   def check_end_time_greater_start_time

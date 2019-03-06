@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
   post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
+  delete 'unblock_day', to: 'bookings#unblock_day', as: :unblock_day
 
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }

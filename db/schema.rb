@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_155746) do
+ActiveRecord::Schema.define(version: 2019_03_06_140956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_155746) do
     t.datetime "updated_at", null: false
     t.string "player_name"
     t.string "player_phone"
+    t.boolean "blocked", default: false
     t.index ["pitch_id"], name: "index_bookings_on_pitch_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
