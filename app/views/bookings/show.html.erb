@@ -1,13 +1,11 @@
 <div class="bookings-show-wrapper">
   <div class="bookings-show-box">
     <div class="container">
-
       <div class="bookings-show-title">
       <!-- Booking Title -->
         <h1><%= @booking.pitch.title %> - <%= @booking.start_time.strftime("%d/%m") %></h1>
       <!-- End Booking Title -->
       </div>
-
       <div class="bookings-show-white-card">
 
         <h4><%= @booking.pitch.subtitle %> | <%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></h4>
