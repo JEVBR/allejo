@@ -113,7 +113,7 @@
 
                         <h4><%= date.strftime("%d/%m") %></h4>
                         <% day_schedule.each do |time_slot| %>
-                          <% if time_slot[:available] == true %>
+                          <% if time_slot[:available] %>
                           <div class="users-show-schedule-button">
 
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
