@@ -1,2 +1,22 @@
-<h1>NEW PITCH</h1>
-<%= render 'form', pitch: @pitch %>
+<div class="pitches-new-wrapper">
+  <div class="pitches-new-box">
+    <div class="container">
+
+      <!-- Title  -->
+      <div class="row">
+          <div class="col col-md-offset-4 col-md-4">
+            <div class="pitches-new-title">
+              <h2>Nova Quadra</h2>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+
+
+              <%= render 'form', pitch: @pitch %>
+            </div>
+      <!-- End Title  -->
+
+    </div>
+  </div>
+</div>
