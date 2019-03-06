@@ -7,7 +7,6 @@ class BookingMailer < ApplicationMailer
   def match_day_is_coming(booking)
     booking.participants.each do |participant|
       @first_name = participant.user.first_name
-
       mail(to: participant.user.email, subject: 'Não esqueça do jogo amanhã')
     end
   end

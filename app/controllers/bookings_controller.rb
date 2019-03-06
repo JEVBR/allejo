@@ -14,6 +14,8 @@ class BookingsController < ApplicationController
 
       participant = Participant.new(booking: @booking, user: current_user, confirmed: true)
       participant.save
+
+      BookingMailer.match_day_is_coming(@booking).deliver_now
       # redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
       redirect_to request.env["HTTP_REFERER"], notice: "Reserva efetuada com sucesso"
     else

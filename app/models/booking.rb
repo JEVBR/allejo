@@ -21,8 +21,6 @@ class Booking < ApplicationRecord
     unless user.owner
       update_column(:player_name, user.full_name) if player_name.to_s.empty?
       update_column(:player_phone, user.phone.to_s) if player_phone.to_s.empty?
-
-      BookingMailer.match_day_is_coming(self).deliver_now
     end
   end
 
