@@ -52,11 +52,6 @@ class PitchesController < ApplicationController
 
     @markers << coordinates_hash
 
-
-    @times = {}
-    24.times do
-
-    end
   end
 
   def show
@@ -82,17 +77,35 @@ class PitchesController < ApplicationController
   end
 
   def create
+    # respond_to do |format|
+    #   format.js
+    # end
+
     @pitch = Pitch.new(pitch_params)
     @pitch.user = current_user
     authorize @pitch
 
-    if @pitch.valid?
+   if @pitch.valid?
       @pitch.save
-      redirect_to pitch_path(@pitch)
+        #respond_to do |format|
+        redirect_to pitch_path(@pitch)
+        #format.html { redirect_to pitch_path(@pitch) }
+        #format.js  # <-- will render `app/views/reviews/create.js.erb`
+      #end
+
     else
-      render :new
-    end
+        #respond_to do |format|
+        render :new
+        #format.html { render :new }
+        #format.js  # <-- idem
+    #end
   end
+
+end
+
+def newlocation
+end
+
 
   def edit
   end

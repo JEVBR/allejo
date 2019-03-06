@@ -110,22 +110,24 @@ const initMapbox = () => {
       addMarkersToMap(map, markers);
     });
 // draw a circle on map where clicked:
-  //   map.on('click', function(e) {
-  //    const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
-  //    addCircleToMarker(map,place);
-  //    map.panTo([e.lngLat.lng, e.lngLat.lat]);
-  //    console.log([e.lngLat.lng, e.lngLat.lat]);
-      // $.ajax({
-      //         type: "POST",
-      //         url: "/pitches",
-      //         data: "blaaaaaa",
-      //         contentType: "application/json",
-      //         success: function (form) {
-      //             $("#contact-success").modal('show');
-      //         }
+     map.on('click', function(e) {
+      const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
+      addCircleToMarker(map,place);
+      map.panTo([e.lngLat.lng, e.lngLat.lat]);
+      console.log([e.lngLat.lng, e.lngLat.lat]);
+      Rails.ajax({
+                type: "GET",
+                url: "/pitches",
+                data: "lgn=" + e.lngLat.lng + "lat=" + e.lngLat.lat,
+                contentType: "application/json",
+                dataType: 'script',
+                Accept: 'text/html',
+              success: function (form) {
+                console.log("successs");
+              }
       //   });
-      // });
-  //  });
+       });
+    });
   }
 };
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
+
   resources :bookings, only: [:show, :destroy] do
     resources :participants, only: [:create, :destroy]
   end
