@@ -71,7 +71,6 @@
                               date: (@date_select.to_date + 4.days)),
                               method: 'get' %>
 
-
                         </div>
                       </div>
                     </div>
@@ -118,7 +117,8 @@
                           booking: {
                             pitch_id: @pitch.id,
                             start_time: date.beginning_of_day + @pitch.opening_time.hours,
-                            end_time: date.beginning_of_day + @pitch.closing_time.hours
+                            end_time: date.beginning_of_day + @pitch.closing_time.hours,
+                            blocked: true
                           }),
                           method: 'post',
                           data: { confirm: "Tem certeza que deseja bloquear #{@pitch.title} para o dia"} %>
