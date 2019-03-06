@@ -132,9 +132,9 @@
                                   <div class="modal-body">
                                     <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
                                       <%= label_tag 'Nome' %>
-                                      <%= text_field_tag 'booking[player_name]'  %>
+                                      <%= text_field_tag 'booking[player_name]', nil, required: true %>
                                       <%= label_tag 'Telefone' %>
-                                      <%= text_field_tag 'booking[player_phone]' %>
+                                      <%= text_field_tag 'booking[player_phone]', nil, required: true %>
                                       <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
                                       <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
                                       <%= submit_tag 'Reservar' %>
