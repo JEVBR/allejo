@@ -32,6 +32,11 @@ class PitchesController < ApplicationController
       lng = Geocoder.search(address).first.longitude.to_f
     end
 
+    if lat.nil? || lat.zero? || lng.nil? || lng.zero?
+      lng = -46.66
+      lat = -23.66
+    end
+
     coordinates_hash = { lng: lng, lat: lat, home: false }
     coordinates_array = [lat, lng]
 
