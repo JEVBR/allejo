@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       @booking.save
 
       send_email_time = @booking.start_time.to_datetime - 1.days
-      job_id = MatchDayMailerJob.set(wait: 2.seconds).perform_later(@booking.id).job_id
+      job_id = MatchDayMailerJob.set(wait_until: send_email_time).perform_later(@booking.id).job_id
       @booking.update_column(:match_day_mailer_job_id, job_id)
 
       participant = Participant.new(booking: @booking, user: current_user, confirmed: true)
