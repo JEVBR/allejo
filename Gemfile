@@ -21,9 +21,12 @@ gem 'pundit'
 gem "geocoder"
 gem 'rails-i18n'
 gem 'mapbox-gl-rails'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
 end
 
 group :development, :test do

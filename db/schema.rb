@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_140956) do
+ActiveRecord::Schema.define(version: 2019_03_06_210632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_140956) do
     t.string "player_name"
     t.string "player_phone"
     t.boolean "blocked", default: false
+    t.string "match_day_mailer_job_id"
     t.index ["pitch_id"], name: "index_bookings_on_pitch_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_140956) do
     t.boolean "owner", default: false
     t.string "photo"
     t.string "full_name"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

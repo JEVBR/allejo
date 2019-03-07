@@ -12,9 +12,13 @@ class BookingsController < ApplicationController
     if @booking.valid?
       @booking.save
 
+      send_email_time = @booking.start_time.to_datetime - 1.days
+      job_id = MatchDayMailerJob.set(wait_until: send_email_time).perform_later(@booking.id).job_id
+      @booking.update_column(:match_day_mailer_job_id, job_id)
+
       participant = Participant.new(booking: @booking, user: current_user, confirmed: true)
       participant.save
-      # redirect_to pitch_path(@booking.pitch, date: date), notice: "Reserva efetuada com sucesso"
+
       redirect_to request.env["HTTP_REFERER"], notice: "Reserva efetuada com sucesso"
     else
       # redirect_to pitch_path(@booking.pitch), alert: "Horário indisponível"
@@ -28,6 +32,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    job_id = @booking.match_day_mailer_job_id
+    jid = Sidekiq::ScheduledSet.new.find { |a| job_id }.item["jid"]
+    Sidekiq::ScheduledSet.new.find_job(jid).delete
+
+    BookingCanceledMailerJob.perform_now(@booking.id)
+
     @booking.destroy
     redirect_to users_show_path
   end
