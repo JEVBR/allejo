@@ -34,7 +34,8 @@ class BookingsController < ApplicationController
   def destroy
     job_id = @booking.match_day_mailer_job_id
     jid = Sidekiq::ScheduledSet.new.find { |a| job_id }.item["jid"]
-    Sidekiq::ScheduledSet.new.find_job(jid).delete
+
+    Sidekiq::ScheduledSet.new.find_job(jid).delete if jid.to_s.present?
 
     BookingCanceledMailerJob.perform_now(@booking.id)
 
