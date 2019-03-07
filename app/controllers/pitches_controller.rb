@@ -56,7 +56,7 @@ class PitchesController < ApplicationController
   end
 
   def map
-    max_dist = 2
+    max_dist = params[:max_dist].to_i # Probably break if no good value in field
     authorize Pitch
     lat = params[:lat]
     lng = params[:lng]
@@ -109,31 +109,17 @@ class PitchesController < ApplicationController
   end
 
   def create
-    # respond_to do |format|
-    #   format.js
-    # end
-
     @pitch = Pitch.new(pitch_params)
     @pitch.user = current_user
     authorize @pitch
 
-   if @pitch.valid?
+    if @pitch.valid?
       @pitch.save
-        #respond_to do |format|
-        redirect_to pitch_path(@pitch)
-        #format.html { redirect_to pitch_path(@pitch) }
-        #format.js  # <-- will render `app/views/reviews/create.js.erb`
-      #end
-
+       redirect_to pitch_path(@pitch)
     else
-        #respond_to do |format|
-        render :new
-        #format.html { render :new }
-        #format.js  # <-- idem
-    #end
+      render :new
+    end
   end
-
-end
 
   def edit
   end
