@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   get 'users/show'
   post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
+  delete 'unblock_day', to: 'bookings#unblock_day', as: :unblock_day
 
   get '/pitches_map', to: 'pitches#map'
   # devise_for :users

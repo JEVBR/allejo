@@ -43,7 +43,6 @@
 }
 
 .users-signup-middle-wrapper {
-
 }
 
 .users-signup-form-left {
@@ -80,7 +79,6 @@
   padding: 32px;
   input {
   box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
-  margin-top: 8px;
   border-style: none;
   background-color: rgba(250,250,250,0.4);
   caret-color: rgba(250,250,250,0.6);
@@ -96,6 +94,7 @@
   }
   }
   label {
+  margin-top: 8px;
   color: white;
   font-size: 20px;
   font-weight: lighter;
@@ -747,14 +746,13 @@ select {
   margin-bottom: 48px;
   border-radius: 2px;
   padding: 16px;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  grid-template-rows: 50% 50%;
+  // display: grid;
+  // grid-template-columns: 25% 25% 25% 25%;
+  // grid-template-rows: 50% 50%;
 }
 
 .users-show-player-info {
-grid-row: 1 / span 2;
-grid-column: 1 / span 1;
+  // background-color: black;
 }
 
 .users-show-player-photo {
@@ -767,25 +765,24 @@ grid-column: 1 / span 1;
   }
 }
 
-
 .users-show-player-info-description {
   margin-top: 24px;
   position: relative;
-  background-color: white;
   p {
     font-size: 16px;
-    padding: 0 0 0 8px;
+    padding: 4px 0 0 4px;
   }
   a {
   position: absolute;
   right: 8px;
-  bottom: 12px;
+  bottom: 8px;
   }
   h2 {
     margin-bottom: 0;
-    // height: 24px;
     font-size: 24px;
-    background-color: gray;
+    // background-color: rgb(200,210,220);
+    border-bottom: solid 2px;
+    border-color: $dark-gray;
     max-width: 100%;
     padding: 8px;
     border-radius: 2px 2px 0 0;
@@ -794,14 +791,23 @@ grid-column: 1 / span 1;
   h4 {
     margin-top: 0;
     height: 32px;
-    background-color: gray;
+    border-top: solid 2px;
+    border-color: $dark-gray;
+    // background-color: rgb(200,210,220);
     max-width: 100%;
     padding: 8px;
     border-radius: 0 0 2px 2px;
   }
+  i {
+    color: gray;
+  }
 }
 
-.users-show-player-games-title {
+.users-show-player-invited-games-wrapper {
+  // background-color: black;
+}
+
+.users-show-player-invited-games-title {
   margin-right: 24px;
   h2 {
     font-family: $geo;
@@ -812,71 +818,66 @@ grid-column: 1 / span 1;
   }
 }
 
-.users-show-player-games {
-  grid-row: 1 / span 2;
-  grid-column: 3 / span 1;
-  max-height: 720px;
-  overflow: scroll;
+.users-show-player-invited-games-each {
+  border-radius: 2px;
+  background-color: rgb(200,210,220);
+  padding-left: 8px;
+  font-weight: lighter;
+  margin: 8px;
+  p {
+
+  }
 }
 
-.users-show-player-games-each {
+
+.users-show-player-organizer-games-wrapper {
+  // background-color: black;
+}
+
+.users-show-player-organizer-games-title {
+  margin-right: 24px;
+  h2 {
+    font-family: $geo;
+    font-size: 32px;
+    display: flex;
+    justify-content: flex-end;
+    color: $heavy-green;
+  }
+}
+
+.users-show-player-organizer-games-each {
   border-radius: 2px;
-  background-color: gray;
+  background-color: rgb(200,210,220);
   padding-left: 8px;
-  color: white;
   font-weight: lighter;
   max-height: 180px;
   display: flex;
   justify-content: space-between;
   margin: 12px;
+  position: relative;
     time {
     margin: 16px;
   }
-}
-
-.users-show-player-friends {
-  grid-row: 2 / span 1;
-  grid-column: 2 / span 1;
-  h2 {
-    margin-bottom: 0;
-    font-family: ubuntu;
-    font-weight: lighter;
+  p {
+    margin: 0 0 4px 0;
+    color: $dark-gray;
     font-size: 16px;
-    background-color: gray;
-    max-width: 100%;
-    padding: 8px;
-    border-radius: 2px 2px 0 0;
-    text-align: right;
-  }
-  h4 {
-    margin-top: 0;
-    font-family: ubuntu;
     font-weight: lighter;
-    font-size: 16px;
-    background-color: gray;
-    max-width: 100%;
-    padding: 8px;
-    border-radius: 0 0 2px 2px;
   }
-}
-
-.users-show-player-friends-list {
-  background-color: rgb(213,213,213);
-  border-style: solid;
-  border-width:1px 0 0 0;
-  border-color: gray;
-  color: $dark-gray;
-  font-family: $geo;
-  font-size: 24px;
-  max-width: 100%;
-  padding: 8px;
-  display:flex;
-  justify-content: space-between;
   i {
-    font-size: 16px;
+    color: gray;
   }
-  &:hover {
-    opacity: 0.8;
+  a {
+    font-size: 12px;
+    position: absolute;
+    bottom: 4px;
+    left: 80px;
+  }
+  h5 {
+    margin: 4px 0 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: $dark-gray;
   }
 }
 
@@ -884,7 +885,7 @@ grid-column: 1 / span 1;
 
 time.icon
 {
-  font-size: 1em;
+  font-size: 0.8em;
   display: block;
   width: 4em;
   height: 4em;
@@ -935,9 +936,64 @@ time.icon span
 
 // End Mini Calendar
 
-.users-show-player-invited-games {
-  grid-row: 1 / span 2;
-  grid-column: 2 / span 1;
-  overflow: hidden;
+
+.users-show-player-friends {
+  height: 70vh;
+  overflow: scroll;
+  margin-top: 24px;
+  h2 {
+    margin: 0 16px;
+    font-family: ubuntu;
+    font-weight: lighter;
+    font-size: 16px;
+    background-color: rgb(210,220,230);
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 2px 2px 0 0;
+    text-align: right;
+  }
+  h4 {
+    margin: 0 16px;
+    font-family: ubuntu;
+    font-weight: lighter;
+    font-size: 16px;
+    background-color: rgb(210,220,230);
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 0 0 2px 2px;
+  }
 }
+
+.users-show-player-friends-list {
+  background-color: rgb(243,243,243);
+  border-style: solid;
+  border-width:1px 0 0 0;
+  border-color: transparent;
+  color: $dark-gray;
+  font-family: ubuntu;
+  font-size: 16px;
+  max-width: 100%;
+  margin: 0 16px;
+  padding: 8px;
+  display:flex;
+  justify-content: space-between;
+  i {
+    font-size: 16px;
+  }
+  &:hover {
+    background-color: rgb(210,220,230);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

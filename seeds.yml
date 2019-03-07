@@ -1,112 +1,386 @@
 users:
+
   - email: "Alvaro@test.com"
     password: 123456
-    phone: 011-912345678
-    CPF: 000.000.000.00
     last_name: Palermo
     first_name: Alvaro
+    phone: 011-912345678
+    nickname: Alvarão
+    address: "Rua Mourato Coelho 1404 Sao Paulo"
+    cpf: 087.216.308.36
     photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
-    description: "Sou calmo, porem nao gosta de barulho"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
-    cpf: 000
-    owner: true
-  - email: "Ana@test.com"
-    password: 123456
-    phone: 011-812345678
-    CPF: 000.000.000.00
-    last_name: Riccetti
-    first_name: Ana
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853645/ylkzlxfr4kxfuwpehqgh.jpg"
-    description: "Coffee always ready"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
-    cpf: 000
-  - email: "Jeroen@test.com"
-    password: 123456
-    phone: 011-712345678
-    CPF: 000.000.000.00
-    last_name: Haisma
-    first_name: Jeroen
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853813/dy0k2eiwiozenxxzlnua.jpg"
-    description: "Estresso facil, faco barulho demais"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
-    cpf: 000
-    owner: true
-  - email: "Marcelo@test.com"
-    password: 123456
-    phone: 011-612345678
-    CPF: 000.000.000.00
-    last_name: Miyachi
-    first_name: Marcelo
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550854135/xbpwdb82bxi4plirozvu.jpg"
-    description: "Nao deixa Bis perto de mim"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
-    cpf: 000
-    owner: true
-  - email: "Rafael@test.com"
-    password: 123456
-    phone: 011-612345678
-    CPF: 000.000.000.00
-    last_name: Veenstra
-    first_name: Rafael
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856703/bphdmw7rv2pb8qeuu44t.jpg"
-    description: "Pilotando teclado"
-    address: "Rua Mourato Coelho 1404 Sao Paulo"
-    cpf: 000
     owner: true
 
+  - email: "Ana@test.com"
+    password: 123456
+    last_name: Riccetti
+    first_name: Ana
+    phone: 011-812345678
+    nickname: Veras
+    address: "Avenida Paulista, 1088 São Paulo"
+    cpf: 082.575.283.28
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: true
+
+  - email: "Jeroen@test.com"
+    password: 123456
+    last_name: Haisma
+    first_name: Jeroen
+    phone: 011-712345678
+    nickname: Veras
+    address: "Alameda Santos, 53 São Paulo"
+    cpf: 000.000.000.00
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853813/dy0k2eiwiozenxxzlnua.jpg"
+    owner: true
+
+  - email: "Marcelo@test.com"
+    password: 123456
+    last_name: Miyachi
+    first_name: Marcelo
+    phone: 011-612345678
+    nickname: Master of Backend
+    address: "Alameda Santos, 53 São Paulo"
+    cpf: 111.222.333.44
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550854135/xbpwdb82bxi4plirozvu.jpg"
+    owner: true
+
+  - email: "Rafael@test.com"
+    password: 123456
+    last_name: Veenstra
+    first_name: Rafael
+    phone: 011-612345876
+    nickname: Frontend Boss
+    address: "Avenida Ibirapuera, 350 São Paulo"
+    cpf: 555.666.777.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856703/bphdmw7rv2pb8qeuu44t.jpg"
+    owner: true
+
+  - email: "julio.cesar@bol.com.br"
+    password: 123789
+    last_name: Cesar
+    first_name: Julio
+    phone: 011-912345876
+    nickname: Julinho
+    address: "Avenida Faria Lima, 4055 São Paulo"
+    cpf: 033.888.020.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "mauro.silva@bol.com.br"
+    password: 123789
+    last_name: Silva
+    first_name: Mauro
+    phone: 011-992345876
+    nickname: Maurinho
+    address: "Av. das Nações Unidas 14261 São Paulo"
+    cpf: 033.888.020.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "martin.palermo@bol.com.br"
+    password: 123789
+    last_name: Palermo
+    first_name: Martin
+    phone: 011-999345876
+    nickname: Palé
+    address: "Rua Flórida, 1970 São Paulo"
+    cpf: 088.333.020.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "pep.guardiola@bol.com.br"
+    password: 123789
+    last_name: Guardiola
+    first_name: Pep
+    phone: 011-999945876
+    nickname: Pepito
+    address: "Rua Purpurina, 400 São Paulo"
+    cpf: 099.444.020.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "sergio.ramos@gmail.com"
+    password: 123789
+    last_name: Ramos
+    first_name: Sergio
+    phone: 011-999995876
+    nickname: Hijoeputa
+    address: "Rua Girassol, 555 São Paulo"
+    cpf: 099.555.010.33
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "lionel.messi@gmail.com"
+    password: 123789
+    last_name: Messi
+    first_name: Lionel
+    phone: 011-999993421
+    nickname: La Pulga
+    address: "Av. das Nações Unidas 12901 São Paulo"
+    cpf: 099.555.022.22
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "juca.kfouri@yahoo.com.br"
+    password: 123789
+    last_name: Kfouri
+    first_name: Juca
+    phone: 011-999993433
+    nickname: Juquinha
+    address: "Rua Butantã 194 São Paulo"
+    cpf: 099.555.138.25
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "roberto.avallone@yahoo.com.br"
+    password: 123789
+    last_name: Avallone
+    first_name: Roberto
+    phone: 011-999991122
+    nickname: Mais Palestra
+    address: "Rua Prof. Atílio Innocenti 165 São Paulo"
+    cpf: 123.321.123.32
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "ze.sergio@bol.com.br"
+    password: 123789
+    last_name: Sérgio
+    first_name: Zé
+    phone: 011-999993030
+    nickname: Zezinho
+    address: "Av. Paulista, 1374 São Paulo"
+    cpf: 321.321.123.23
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "vinicius.junior@gmail.com"
+    password: 123789
+    last_name: Junior
+    first_name: Vinicius
+    phone: 011-999993077
+    nickname: Vini
+    address: "Av. Paulista, 2537 São Paulo"
+    cpf: 999.321.123.23
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "sadio.mane@bol.com.br"
+    password: 123789
+    last_name: Mane
+    first_name: Sadio
+    phone: 011-999990303
+    nickname: Sadizinho
+    address: "Av. Presidente Juscelino Kubitschek 2041 São Paulo"
+    cpf: 999.321.123.23
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "roger.milla@hotmail.com"
+    password: 123789
+    last_name: Milla
+    first_name: Roger
+    phone: 011-999990365
+    nickname: Milla de Neve
+    address: "Av. Brigadeiro Luís Antônio, 3357 São Paulo"
+    cpf: 233.088.235.29
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "rogerio.ceni@bol.com.br"
+    password: 123789
+    last_name: Ceni
+    first_name: Rogerio
+    phone: 011-999990356
+    nickname: Mito01
+    address: "R. Teodoro Sampaio, 2901 São Paulo"
+    cpf: 015.088.124.29
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "silvio.luiz@uol.com.br"
+    password: 123789
+    last_name: Luiz
+    first_name: Silvio
+    phone: 011-983440356
+    nickname: Olho no Lance
+    address: "Av. Brg. Faria Lima, 1939 São Paulo"
+    cpf: 014.088.124.13
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "ronaldinho.gaucho@uol.com.br"
+    password: 123789
+    last_name: Gaúcho
+    first_name: Ronaldinho
+    phone: 011-983444556
+    nickname: Bruxo
+    address: "Av. Paulista, 2073 São Paulo"
+    cpf: 014.088.124.13
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "ronaldo.nazario@uol.com.br"
+    password: 123789
+    last_name: Nazario
+    first_name: Ronaldo
+    phone: 011-983444569
+    nickname: Fenômeno
+    address: "R. Marambaia, 200 São Paulo"
+    cpf: 014.088.338.13
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "serginho.chulapa@hotmail.com"
+    password: 123789
+    last_name: Chulapa
+    first_name: Serginho
+    phone: 011-983433569
+    nickname: Serginho
+    address: "Av. José César de Oliveira, s/n São Paulo"
+    cpf: 014.993.338.13
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "walter.casagrande@hotmail.com"
+    password: 123789
+    last_name: Casagrande
+    first_name: Walter
+    phone: 011-983431019
+    nickname: Casão
+    address: "R. Nossa Sra. da Lapa, 449 São Paulo"
+    cpf: 014.776.338.13
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "hugo.sanchez@realmadrid.es"
+    password: 123789
+    last_name: Sanchez
+    first_name: Hugo
+    phone: 011-983001019
+    nickname: Huguito
+    address: "Av. Prof. Celestino Bourroul, 151 São Paulo"
+    cpf: 199.776.338.88
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "maikon.leite@gmail.com"
+    password: 123789
+    last_name: Leite
+    first_name: Maikon
+    phone: 011-971001019
+    nickname: Maikinho
+    address: "Av. Brg. Faria Lima, 1709 São Paulo"
+    cpf: 199.656.338.56
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "paulo.roberto@yahoo.com.br"
+    password: 123789
+    last_name: Roberto
+    first_name: Paulo
+    phone: 011-971001023
+    nickname: Falcão
+    address: "Av. das Nações Unidas, 15187 São Paulo"
+    cpf: 199.441.338.41
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+  - email: "vagner.love@hotmail.com"
+    password: 123789
+    last_name: Love
+    first_name: Vagner
+    phone: 021-971001023
+    nickname: Lovinho
+    address: "Rua dos Pinheiros, 125 São Paulo"
+    cpf: 365.441.338.65
+    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    owner: false
+
+
 pitches:
-  - address: "Rua Mourato Coelho 1404 Sao Paulo"
+
+  - title: Top Society
     user_id: 1
-    subtitle: "Pequeno apartamento para 20 estudantes"
-    title: "apartamento"
-    price: 850
-    cep: "054147-002"
-    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550847678/zgchnp4dlgst2hglh8go.jpg"
-    category_id: 1
-    cnpj: 0000000
-    opening_time: 8
-    closing_time: 21
-  - address: "Rua purpurina 10 Sao Paulo"
+    category_id: 2
+    subtitle: Quadra 01
+    address: Rua Mateus José, 1287
+    cep: 02166-000
+    cnpj: 17.398.679-01
+    price: 350
+    photo:
+    opening_time: 10
+    closing_time: 22
+
+  - title: Rivelino
     user_id: 2
-    subtitle: "melhor moradia do SP"
-    title: "Pequeno e barato"
-    price: 200
-    cep: "05415-002"
-    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550857127/ldcbbxl9n7zvwcdkpen3.jpg"
-    category_id: 1
-    cnpj: 0000000
-    opening_time: 8
-    closing_time: 21
-  - address: "Rua Ourania 200 Sao Paulo"
+    category_id: 2
+    subtitle: Quadra 02
+    address: Av. Roque Petroni Júnior, 759
+    cep: 04707-160
+    cnpj: 47.508.411/2154-38
+    price: 550
+    photo:
+    opening_time: 18
+    closing_time: 23
+
+  - title: Playball
     user_id: 3
-    subtitle: "espaco para 5 estudantes"
-    title: "Perto do USP"
-    price: 300
-    cep: "05415-002"
-    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550857160/oktmolavy25x4vogcx8n.jpg"
     category_id: 1
-    cnpj: 0000000
-    opening_time: 8
-    closing_time: 21
-  - address: "Avenida Pedroso de Morais 888 Sao Paulo"
+    subtitle: Campo 01
+    address: Av. Luis Ignácio de Anhaia Melo, 3003
+    cep: 03154-100
+    cnpj: 45.543.915/0001-81
+    price: 650
+    photo:
+    opening_time: 08
+    closing_time: 01
+
+  - title: SilverGold Academia de Futsal
     user_id: 4
-    subtitle: "Casa perto do estacao de metro"
-    title: "Vem morar feliz!"
-    price: 654
-    cep: "054315-002"
-    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550848679/cq2al1xszhvhmuzjefuv.jpg"
-    category_id: 1
-    cnpj: 0000000
-    opening_time: 8
-    closing_time: 21
-  - address: "Avenida Indianopolis 457 Sao Paulo"
+    category_id: 3
+    subtitle: Quadra 02
+    address: Praça Yedo, 136
+    cep: 02134-050
+    cnpj: 10.456.016/0002-48
+    price: 230
+    photo:
+    opening_time: 19
+    closing_time: 23
+
+  - title: Tapetão
     user_id: 5
-    subtitle: "Casa a 5 minutos do Aeroporto"
-    title: "Casa Aeroporto!"
-    price: 654
-    cep: "054325-002"
-    photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856573/syjamubuxpdwysndro3f.jpg"
     category_id: 1
-    cnpj: 0000000
-    opening_time: 8
-    closing_time: 21
+    subtitle: Campo Azul
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 01
+
+  - title: AREA SPORTS
+    user_id: 6
+    category_id: 3
+    subtitle: Quadra Sul
+    address: R. Pamplona, 1616 São Paulo
+    cep: 01405-002
+    cnpj: 04.800.040/0001-79
+    price: 250
+    photo:
+    opening_time: 06
+    closing_time: 22
+
+  - title: ProSport
+    user_id: 7
+    category_id: 3
+    subtitle: Quadra Norte
+    address: R. Rocha, 583 São Paulo
+    cep: 01330-000
+    cnpj: 04.800.040/0001-11
+    price: 260
+    photo:
+    opening_time: 10
+    closing_time: 02
+

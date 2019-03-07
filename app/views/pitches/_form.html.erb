@@ -1,13 +1,91 @@
-<%= simple_form_for @pitch do |f| %>
-  <%= f.input :title %>
-  <%= f.input :subtitle %>
-  <%= f.input :category_id, collection: @categories  %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :cep %>
-  <%= f.input :cnpj %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+<div class="pitches-new-wrapper">
+  <div class="pitches-new-box">
+    <div class="container">
 
-  <%= f.submit %>
-<% end %>
+    <!--Middle Wrapper -->
+    <div class="pitches-new-middle-wrapper">
+      <%= simple_form_for @pitch do |f| %>
+
+      <!-- Form -->
+      <div class="form-inputs">
+        <div class="row">
+          <div class="col col-md-offset-2 col-md-4">
+            <!-- Form left seccion -->
+            <div class="pitches-new-form-left">
+              <%= f.input :title,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "TopSociety" } %>
+              <%= f.input :subtitle,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Quadra 1" } %>
+              <%= f.input :category_id, collection: @categories,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Category" }  %>
+              <%= f.input :price,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Price" } %>
+              <%= f.input :address,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Rua Mourato Coelho" } %>
+            </div>
+          </div>
+          <!-- End Form left seccion -->
+
+          <!-- Form middle seccion -->
+          <div class="col col-md-4">
+            <div class="pitches-new-form-right">
+              <%= f.input :cep,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "CEP" } %>
+              <%= f.input :cnpj,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "CNPJ" } %>
+              <%= f.input :opening_time,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Horário de Abertura" } %>
+              <%= f.input :closing_time,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Horário de Fechamento" } %>
+              <div class="pitches-new-photo-input">
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+            </div>
+          </div>
+          <!-- End Form middle seccion -->
+
+          <!-- Form right seccion -->
+
+          <!-- End Form right seccion -->
+
+        </div>
+        <!-- End Form -->
+      </div>
+
+      <!-- Lower Wrapper -->
+      <div class="pitches-new-lower-wrapper">
+        <div class="row">
+          <div class="form-actions">
+            <div class="pitches-new-submit-button">
+              <div class="col col-md-12">
+                <%= f.button :submit, "Criar Quadra" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Lower Wrapper -->
+
+    </div>
+  </div>
+</div>
