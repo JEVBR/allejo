@@ -339,7 +339,7 @@ pitches:
   - title: SilverGold Academia de Futsal
     user_id: 4
     category_id: 3
-    subtitle:
+    subtitle: Quadra 02
     address: Praça Yedo, 136
     cep: 02134-050
     cnpj: 10.456.016/0002-48
@@ -375,7 +375,7 @@ pitches:
   - title: ProSport
     user_id: 7
     category_id: 3
-    subtitle:
+    subtitle: Quadra Norte
     address: R. Rocha, 583 São Paulo
     cep: 01330-000
     cnpj: 04.800.040/0001-11
