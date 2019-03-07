@@ -1,10 +1,17 @@
 <div class="users-show-player-wrapper">
   <div class="users-show-player-box">
     <div class="container">
-
-      <div class="users-show-player-title">
-        <h2>Meu Perfil</h2>
-      </div>
+          <div class="users-show-player-title">
+            <h2>Meu Perfil</h2>
+          </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="users-show-player-white-card-bar">
+                  <span>Perfil</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <span>Convidado</span>
+              </div>
+            </div>
+          </div>
 
       <div class="users-show-player-white-card">
         <div class="row">
@@ -14,7 +21,6 @@
 
               <div class="users-show-player-info-details">
                 <div class="users-show-player-info-description">
-                  <h2>Perfil</h2>
                   <div class="users-show-player-photo">
                     <%= cl_image_tag current_user.photo %>
                   </div>
@@ -23,65 +29,59 @@
                   <p><i class="fa fa-envelope"></i> <%= @user.email%></p>
                   <p><i class="far fa-futbol"></i> <%= @user.nickname %></p>
                   <p><i class="fa fa-phone"></i> <%= @user.phone %></p>
-                  <p><%= link_to 'editar', edit_user_registration_path(@user) %></p>
-                  <h4></h4>
+                  <h4><p><%= link_to 'editar', edit_user_registration_path(@user) %></p></h4>
                 </div>
 
               </div>
             </div>
           </div>
 
-          <!-- ======= -->
+          <!-- Jogos Convidado-->
+<!--               <div class="users-show-player-invited-games-title">
+                <h2>Convidado</h2>
+              </div> -->
 
           <div class="col-md-3">
             <div class="users-show-player-invited-games-wrapper">
 
-                <div class="users-show-player-invited-games-title">
-                  <h2>Convidado</h2>
+              <% @upcoming_bookings.each do |booking| %>
+              <% if policy(Participant).confirmed?(current_user, booking) %>
+              <div class="users-show-player-games-each">
+                <div class="users-show-player-games-each-details">
+
+                  <h5><%= booking.pitch.title %></h5>
+                  <p><i class="far fa-clock"></i> <strong><%= booking.start_time.strftime("%H:%M") %> - <%= booking.end_time.strftime("%H:%M") %></strong>   </p>
+
+                  <%= link_to 'Ver jogo', booking_path(booking) %>
+
                 </div>
+                <div class="users-show-player-games-each-calendar">
 
-              <div class="users-show-player-invited-games-each">
-                <div class="users-show-player-invited-games-details">
-                  <% @upcoming_bookings.each do |booking| %>
+                  <time datetime="#" class="icon">
+                    <em><%= booking.start_time.strftime("%A") %></em>
+                    <strong><%= booking.start_time.strftime("%B") %></strong>
+                    <span> <%= booking.start_time.strftime("%d") %> </span>
+                  </time>
 
-                  <% if policy(Participant).confirmed?(current_user, booking) %>
-                  <p>
-                    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <br> confirmado  <i class="fa fa-check"></i> <%= link_to 'Ver jogo', booking_path(booking) %>
-                  </p>
-                  <% else %>
-                  <p>
-                    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> - <%= link_to 'Ver jogo', booking_path(booking) %>
-                  </p>
-                  <% end %>
-                  <% end %>
-                  <div class="users-show-player-invited-games-title">
-                    <h2>Histórico</h2>
-                  </div>
-
-                  <% @past_bookings.each do |booking| %>
-                  <p>
-                    <%= booking.pitch.title %> (<%= booking.start_time.strftime("%d-%m") %>) - <%= booking.start_time.strftime("%Hh%M") %> - <%= booking.end_time.strftime("%Hh%M") %> <%= link_to 'Ver jogo', booking_path(booking) %>
-                  <% end %>
-                  </p>
                 </div>
-
               </div>
+              <% end %>
+            <% end %>
             </div>
           </div>
           <!-- End Jogos Convidado -->
 
+<!--               <div class="users-show-player-organizer-games-title">
+                <h2>Meus jogos</h2>
+              </div> -->
 
           <!-- Jogos Organizador -->
           <div class="col-md-3">
             <div class="users-show-player-organizer-games-wrapper">
 
-              <div class="users-show-player-organizer-games-title">
-                <h2>Meus jogos</h2>
-              </div>
-
               <% @user.participants.each do |game| %>
-              <div class="users-show-player-organizer-games-each">
-                <div class="users-show-player-organizer-games-each-details">
+              <div class="users-show-player-games-each">
+                <div class="users-show-player-games-each-details">
                   <h5><%= game.booking.pitch.title %></h5>
                   <p><i class="far fa-clock"></i> <strong><%= game.booking.start_time.strftime("%H:%M") %> - <%= game.booking.end_time.strftime("%H:%M") %></strong>   </p>
                   <p> <i class="fas fa-user" style="color: rgb(65,173,73);"></i> <%= game.booking.participants.where(confirmed: true).count %> <i class="far fa-user"></i> <%= game.booking.participants.where(confirmed: false).count %></p>
@@ -108,31 +108,28 @@
             <div class="users-show-player-friends">
 
               <h2>Você tem <strong><%= @user.friendships.size %></strong> contatos</h2>
-              <% @user.friendships.each do |friendship| %>
+                <% @user.friendships.each do |friendship| %>
 
               <div class="users-show-player-friends-list">
                 <%= friendship.friend.first_name %> <%= friendship.friend.last_name %>
                 <%= link_to friendship_path(friendship), method: :delete,
-                data: { confirm: "Tem certeza que deseja remover #{friendship.friend.first_name} #{friendship.friend.last_name} da sua lista de contatos?"} do %>
-                <i class="fas fa-user-times"></i>
+                  data: { confirm: "Tem certeza que deseja remover #{friendship.friend.first_name} #{friendship.friend.last_name} da sua lista de contatos?"} do %>
+                  <i class="fas fa-user-times"></i>
                 <% end %>
               </div>
-              <% end %>
-
-
+            <% end %>
 
               <h4>
-
                 <p>Adicionar contato</p>
                 <%= form_tag(friendships_path(friendship: Friendship.new)) do %>
                 <%= text_field_tag :email, nil, placeholder: 'email' %>
                 <%= submit_tag '+' %>
                 <% end %>
               </h4>
+
             </div>
           </div>
           <!-- End Friends Menu -->
-
         </div>
       </div>
     </div>
