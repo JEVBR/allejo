@@ -6,6 +6,10 @@ const initAutocomplete = () => {
   if (addressInput) {
     places({ container: addressInput });
   }
+  const addressInputNewUser = document.getElementById('user_address');
+  if (addressInputNewUser) {
+    places({ container: addressInputNewUser });
+  }
 };
 
 export { initAutocomplete };
