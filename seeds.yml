@@ -8,7 +8,7 @@ users:
     nickname: Alvarão
     address: "Rua Mourato Coelho 1404 Sao Paulo"
     cpf: 087.216.308.36
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986773/svi1wxidm4nfkev076jp.jpg"
     owner: true
 
   - email: "Ana@test.com"
@@ -19,7 +19,7 @@ users:
     nickname: Veras
     address: "Avenida Paulista, 1088 São Paulo"
     cpf: 082.575.283.28
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo :"https://res.cloudinary.com/dpkbckolo/image/upload/v1551988264/rxgmtfe8dxbe6iba1zfl.jpg"
     owner: true
 
   - email: "Jeroen@test.com"
@@ -30,7 +30,7 @@ users:
     nickname: Veras
     address: "Alameda Santos, 53 São Paulo"
     cpf: 000.000.000.00
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550853813/dy0k2eiwiozenxxzlnua.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551975088/qc8s7ngnazs5wpippyfc.jpg"
     owner: true
 
   - email: "Marcelo@test.com"
@@ -41,7 +41,7 @@ users:
     nickname: Master of Backend
     address: "Alameda Santos, 53 São Paulo"
     cpf: 111.222.333.44
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550854135/xbpwdb82bxi4plirozvu.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551968101/zunjrsdzvtw8pyyhbizn.jpg"
     owner: true
 
   - email: "Rafael@test.com"
@@ -52,7 +52,7 @@ users:
     nickname: Frontend Boss
     address: "Avenida Ibirapuera, 350 São Paulo"
     cpf: 555.666.777.88
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550856703/bphdmw7rv2pb8qeuu44t.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551968102/iddxrko5sazl3v4wr9v6.jpg"
     owner: true
 
   - email: "julio.cesar@bol.com.br"
@@ -63,7 +63,7 @@ users:
     nickname: Julinho
     address: "Avenida Faria Lima, 4055 São Paulo"
     cpf: 033.888.020.88
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988475/tmy6ud4lf5wlpsh92xto.jpg"
     owner: false
 
   - email: "mauro.silva@bol.com.br"
@@ -74,7 +74,7 @@ users:
     nickname: Maurinho
     address: "Av. das Nações Unidas 14261 São Paulo"
     cpf: 033.888.020.88
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551984781/oso1vblubnefcblbvqkp.jpg"
     owner: false
 
   - email: "martin.palermo@bol.com.br"
@@ -118,7 +118,7 @@ users:
     nickname: La Pulga
     address: "Av. das Nações Unidas 12901 São Paulo"
     cpf: 099.555.022.22
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985127/shybwmkqxkrempqebwqh.jpg"
     owner: false
 
   - email: "juca.kfouri@yahoo.com.br"
@@ -151,7 +151,7 @@ users:
     nickname: Zezinho
     address: "Av. Paulista, 1374 São Paulo"
     cpf: 321.321.123.23
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985304/rnelm2xx0pmzgga8vfy3.jpg"
     owner: false
 
   - email: "vinicius.junior@gmail.com"
@@ -162,7 +162,7 @@ users:
     nickname: Vini
     address: "Av. Paulista, 2537 São Paulo"
     cpf: 999.321.123.23
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988562/ndisj9s3ffj53mdqzvsl.jpg"
     owner: false
 
   - email: "sadio.mane@bol.com.br"
@@ -173,7 +173,7 @@ users:
     nickname: Sadizinho
     address: "Av. Presidente Juscelino Kubitschek 2041 São Paulo"
     cpf: 999.321.123.23
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985401/xivyo0njfvatxzuhucyt.jpg"
     owner: false
 
   - email: "roger.milla@hotmail.com"
@@ -206,7 +206,7 @@ users:
     nickname: Olho no Lance
     address: "Av. Brg. Faria Lima, 1939 São Paulo"
     cpf: 014.088.124.13
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551987497/ztbdvcqi1qfov0x9axmz.jpg"
     owner: false
 
   - email: "ronaldinho.gaucho@uol.com.br"
@@ -217,7 +217,7 @@ users:
     nickname: Bruxo
     address: "Av. Paulista, 2073 São Paulo"
     cpf: 014.088.124.13
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551987555/y16lspw8bao6qxa4c2mz.jpg"
     owner: false
 
   - email: "ronaldo.nazario@uol.com.br"
@@ -239,7 +239,7 @@ users:
     nickname: Serginho
     address: "Av. José César de Oliveira, s/n São Paulo"
     cpf: 014.993.338.13
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551470505/bppckzxpmtmvklchmkdj.jpg"
     owner: false
 
   - email: "walter.casagrande@hotmail.com"
@@ -272,7 +272,7 @@ users:
     nickname: Maikinho
     address: "Av. Brg. Faria Lima, 1709 São Paulo"
     cpf: 199.656.338.56
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988636/jm9y91tvuvglojyaqt7t.jpg"
     owner: false
 
   - email: "paulo.roberto@yahoo.com.br"
@@ -283,7 +283,7 @@ users:
     nickname: Falcão
     address: "Av. das Nações Unidas, 15187 São Paulo"
     cpf: 199.441.338.41
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551984389/srkw0k2f0ijt4plostgi.jpg"
     owner: false
 
   - email: "vagner.love@hotmail.com"
@@ -294,7 +294,7 @@ users:
     nickname: Lovinho
     address: "Rua dos Pinheiros, 125 São Paulo"
     cpf: 365.441.338.65
-    photo : "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
+    photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988992/kuesrxyomyrarqolhq1u.jpg"
     owner: false
 
 
