@@ -33,6 +33,10 @@ class PitchPolicy < ApplicationPolicy
     update?
   end
 
+  def map?
+    true
+  end
+  
   def day_blocked?(date)
     start_time = date.beginning_of_day + record.opening_time.hours
     end_time = date.beginning_of_day + record.closing_time.hours
@@ -40,4 +44,5 @@ class PitchPolicy < ApplicationPolicy
 
     booking.present? && booking.blocked ? true : false
   end
+  
 end
