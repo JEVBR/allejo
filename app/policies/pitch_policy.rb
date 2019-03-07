@@ -32,4 +32,8 @@ class PitchPolicy < ApplicationPolicy
   def edit?
     update?
   end
+
+  def map?
+    true
+  end
 end

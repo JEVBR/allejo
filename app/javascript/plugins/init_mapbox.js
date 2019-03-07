@@ -60,8 +60,9 @@ const buildMap = () => {
 };
 
 const addCircleToMarker =(map, marker) => {
-  // console.log("Adding circle to map at:" + marker);
-  const radiusInKm = parseInt(max_dist.value);
+  console.log("Adding circle to map at:" + marker);
+  // const radiusInKm = parseInt(max_dist.value);
+  const radiusInKm = parseInt(2);
   //console.log(parseInt(max_dist.value));
   if(typeof map.getLayer('polygon') !== 'undefined') {
     map.removeLayer('polygon').removeSource('polygon');
@@ -71,16 +72,22 @@ const addCircleToMarker =(map, marker) => {
   map.addLayer(polygonLayer);
 }
 
-const addMarkersToMap = (map, markers) => {
-  markers.forEach((marker) => {
+ const addMarkersToMap = (map, markers) => {
+   //console.log("markers:" + markers);
+  // console.log(map);
 
+  if(typeof map.getLayer('marker') !== 'undefined') {
+    map.removeLayer('marker').removeSource('marker');
+    }
+  markers.forEach((marker) => {
+    console.log(marker);
     if (marker.home) {
       const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
       new mapboxgl.Marker(markerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
-      map.jumpTo({ center: [ marker.lng, marker.lat ] });
+      //map.jumpTo({ center: [ marker.lng, marker.lat ] });
 
     } else{
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
@@ -88,7 +95,12 @@ const addMarkersToMap = (map, markers) => {
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
         addCircleToMarker(map,marker);
-      map.jumpTo({ center: [ marker.lng, marker.lat ] });
+    //  const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
+    //  addCircleToMarker(window.map,place);
+    //  window.map.panTo([e.lngLat.lng, e.lngLat.lat]);
+
+
+     // map.jumpTo({ center: [ marker.lng, marker.lat ] });
     }
   });
 };
@@ -103,37 +115,47 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
 
   if (mapElement) {
-    const map = buildMap();
+    window.map = buildMap();
 
-    map.on('load', function() {
-      const markers = JSON.parse(mapElement.dataset.markers);
-      addMarkersToMap(map, markers);
+    window.map.on('load', function() {
+      //const markers = JSON.parse(mapElement.dataset.markers);
+      //addMarkersToMap(window.map, markers);
     });
-// draw a circle on map where clicked:
-     map.on('click', function(e) {
-      const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
-      addCircleToMarker(map,place);
-      map.panTo([e.lngLat.lng, e.lngLat.lat]);
-      console.log([e.lngLat.lng, e.lngLat.lat]);
+// draw a circle on window.map where clicked:
+     window.map.on('click', function(e) {
+// Move:
+    //  const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
+    //  addCircleToMarker(window.map,place);
+    //  window.map.panTo([e.lngLat.lng, e.lngLat.lat]);
+// x
+
+      //console.log([e.lngLat.lng, e.lngLat.lat]);
+
+      const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}`;
+      //const myData = {lat:21, lng: 30};
+
       Rails.ajax({
                 type: "GET",
-                url: "/pitches",
-                data: "lgn=" + e.lngLat.lng + "lat=" + e.lngLat.lat,
+                url: "/pitches_map",
+                data: myData,
                 contentType: "application/json",
                 dataType: 'script',
-                Accept: 'text/html',
               success: function (form) {
-                console.log("successs");
+                //console.log("successs");
               }
-      //   });
        });
     });
   }
 };
 
 function onSuccess(result) {
-  console.log(result.Response.View[0].Result[0]);
+  //console.log(result.Response.View[0].Result[0]);
 };
+
+window.addMarkersAfterClick = (map,markers) => {
+  addMarkersToMap(map,markers)
+};
+
 
 var createGeoJSONCircle = function(center, radiusInKm, points) {
     if(!points) points = 64;

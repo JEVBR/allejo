@@ -1,8 +1,9 @@
 class PitchesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :map]
   before_action :set_pitch, only: [:show, :destroy, :edit, :update]
 
   def index
+
     @pitches = policy_scope(Pitch).order(created_at: :desc)
     @categories = policy_scope(Category).order(created_at: :desc)
     params[:category_id] = 2 if params[:category_id].nil?
@@ -54,6 +55,37 @@ class PitchesController < ApplicationController
 
   end
 
+  def map
+    max_dist = 2
+    authorize Pitch
+    lat = params[:lat]
+    lng = params[:lng]
+
+    coordinates_hash = { lng: lng.to_f, lat: lat.to_f, home: false }
+    coordinates_array = [lat, lng]
+
+    # MAP:
+    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).near(coordinates_array, max_dist)
+
+    @markers = @mark_pitches.map do |pitch|
+      {
+        lng: pitch.longitude,
+        lat: pitch.latitude,
+        infoWindow: pitch.address,
+        # pitch_description: pitch.description,
+        pitch_title: pitch.title,
+        pitch_link: pitch_path(pitch),
+        pitch_photo: pitch.photo.url,
+        pitch_price: pitch.price,
+        home: true
+      }
+    end
+    #End of MAP
+
+    @markers << coordinates_hash
+    @test = coordinates_hash
+  end
+
   def show
     @booking = Booking.new
     authorize @booking
@@ -102,10 +134,6 @@ class PitchesController < ApplicationController
   end
 
 end
-
-def newlocation
-end
-
 
   def edit
   end

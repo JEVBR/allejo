@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
   post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
 
+  get '/pitches_map', to: 'pitches#map'
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
