@@ -61,9 +61,7 @@ const buildMap = () => {
 const addCircleToMarker =(map, marker) => {
 
   if ( isNaN( max_dist.value )){ max_dist.value = 3 }; // sorry overwrites text in box
-
   if (max_dist.value < 0 || max_dist.value > 10) {max_dist.value = 10};
-  //console.log("Adding circle to map at:" + marker + "radius: " + parseInt(max_dist.value));
   const radiusInKm = parseInt(max_dist.value);
 
   // remove old polygon:
@@ -141,9 +139,7 @@ const initMapbox = () => {
   }
 };
 
-function onSuccess(result) {
-  //console.log(result.Response.View[0].Result[0]);
-};
+function onSuccess(result) {};
 
 const removeOldMarkers = () => {
   if (typeof window.oldmarkers !== 'undefined'){
