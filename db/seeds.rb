@@ -33,6 +33,7 @@ seeds["users"].each do |user|
                               "first_name",
                                "last_name",
                                "phone",
+                               "nickname"
                                "password",
                                "email",
                                "address",
