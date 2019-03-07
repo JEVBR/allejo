@@ -203,6 +203,10 @@
                                     <%= time_slot[:booking].player_phone %>
                                   </div>
                                   <div class="modal-footer">
+                                    <%= link_to 'Cancelar reserva',
+                                          booking_path(time_slot[:booking]),
+                                          method: 'delete',
+                                          data: { confirm: "Tem certeza que deseja cancelar a reserva?"} %>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   </div>
                                 </div>
