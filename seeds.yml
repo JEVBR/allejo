@@ -334,7 +334,7 @@ pitches:
     price: 650
     photo:
     opening_time: 08
-    closing_time: 01
+    closing_time: 23
 
   - title: SilverGold Academia de Futsal
     user_id: 4
@@ -358,7 +358,7 @@ pitches:
     price: 550
     photo:
     opening_time: 07
-    closing_time: 01
+    closing_time: 19
 
   - title: AREA SPORTS
     user_id: 6
@@ -382,5 +382,148 @@ pitches:
     price: 260
     photo:
     opening_time: 10
-    closing_time: 02
+    closing_time: 16
 
+  - title: Campo do Marcelo
+    user_id: 8
+    category_id: 1
+    subtitle: Campo 01
+    address: Rua Mourato Coelho, 1060 São Paulo
+    cep: 05417-001
+    cnpj: 04.800.040/0001-22
+    price: 560
+    photo:
+    opening_time: 10
+    closing_time: 23
+
+  - title: Dutch Society
+    user_id: 9
+    category_id: 2
+    subtitle: Quadra Amstel
+    address: Rua Wisard, 149 São Paulo
+    cep: 05434-010
+    cnpj: 04.999.040/0001-22
+    price: 400
+    photo:
+    opening_time: 11
+    closing_time: 20
+
+  - title: FutSalvaro
+    user_id: 10
+    category_id: 3
+    subtitle: Quadra Verde
+    address: R. dos Pinheiros, 585 São Paulo
+    cep: 05422-011
+    cnpj: 04.999.040/0003-44
+    price: 370
+    photo:
+    opening_time: 08
+    closing_time: 20
+
+  - title: Campo do Japa
+    user_id: 11
+    category_id: 1
+    subtitle: Campinho
+    address: Rua Paracuê, 141 São Paulo
+    cep: 01257-050
+    cnpj: 04.800.040/9999-22
+    price: 580
+    photo:
+    opening_time: 10
+    closing_time: 23
+
+  - title: German Society
+    user_id: 12
+    category_id: 2
+    subtitle: Quadra D
+    address: R. Valdir Niemeyer, 67 São Paulo
+    cep: 01257-080
+    cnpj: 04.999.040/8888-22
+    price: 420
+    photo:
+    opening_time: 11
+    closing_time: 20
+
+  - title: FutSalveme
+    user_id: 13
+    category_id: 3
+    subtitle: Quadra Cruz
+    address: R. Padre Carvalho, 30 São Paulo
+    cep: 05429-040
+    cnpj: 04.999.040/7777-44
+    price: 340
+    photo:
+    opening_time: 08
+    closing_time: 20
+
+  - title: Campo do Pastel
+    user_id: 14
+    category_id: 1
+    subtitle: Campo de Carne
+    address: R. Agostinho Cantu, 129 São Paulo
+    cep: 05501-010
+    cnpj: 04.900.040/9999-22
+    price: 610
+    photo:
+    opening_time: 09
+    closing_time: 15
+
+  - title: Venlo Society
+    user_id: 15
+    category_id: 2
+    subtitle: Quadra V
+    address: Av. Lineu de Paula Machado, 599 São Paulo
+    cep: 03178-200
+    cnpj: 04.700.040/8888-22
+    price: 420
+    photo:
+    opening_time: 12
+    closing_time: 21
+
+  - title: FutSalveme
+    user_id: 16
+    category_id: 3
+    subtitle: Quadra Espada
+    address: Rua Groenlândia, 1828 São Paulo
+    cep: 01434-100
+    cnpj: 04.300.040/7777-44
+    price: 340
+    photo:
+    opening_time: 07
+    closing_time: 17
+
+  - title: Campo do Churrasco
+    user_id: 17
+    category_id: 1
+    subtitle: Campo da Maminha
+    address: R. Francisco Leitão, 272 São Paulo
+    cep: 05414-020
+    cnpj: 04.900.050/9999-22
+    price: 600
+    photo:
+    opening_time: 10
+    closing_time: 15
+
+  - title: Beck Society
+    user_id: 18
+    category_id: 2
+    subtitle: Campo da Ponta
+    address: R. João Moura, 871 São Paulo
+    cep: 05412-001
+    cnpj: 04.700.060/8888-22
+    price: 415
+    photo:
+    opening_time: 13
+    closing_time: 21
+
+  - title: FutSol
+    user_id: 19
+    category_id: 3
+    subtitle: Quadra Rá
+    address: R. Medeiros de Albuquerque, 471 São Paulo
+    cep: 05415-300
+    cnpj: 04.300.070/7777-44
+    price: 300
+    photo:
+    opening_time: 08
+    closing_time: 17
