@@ -301,9 +301,33 @@ users:
 pitches:
 
   - title: Top Society
-    user_id: 1
+    user_id: 5
     category_id: 2
     subtitle: Quadra 01
+    address: Rua Mateus José, 1287
+    cep: 02166-000
+    cnpj: 17.398.679-01
+    price: 350
+    photo:
+    opening_time: 10
+    closing_time: 22
+
+  - title: Top Society
+    user_id: 5
+    category_id: 2
+    subtitle: Quadra 02
+    address: Rua Mateus José, 1287
+    cep: 02166-000
+    cnpj: 17.398.679-01
+    price: 350
+    photo:
+    opening_time: 10
+    closing_time: 22
+
+  - title: Top Society
+    user_id: 5
+    category_id: 2
+    subtitle: Quadra 03
     address: Rua Mateus José, 1287
     cep: 02166-000
     cnpj: 17.398.679-01
@@ -360,8 +384,32 @@ pitches:
     opening_time: 07
     closing_time: 19
 
+  - title: Tapetão
+    user_id: 5
+    category_id: 1
+    subtitle: Campo Verde
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 19
+
+  - title: Tapetão
+    user_id: 5
+    category_id: 1
+    subtitle: Campo Rosa
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 19
+
   - title: AREA SPORTS
-    user_id: 6
+    user_id: 5
     category_id: 3
     subtitle: Quadra Sul
     address: R. Pamplona, 1616 São Paulo
@@ -373,7 +421,7 @@ pitches:
     closing_time: 22
 
   - title: ProSport
-    user_id: 7
+    user_id: 5
     category_id: 3
     subtitle: Quadra Norte
     address: R. Rocha, 583 São Paulo
@@ -385,7 +433,7 @@ pitches:
     closing_time: 16
 
   - title: Campo do Marcelo
-    user_id: 8
+    user_id: 3
     category_id: 1
     subtitle: Campo 01
     address: Rua Mourato Coelho, 1060 São Paulo
@@ -397,7 +445,7 @@ pitches:
     closing_time: 23
 
   - title: Dutch Society
-    user_id: 9
+    user_id: 4
     category_id: 2
     subtitle: Quadra Amstel
     address: Rua Wisard, 149 São Paulo
@@ -409,7 +457,7 @@ pitches:
     closing_time: 20
 
   - title: FutSalvaro
-    user_id: 10
+    user_id: 1
     category_id: 3
     subtitle: Quadra Verde
     address: R. dos Pinheiros, 585 São Paulo
@@ -421,7 +469,7 @@ pitches:
     closing_time: 20
 
   - title: Campo do Japa
-    user_id: 11
+    user_id: 3
     category_id: 1
     subtitle: Campinho
     address: Rua Paracuê, 141 São Paulo
@@ -433,7 +481,7 @@ pitches:
     closing_time: 23
 
   - title: German Society
-    user_id: 12
+    user_id: 4
     category_id: 2
     subtitle: Quadra D
     address: R. Valdir Niemeyer, 67 São Paulo
@@ -445,7 +493,7 @@ pitches:
     closing_time: 20
 
   - title: FutSalveme
-    user_id: 13
+    user_id: 1
     category_id: 3
     subtitle: Quadra Cruz
     address: R. Padre Carvalho, 30 São Paulo
@@ -457,7 +505,7 @@ pitches:
     closing_time: 20
 
   - title: Campo do Pastel
-    user_id: 14
+    user_id: 3
     category_id: 1
     subtitle: Campo de Carne
     address: R. Agostinho Cantu, 129 São Paulo
@@ -469,7 +517,7 @@ pitches:
     closing_time: 15
 
   - title: Venlo Society
-    user_id: 15
+    user_id: 4
     category_id: 2
     subtitle: Quadra V
     address: Av. Lineu de Paula Machado, 599 São Paulo
@@ -481,7 +529,7 @@ pitches:
     closing_time: 21
 
   - title: FutSalveme
-    user_id: 16
+    user_id: 1
     category_id: 3
     subtitle: Quadra Espada
     address: Rua Groenlândia, 1828 São Paulo
@@ -493,7 +541,7 @@ pitches:
     closing_time: 17
 
   - title: Campo do Churrasco
-    user_id: 17
+    user_id: 3
     category_id: 1
     subtitle: Campo da Maminha
     address: R. Francisco Leitão, 272 São Paulo
@@ -505,7 +553,7 @@ pitches:
     closing_time: 15
 
   - title: Beck Society
-    user_id: 18
+    user_id: 4
     category_id: 2
     subtitle: Campo da Ponta
     address: R. João Moura, 871 São Paulo
@@ -516,10 +564,46 @@ pitches:
     opening_time: 13
     closing_time: 21
 
+  - title: Beck Society
+    user_id: 4
+    category_id: 2
+    subtitle: Campo da Seda
+    address: R. João Moura, 871 São Paulo
+    cep: 05412-001
+    cnpj: 04.700.060/8888-22
+    price: 415
+    photo:
+    opening_time: 13
+    closing_time: 21
+
   - title: FutSol
-    user_id: 19
+    user_id: 1
     category_id: 3
     subtitle: Quadra Rá
+    address: R. Medeiros de Albuquerque, 471 São Paulo
+    cep: 05415-300
+    cnpj: 04.300.070/7777-44
+    price: 300
+    photo:
+    opening_time: 08
+    closing_time: 17
+
+  - title: FutSol
+    user_id: 1
+    category_id: 3
+    subtitle: Quadra Zon
+    address: R. Medeiros de Albuquerque, 471 São Paulo
+    cep: 05415-300
+    cnpj: 04.300.070/7777-44
+    price: 300
+    photo:
+    opening_time: 08
+    closing_time: 17
+
+  - title: FutSol
+    user_id: 1
+    category_id: 3
+    subtitle: Quadra Isís
     address: R. Medeiros de Albuquerque, 471 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
