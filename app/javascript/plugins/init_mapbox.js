@@ -75,23 +75,28 @@ const addCircleToMarker =(map, marker) => {
  const addMarkersToMap = (map, markers) => {
    //console.log("markers:" + markers);
   // console.log(map);
-
-  if(typeof map.getLayer('marker') !== 'undefined') {
-    map.removeLayer('marker').removeSource('marker');
-    }
+  removeOldMarkers();
+  window.oldmarkers = [];
   markers.forEach((marker) => {
     console.log(marker);
     if (marker.home) {
       const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
-      new mapboxgl.Marker(markerOptions)
+      var test = new mapboxgl.Marker(markerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
       //map.jumpTo({ center: [ marker.lng, marker.lat ] });
+      //console.log(test);
 
+      test.on('mouseover', function(e) {
+   // popup opened so we fire an event
+          console.log("popop");
+        });
+
+      oldmarkers.push(test);
     } else{
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
-      new mapboxgl.Marker(whereAmIMarkerOptions)
+      test = new mapboxgl.Marker(whereAmIMarkerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
         addCircleToMarker(map,marker);
@@ -101,7 +106,9 @@ const addCircleToMarker =(map, marker) => {
 
 
      // map.jumpTo({ center: [ marker.lng, marker.lat ] });
+          oldmarkers.push(test);
     }
+
   });
 };
 
@@ -116,19 +123,50 @@ const initMapbox = () => {
 
   if (mapElement) {
     window.map = buildMap();
-
+    window.StopClick = false;
     window.map.on('load', function() {
-      //const markers = JSON.parse(mapElement.dataset.markers);
-      //addMarkersToMap(window.map, markers);
+      const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+        console.log(marker);
+        if (marker.home) {
+          console.log("skip")
+        } else {
+          console.log("map redraw, move to center")
+          map.jumpTo({ center: [ marker.lng, marker.lat ] });
+        }
+      });
+      addMarkersToMap(window.map, markers);
     });
 // draw a circle on window.map where clicked:
+    //       console.log("oiiiiii");
+    // window.map.on('mousemove', 'polygon', function(e) {
+    //     // Change the cursor style as a UI indicator.
+    //   console.log(e);
+    // });
+
+    window.map.on('mouseenter', 'polygon', function(e) {
+        // Change the cursor style as a UI indicator.
+      console.log("entered");
+      window.StopClick = true;
+      console.log(window.StopClick);
+    });
+
+    window.map.on('mouseleave', 'polygon', function(e) {
+        // Change the cursor style as a UI indicator.
+      console.log("left");
+            window.StopClick = false;
+      console.log(window.StopClick);
+    });
+
      window.map.on('click', function(e) {
 // Move:
     //  const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
     //  addCircleToMarker(window.map,place);
     //  window.map.panTo([e.lngLat.lng, e.lngLat.lat]);
 // x
-
+      if(window.StopClick) {
+        return;
+      }
       //console.log([e.lngLat.lng, e.lngLat.lat]);
 
       const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}`;
@@ -152,9 +190,37 @@ function onSuccess(result) {
   //console.log(result.Response.View[0].Result[0]);
 };
 
+
+const removeOldMarkers = () => {
+  if (typeof window.oldmarkers !== 'undefined'){
+    //console.log(window.oldmarkers);
+        console.log("removing old markers")
+        window.oldmarkers.forEach((marker) => {
+        //if (marker.home) {
+          marker.remove();
+        //  console.log("remmmm")
+        //} else {
+          //marker.remove();
+        //  console.log("skippppp")
+       // }
+      });
+
+
+   }
+
+};
+
 window.addMarkersAfterClick = (map,markers) => {
+  console.log(map.getStyle().layers);
+  //map.clear();
+  //map.removeAnnotations();
+  // map.removeAllAnnotations();
+  //map.removeLayer('marker').removeSource('marker');
+  //removeOldMarkers();
+
   addMarkersToMap(map,markers)
 };
+
 
 
 var createGeoJSONCircle = function(center, radiusInKm, points) {

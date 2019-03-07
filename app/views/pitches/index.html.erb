@@ -12,26 +12,11 @@
 
           <!-- Search Input -->
       <div class="homes-index-search">
-      <%= form_tag(pitches_map_path, method: :get, remote: true) do %>
-        <%= text_field_tag  :lng,
-            params[:lng],
 
-            :style => "width: 480px",
-            :class => 'searchfield'
-      %>
-        <%= text_field_tag  :lat,
-            params[:lat],
+        <!-- DO NOT REMOVE, this button starts the ajax communication-->
+        <%= form_tag(pitches_map_path, method: :get, remote: true) do %><% end %>
+        <!-- DO NOT REMOVE, this button starts the ajax communication-->
 
-            :style => "width: 480px",
-            :class => 'searchfield'
-     %>
-
-
-
-
-        <%= submit_tag 'AJAXTEST' %>
-
-        <% end %>
         <%= form_tag(pitches_path, method: :get) do %>
         <%= text_field_tag  :location,
             params[:location],
