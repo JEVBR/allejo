@@ -36,6 +36,8 @@ class BookingsController < ApplicationController
     jid = Sidekiq::ScheduledSet.new.find { |a| job_id }.item["jid"]
     Sidekiq::ScheduledSet.new.find_job(jid).delete
 
+    BookingCanceledMailerJob.perform_now(@booking.id)
+
     @booking.destroy
     redirect_to users_show_path
   end
