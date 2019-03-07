@@ -27,8 +27,10 @@ class PitchesController < ApplicationController
 
     address = location if Geocoder.search(location) != []
 
-    lat = Geocoder.search(address).first.latitude.to_f
-    lng = Geocoder.search(address).first.longitude.to_f
+    unless Geocoder.search(address).first.nil?
+      lat = Geocoder.search(address).first.latitude.to_f
+      lng = Geocoder.search(address).first.longitude.to_f
+    end
 
     coordinates_hash = { lng: lng, lat: lat, home: false }
     coordinates_array = [lat, lng]
