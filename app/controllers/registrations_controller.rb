@@ -20,6 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
                                  :phone,
                                  :nickname,
                                  :cpf,
+                                 :address,
                                  :email,
                                  :password,
                                  :password_confirmation,
