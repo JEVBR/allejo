@@ -8,12 +8,18 @@ class ParticipantsController < ApplicationController
     participant = Participant.new
     authorize participant
 
+
     if user.present? && booking.present?
       participant = Participant.new(booking: booking, user: user)
     end
 
     if participant.valid?
       participant.save
+
+      unless user == current_user
+        ParticipantMailer.new_invitation(participant.id, current_user.id).deliver_now
+      end
+
       redirect_to request.env["HTTP_REFERER"], notice: "#{user.full_name} foi adicionado a sua partida"
     else
       redirect_to request.env["HTTP_REFERER"], alert: "#{user.full_name} já foi adicionado a sua partida"
