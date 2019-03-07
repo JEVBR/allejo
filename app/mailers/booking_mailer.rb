@@ -4,9 +4,16 @@ class BookingMailer < ApplicationMailer
   #
   #   en.booking_mailer.match_day_is_coming.subject
   #
-  def match_day_is_coming(user_id)
+  def match_day_is_coming(user_id, booking_id)
     user = User.find(user_id)
+    booking = Booking.find(booking_id)
+    pitch = Pitch.find(booking.pitch.id)
+
     @first_name = user.first_name
+    @date = booking.start_time.strftime("%d/%m")
+    @pitch_title = pitch.title
+    @address = pitch.address
+
     mail(to: user.email, subject: 'Não esqueça do jogo amanhã')
   end
 end
