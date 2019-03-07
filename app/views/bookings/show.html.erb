@@ -113,7 +113,7 @@
                     method: 'post' %> </p>
                     <% end %>
 
-                    <% if policy(@booking).organizer? %>
+                    <% if policy(@booking).organizer? && !policy(participant).current_user? %>
                     <%=  link_to 'x', booking_participant_path(@booking, participant),
                     method: :delete,
                     data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %> </h5>
