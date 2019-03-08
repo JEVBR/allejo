@@ -3,7 +3,7 @@
 // Mapbox:
 
 .mapbox-pitch-marker {
-  background-image: asset-url('ball.jpeg');
+  background-image: asset-url('field.png');
   color: black;
   background-size: cover;
   width: 50px;
@@ -14,6 +14,16 @@
 
 .mapbox-central-marker {
   background-image: asset-url('goal.png');
+  color: black;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+//  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapbox-friends-marker {
+  background-image: asset-url('grass.png');
   color: black;
   background-size: cover;
   width: 50px;
