@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -18,6 +19,7 @@ class User < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
   # validates :cpf, presence: true
+  after_validation :geocode, if: :will_save_change_to_address?
 
   after_save do
     update_column(:full_name, "#{first_name} #{last_name}")
