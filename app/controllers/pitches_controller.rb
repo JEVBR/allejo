@@ -65,13 +65,16 @@ class PitchesController < ApplicationController
     end
 
     if user_signed_in?
-      @mark_friends = current_user.friendships.where.not(latitude: nil, longitude: nil)
-      @mark_friends.each do |friendship|
-        @markers << {
-                      lat: friendship.friend.latitude,
-                      lng: friendship.friend.longitude,
-                      type: 2
-                    }
+      @mark_friends = current_user.friends
+
+      if @mark_friends.present?
+        @mark_friends.each do |friend|
+          @markers << {
+                        lat: friend.latitude,
+                        lng: friend.longitude,
+                        type: 2
+                      }
+        end
       end
     end
 

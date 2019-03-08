@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :participants
 
   has_many :friendships, foreign_key: :user_id
+  has_many :friends, through: :friendships
 
   validates :first_name, presence: true
   validates :last_name, presence: true
