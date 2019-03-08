@@ -6,32 +6,40 @@ class PitchesController < ApplicationController
 
     @pitches = policy_scope(Pitch).order(created_at: :desc)
     @categories = policy_scope(Category).order(created_at: :desc)
-    params[:category_id] = 2 if params[:category_id].nil?
 
     max_dist = params[:max_dist].to_i
     max_dist = 1_000_000 if max_dist.to_i.zero?
-    location = params[:location]
+
     params[:date] = Date.today if params[:date].nil?
     params[:category_id] = 2 if params[:category_id].nil?
 
+    # recieve from searchfield in INDEX:
+    location = params[:location]
+
+    # keep info (if valid) that the user has written in the searchbox:
     @searchfield = location.nil? || location == '' ? "Procurar endereco" : location
+
     @distfield = max_dist == 1_000_000 ? "distancia (km)" : max_dist
 
     # determine default addres if loged in or not
     if user_signed_in?
       user = User.find(current_user.id)
-      address = user.address
+      lat = user.latitude
+      lng = user.longitude
     else
-      address = "Rua Mourato Coelho 1404 Sao Paulo"
+      lat = -23.66
+      lng = -46.66
     end
 
-    address = location if Geocoder.search(location) != []
+    # use the user input from search field
+    address = location if Geocoder.search(location).present?
 
     unless Geocoder.search(address).first.nil?
       lat = Geocoder.search(address).first.latitude.to_f
       lng = Geocoder.search(address).first.longitude.to_f
     end
 
+    # extra bugtrap:
     if lat.nil? || lat.zero? || lng.nil? || lng.zero?
       lng = -46.66
       lat = -23.66
