@@ -3,7 +3,6 @@ class PitchesController < ApplicationController
   before_action :set_pitch, only: [:show, :destroy, :edit, :update]
 
   def index
-
     @pitches = policy_scope(Pitch).order(created_at: :desc)
     @categories = policy_scope(Category).order(created_at: :desc)
 
@@ -45,7 +44,7 @@ class PitchesController < ApplicationController
       lat = -23.66
     end
 
-    coordinates_hash = { lng: lng, lat: lat, home: false }
+    coordinates_hash = { lng: lng, lat: lat, type: 0 }
     coordinates_array = [lat, lng]
 
     # MAP:
@@ -61,9 +60,21 @@ class PitchesController < ApplicationController
         pitch_link: pitch_path(pitch),
         pitch_photo: pitch.photo.url,
         pitch_price: pitch.price,
-        home: true
+        type: 1
       }
     end
+
+    if user_signed_in?
+      @mark_friends = current_user.friendships.where.not(latitude: nil, longitude: nil)
+      @mark_friends.each do |friendship|
+        @markers << {
+                      lat: friendship.friend.latitude,
+                      lng: friendship.friend.longitude,
+                      type: 2
+                    }
+      end
+    end
+
     #End of MAP
 
     @markers << coordinates_hash
@@ -76,7 +87,7 @@ class PitchesController < ApplicationController
     lat = params[:lat]
     lng = params[:lng]
 
-    coordinates_hash = { lng: lng.to_f, lat: lat.to_f, home: false }
+    coordinates_hash = { lng: lng.to_f, lat: lat.to_f, type: 0 }
     coordinates_array = [lat, lng]
 
     # MAP:
