@@ -45,8 +45,8 @@ const polygonLayer = {
   }
 };
 
-const markerOptions = {color: 'green'};
-const whereAmIMarkerOptions = {color: 'red'};
+// const markerOptions = {color: 'red'};
+// const whereAmIMarkerOptions = {color: 'red'};
 const mapBounds = { padding: 70, maxZoom: 15 };
 
 // end of STYLES and CONFIGURATIONS:
@@ -78,18 +78,24 @@ const addMarkersToMap = (map, markers) => {
   window.oldmarkers = [];
 
   markers.forEach((marker) => {
+
   // place makers of available items:
     if (marker.home) {
+      var el = document.createElement('div');
+      el.className = 'mapbox-pitch-marker';
       const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
-      var markerTemp = new mapboxgl.Marker(markerOptions)
+      //var markerTemp = new mapboxgl.Marker(markerOptions)
+      var markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
       oldmarkers.push(markerTemp);
     // place the central marker:
     } else {
+      var el = document.createElement('div');
+      el.className = 'mapbox-central-marker';
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
-      markerTemp = new mapboxgl.Marker(whereAmIMarkerOptions)
+      markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
       addCircleToMarker(map,marker);
