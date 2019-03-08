@@ -106,13 +106,26 @@ class PitchesController < ApplicationController
         pitch_link: pitch_path(pitch),
         pitch_photo: pitch.photo.url,
         pitch_price: pitch.price,
-        home: true
+        type: 1
       }
     end
-    #End of MAP
+
+    if user_signed_in?
+      @mark_friends = current_user.friends
+
+      if @mark_friends.present?
+        @mark_friends.each do |friend|
+          @markers << {
+                        lat: friend.latitude,
+                        lng: friend.longitude,
+                        type: 2
+                      }
+        end
+      end
+    end
 
     @markers << coordinates_hash
-    @test = coordinates_hash
+
   end
 
   def show
