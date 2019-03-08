@@ -21,6 +21,7 @@
   color: white;
   h1 {
   font-family: $geo;
+  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
   }
 }
 
@@ -203,6 +204,8 @@
     background-color: rgba(20,20,20,0.4);
     width: 145px;
     padding-left: 4px;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .card-pitch-type {
     top: 24px;

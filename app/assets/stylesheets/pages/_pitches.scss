@@ -100,6 +100,9 @@
   h3 {
     font-family: $geo;
     font-size: 48px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 180px;
     margin-top: 0;
     color: $heavy-green;
     text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
