@@ -686,8 +686,9 @@
   padding-left: 8px;
   overflow: hidden;
   p {
-    // width: 480px;
     font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   a {
     margin-left: 40px;
@@ -831,9 +832,10 @@
 
 .users-show-player-title {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   h2 {
     font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     font-size: 48px;
     color: white;
   }
@@ -845,6 +847,7 @@
   padding: 16px;
   display: flex;
   overflow: scroll;
+  margin-bottom: 48px;
 }
 
 .users-show-player-white-card-bar {
@@ -852,13 +855,21 @@
   border-radius: 2px 2px 0 0;
   height: 48px;
   color: white;
-  span {
-
-  }
 }
+
+.users-show-player-col-headers {
+  min-width: 240px;
+  display: flex;
+  justify-content: center;
+  font-family: $geo;
+  font-size: 24px;
+  color: white;
+}
+
 
 .users-show-player-info {
   background-color: rgba(243,243,243,0.7);
+  box-shadow: 1px 1px 1px 1px hsla(0, 0%, 0%, 0.4);
   border-radius: 3px;
   max-height: 540px;
   overflow: scroll;
@@ -866,11 +877,18 @@
 
 .users-show-player-photo {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   img {
-  max-width: 100%;
-  border-radius: 2px;
   padding: 16px;
+  justify-content: center;
+  border-radius: 2px;
+  max-height: 320px;
+  width: 480px;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   }
 }
 
@@ -878,9 +896,10 @@
   margin-top: 16px;
   position: relative;
   color: $dark-gray;
+  overflow: hidden;
   p {
     font-size: 16px;
-    padding: 4px 0 0 4px;
+    padding: 4px 8px 0 16px;
   }
   a {
   color: white;
@@ -900,13 +919,13 @@
   }
   h4 {
     margin-top: 0;
-    height: 32px;
-    // border-top: solid 2px;
-    // border-color: white;
-    background-color: $dark-gray;
+    height: 16px;
     max-width: 100%;
     padding: 8px;
     border-radius: 0 0 2px 2px;
+    a {
+    color: $dark-gray;
+    }
   }
   i {
     color: gray;
@@ -914,7 +933,6 @@
 }
 
 .users-show-player-invited-games-wrapper {
-  // background-color: black;
   overflow: scroll;
   max-height: 540px;
 }
@@ -950,6 +968,7 @@
 .users-show-player-games-each {
   border-radius: 2px;
   background-color: rgba(250,250,250,0.5);
+  box-shadow: 1px 1px 1px 1px hsla(0, 0%, 0%, 0.4);
   padding-left: 8px;
   font-weight: lighter;
   max-height: 180px;
@@ -1050,6 +1069,7 @@ time.icon span
     font-weight: lighter;
     font-size: 16px;
     background-color: $dark-gray;
+    min-width: 240px;
     max-width: 100%;
     padding: 8px;
     border-radius: 2px 2px 0 0;
@@ -1061,6 +1081,7 @@ time.icon span
     font-weight: lighter;
     font-size: 16px;
     background-color: $dark-gray;
+    min-width: 240px;
     max-width: 100%;
     padding: 8px;
     border-radius: 0 0 2px 2px;
@@ -1075,6 +1096,7 @@ time.icon span
   color: $dark-gray;
   font-family: ubuntu;
   font-size: 16px;
+  min-width: 240px;
   max-width: 100%;
   margin: 0 16px;
   padding: 8px;
@@ -1091,6 +1113,17 @@ time.icon span
   }
 }
 
+.text-field-addcontact {
+  max-width: 160px;
+  margin-right: 8px;
+  border-radius: 2px;
+  color: $dark-gray;
+}
+
+.text-field-addcontact-plusbtn {
+  color: $dark-gray;
+  font-weight: bolder;
+}
 
 
 // -=-=-= End Users Show Player =-=-=- //

@@ -155,7 +155,7 @@
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
 
                           <% if time_slot[:booking].present? %>
-                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><i class="fas fa-user"></i> <%= time_slot[:booking].player_name[0..6] %></a> <!-- BOTAO DO MODAL -->
+                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><i class="fas fa-user"></i> <%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
                           <% end %>
                           </p>
 
