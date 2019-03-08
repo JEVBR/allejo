@@ -11,7 +11,7 @@
               <div class="pitches-left-seccion">
                 <!-- Foto -->
                 <div class="pitches-left-photo-wrap">
-                  <img src="<%= @pitch.photo.url %>" alt="No photos" style="width:200px;height:200px;">
+                  <%= cl_image_tag @pitch.photo.url %>
                 </div>
                 <div class="pitches-left-info-wrap">
                   <div class="pitches-left-info-title">
@@ -63,7 +63,7 @@
 
                       <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>  <% time_slot[:available] %>
 
-                        <%= link_to 'reservar',
+                        <%= link_to 'Reservar',
                         pitch_bookings_path(
                           pitch_id: @pitch.id,
                           booking: {
