@@ -65,6 +65,7 @@ users:
     cpf: 033.888.020.88
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988475/tmy6ud4lf5wlpsh92xto.jpg"
     owner: false
+    position_id: 1
 
   - email: "mauro.silva@bol.com.br"
     password: 123789
@@ -76,6 +77,7 @@ users:
     cpf: 033.888.020.88
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551984781/oso1vblubnefcblbvqkp.jpg"
     owner: false
+    position_id: 1
 
   - email: "martin.palermo@bol.com.br"
     password: 123789
@@ -87,6 +89,7 @@ users:
     cpf: 088.333.020.88
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 1
 
   - email: "pep.guardiola@bol.com.br"
     password: 123789
@@ -98,6 +101,7 @@ users:
     cpf: 099.444.020.88
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 1
 
   - email: "sergio.ramos@gmail.com"
     password: 123789
@@ -109,6 +113,7 @@ users:
     cpf: 099.555.010.33
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 2
 
   - email: "lionel.messi@gmail.com"
     password: 123789
@@ -120,6 +125,7 @@ users:
     cpf: 099.555.022.22
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985127/shybwmkqxkrempqebwqh.jpg"
     owner: false
+    position_id: 2
 
   - email: "juca.kfouri@yahoo.com.br"
     password: 123789
@@ -131,6 +137,7 @@ users:
     cpf: 099.555.138.25
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 2
 
   - email: "roberto.avallone@yahoo.com.br"
     password: 123789
@@ -142,6 +149,7 @@ users:
     cpf: 123.321.123.32
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 2
 
   - email: "ze.sergio@bol.com.br"
     password: 123789
@@ -153,6 +161,7 @@ users:
     cpf: 321.321.123.23
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985304/rnelm2xx0pmzgga8vfy3.jpg"
     owner: false
+    position_id: 3
 
   - email: "vinicius.junior@gmail.com"
     password: 123789
@@ -164,6 +173,7 @@ users:
     cpf: 999.321.123.23
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988562/ndisj9s3ffj53mdqzvsl.jpg"
     owner: false
+    position_id: 3
 
   - email: "sadio.mane@bol.com.br"
     password: 123789
@@ -175,6 +185,7 @@ users:
     cpf: 999.321.123.23
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551985401/xivyo0njfvatxzuhucyt.jpg"
     owner: false
+    position_id: 3
 
   - email: "roger.milla@hotmail.com"
     password: 123789
@@ -186,6 +197,7 @@ users:
     cpf: 233.088.235.29
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551995652/yqrmkwrtdw9bhtudutpf.jpg"
     owner: false
+    position_id: 4
 
   - email: "rogerio.ceni@bol.com.br"
     password: 123789
@@ -197,6 +209,7 @@ users:
     cpf: 015.088.124.29
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 4
 
   - email: "silvio.luiz@uol.com.br"
     password: 123789
@@ -208,6 +221,7 @@ users:
     cpf: 014.088.124.13
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551987497/ztbdvcqi1qfov0x9axmz.jpg"
     owner: false
+    position_id: 4
 
   - email: "ronaldinho.gaucho@uol.com.br"
     password: 123789
@@ -219,6 +233,7 @@ users:
     cpf: 014.088.124.13
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551987555/y16lspw8bao6qxa4c2mz.jpg"
     owner: false
+    position_id: 4
 
   - email: "ronaldo.nazario@uol.com.br"
     password: 123789
@@ -230,6 +245,7 @@ users:
     cpf: 014.088.338.13
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 3
 
   - email: "serginho.chulapa@hotmail.com"
     password: 123789
@@ -241,6 +257,7 @@ users:
     cpf: 014.993.338.13
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551470505/bppckzxpmtmvklchmkdj.jpg"
     owner: false
+    position_id: 3
 
   - email: "walter.casagrande@hotmail.com"
     password: 123789
@@ -252,6 +269,7 @@ users:
     cpf: 014.776.338.13
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 3
 
   - email: "hugo.sanchez@realmadrid.es"
     password: 123789
@@ -263,6 +281,7 @@ users:
     cpf: 199.776.338.88
     photo: "http://res.cloudinary.com/dpkbckolo/image/upload/v1550852959/iankdmtsez9llx1xmz3d.jpg"
     owner: false
+    position_id: 3
 
   - email: "maikon.leite@gmail.com"
     password: 123789
@@ -274,6 +293,7 @@ users:
     cpf: 199.656.338.56
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988636/jm9y91tvuvglojyaqt7t.jpg"
     owner: false
+    position_id: 2
 
   - email: "paulo.roberto@yahoo.com.br"
     password: 123789
@@ -285,6 +305,7 @@ users:
     cpf: 199.441.338.41
     photo : "https://res.cloudinary.com/dpkbckolo/image/upload/v1551984389/srkw0k2f0ijt4plostgi.jpg"
     owner: false
+    position_id: 2
 
   - email: "vagner.love@hotmail.com"
     password: 123789
@@ -296,6 +317,7 @@ users:
     cpf: 365.441.338.65
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551988992/kuesrxyomyrarqolhq1u.jpg"
     owner: false
+    position_id: 2
 
 
 pitches:

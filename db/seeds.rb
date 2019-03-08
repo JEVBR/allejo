@@ -12,6 +12,12 @@ Category.create(name: 'Society')
 Category.create(name: 'Campo')
 puts "Categories seeded"
 
+puts "Seeding positions(player)"
+Position.create(name: 'Atacante')
+Position.create(name: 'Zagueiro')
+Position.create(name: 'Goleiro')
+Position.create(name: 'Meio de campo')
+puts "Positions added"
 # puts "Creating test user"
 # User.create(email: 'test@test.com', password: '123123', first_name: 'test', last_name: 'last_name', phone: 12341234, nickname: 'nickname', address: 'address', cpf:1111, owner: true)
 # puts "Test user created"
@@ -38,6 +44,7 @@ seeds["users"].each do |user|
                                "email",
                                "address",
                                "cpf",
+                               "position_id",
                                "owner")
   temp.remote_photo_url = user.slice(Tag)[Tag.to_s]
   temp.save

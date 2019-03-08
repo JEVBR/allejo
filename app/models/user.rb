@@ -8,6 +8,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :position, optional: true
+
   has_many :pitches, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :participants
