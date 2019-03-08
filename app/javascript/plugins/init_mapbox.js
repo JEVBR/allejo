@@ -21,6 +21,13 @@ const whereAmIPopUp = (marker) => {
   )
 };
 
+// not used now
+const friendPopUp = (marker) => {
+  return (
+    `<h6>Seu Amigo esta aqui</h6>`
+  )
+};
+
 const mapBoxSetup = () => {
   return(
     {
@@ -78,9 +85,9 @@ const addMarkersToMap = (map, markers) => {
   window.oldmarkers = [];
 
   markers.forEach((marker) => {
-
+  console.log(marker);
   // place makers of available items:
-    if (marker.home) {
+    if (marker.type == 1 ) { // CAMPOS
       var el = document.createElement('div');
       el.className = 'mapbox-pitch-marker';
       const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
@@ -90,8 +97,10 @@ const addMarkersToMap = (map, markers) => {
         .setPopup(popup)
         .addTo(map);
       oldmarkers.push(markerTemp);
+    }
     // place the central marker:
-    } else {
+
+    if (marker.type == 0 ) { // CENTRAL
       var el = document.createElement('div');
       el.className = 'mapbox-central-marker';
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
@@ -100,6 +109,16 @@ const addMarkersToMap = (map, markers) => {
         .addTo(map);
       map.panTo([ marker.lng, marker.lat ]);
       addCircleToMarker(map,marker);
+      oldmarkers.push(markerTemp);
+    }
+
+    if (marker.type == 2 ) { // AMIGOS
+      var el = document.createElement('div');
+      el.className = 'mapbox-friends-marker';
+      const popup = new mapboxgl.Popup().setHTML(friendPopUp(marker));
+      markerTemp = new mapboxgl.Marker(el)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
       oldmarkers.push(markerTemp);
     }
   });
