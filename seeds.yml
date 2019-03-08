@@ -587,7 +587,7 @@ pitches:
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 300
-    photo:"https://res.cloudinary.com/dpkbckolo/image/upload/v1552061921/eopsbppudr7cd6uxgrnz.jpg"
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552061921/eopsbppudr7cd6uxgrnz.jpg"
     opening_time: 08
     closing_time: 17
 
