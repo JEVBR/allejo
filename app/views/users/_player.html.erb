@@ -43,9 +43,7 @@
 
           <div class="col-md-3">
             <div class="users-show-player-invited-games-wrapper">
-
-              <% @upcoming_bookings.each do |booking| %>
-              <% if policy(Participant).confirmed?(current_user, booking) %>
+              <% @guest_bookings.each do |booking| %>
               <div class="users-show-player-games-each">
                 <div class="users-show-player-games-each-details">
 
@@ -65,6 +63,7 @@
 
                 </div>
               </div>
+              <% if policy(Participant).confirmed?(current_user, booking) %>
               <% end %>
             <% end %>
             </div>
@@ -78,22 +77,21 @@
           <!-- Jogos Organizador -->
           <div class="col-md-3">
             <div class="users-show-player-organizer-games-wrapper">
-
-              <% @user.participants.each do |game| %>
+              <% @host_bookings.each do |booking| %>
               <div class="users-show-player-games-each">
                 <div class="users-show-player-games-each-details">
-                  <h5><%= game.booking.pitch.title %></h5>
-                  <p><i class="far fa-clock"></i> <strong><%= game.booking.start_time.strftime("%H:%M") %> - <%= game.booking.end_time.strftime("%H:%M") %></strong>   </p>
-                  <p> <i class="fas fa-user" style="color: rgb(65,173,73);"></i> <%= game.booking.participants.where(confirmed: true).count %> <i class="far fa-user"></i> <%= game.booking.participants.where(confirmed: false).count %></p>
-                  <%= link_to 'Ver detalhes', booking_path(game.booking) %>
+                  <h5><%= booking.pitch.title %></h5>
+                  <p><i class="far fa-clock"></i> <strong><%= booking.start_time.strftime("%H:%M") %> - <%= booking.end_time.strftime("%H:%M") %></strong>   </p>
+                  <p> <i class="fas fa-user" style="color: rgb(65,173,73);"></i> <%= booking.participants.where(confirmed: true).count %> <i class="far fa-user"></i> <%= booking.participants.where(confirmed: false).count %></p>
+                  <%= link_to 'Ver detalhes', booking_path(booking) %>
 
                 </div>
                 <div class="users-show-player-games-each-calendar">
 
                   <time datetime="#" class="icon">
-                    <em><%= game.booking.start_time.strftime("%A") %></em>
-                    <strong><%= game.booking.start_time.strftime("%B") %></strong>
-                    <span> <%= game.booking.start_time.strftime("%d") %> </span>
+                    <em><%= booking.start_time.strftime("%A") %></em>
+                    <strong><%= booking.start_time.strftime("%B") %></strong>
+                    <span> <%= booking.start_time.strftime("%d") %> </span>
                   </time>
 
                 </div>
