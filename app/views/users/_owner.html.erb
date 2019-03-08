@@ -7,31 +7,6 @@
             <h2>Painel de Controle</h2>
           </div>
 
-        <!-- Owner Info -->
-<!--         <div class="users-show-info-white-card">
-          <div class="row">
-            <div class="col col-md-12 col-xs-4">
-              <div class="users-show-info-wrapper">
-                <div class="users-show-info-photo">
-                  <%= cl_image_tag @user.photo.url, height: 200, width: 200 %>
-                </div>
-                <div class="users-show-info">
-                  <p><i class="fas fa-envelope"></i> <%= @user.email%></p>
-                  <p><i class="fa fa-user"></i> <%= @user.first_name %> <%= @user.last_name %></p>
-                  <p><i class="fas fa-portrait"></i> <%= @user.nickname %></p>
-                  <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
-                  <p><i class="fas fa-mobile"></i> <%= @user.phone %></p>
-                </div>
-                <div>
-                  <%= link_to 'Editar', edit_user_registration_path(@user) %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- End User Info -->
-
-
         <!-- Pitch Info -->
 
         <div class="users-show-pitch-white-card">
@@ -46,12 +21,12 @@
                       <div class="users-show-pitch-info-filters-title">
                         <h3>Agenda <%= @pitch.subtitle %></h3>
                       </div>
-                      <div>
+                      <div class="users-show-pitch-info-filters-selectdatepick">
                         <%= form_tag(users_show_path, method: :get) do |f| %>
 
                           <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "subtitle", @pitch.id), :class => 'selecttag' %>
 
-                          <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %></span>
+                          <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker', value: Date.today %></span>
 
                          <span style="margin-left: 24px"><%= submit_tag 'Pesquisar', :class => 'pitchsearch' %></span>
                         <% end %>
@@ -100,7 +75,7 @@
           <div class="row">
             <div class="col col-md-12">
               <!-- Pitch Schedules -->
-              <div>
+              <div class="users-show-owner-pitch-schedule">
 
 
                   <div class="row">
@@ -110,9 +85,9 @@
                       <div class="col-md-3">
                         <% day_schedule = Booking.pitch_daily_schedule(date, @pitch, 60) %>
 
-                        <h4><%= date.strftime("%d/%m") %></h4>
+                          <h4 style="font-family: ubuntu"><%= date.strftime("%d/%m") %></h4>
 
-                        <% if policy(@pitch).day_blocked?(date) %>
+<!--                         <% if policy(@pitch).day_blocked?(date) %>
                           <%= link_to 'Desbloquear dia',
                               unblock_day_path(
                                 pitch_id: @pitch.id,
@@ -122,7 +97,7 @@
                                 }),
                                 method: 'delete' %>
                         <% else %>
-                          <%= link_to 'Bloquear dia',
+                          <%= link_to 'Bloquear todos',
                                 pitch_bookings_path(
                                   pitch_id: @pitch.id,
                                   booking: {
@@ -133,7 +108,7 @@
                                   }),
                                   method: 'post',
                                   data: { confirm: "Tem certeza que deseja bloquear #{@pitch.title} para o dia #{date.strftime("%d/%m")}"} %>
-                        <% end %>
+                        <% end %> -->
 
 
 
@@ -149,25 +124,25 @@
                               <div class="modal-dialog">
 
                                 <!-- Modal content-->
+
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Nova reserva - <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %></h4>
+                                    <h4 class="modal-title"> Nova Reserva </h4> <p class="modal-hour"> <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %> </p>
                                   </div>
                                   <div class="modal-body">
                                     <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
-                                      <%= label_tag 'Nome' %>
-                                      <%= text_field_tag 'booking[player_name]', nil, required: true %>
-                                      <%= label_tag 'Telefone' %>
-                                      <%= text_field_tag 'booking[player_phone]', nil, required: true %>
+                                    <p> <%= label_tag 'Nome' %>
+                                      <%= text_field_tag 'booking[player_name]', nil, required: true %> </p>
+                                    <p>  <%= label_tag 'Telefone' %>
+                                      <%= text_field_tag 'booking[player_phone]', nil, required: true %> </p>
                                       <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
                                       <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
-                                      <%= submit_tag 'Reservar' %>
-                                    <% end %>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      <%= submit_tag 'Reservar', :class => 'btn-reservar' %>
                                   </div>
+                                    <% end %>
                                 </div>
 
                               </div>
@@ -180,7 +155,7 @@
                           <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
 
                           <% if time_slot[:booking].present? %>
-                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
+                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><i class="fas fa-user"></i> <%= time_slot[:booking].player_name[0..6] %></a> <!-- BOTAO DO MODAL -->
                           <% end %>
                           </p>
 
@@ -194,17 +169,17 @@
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Informações de reserva <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %></h4>
+                                    <h5 class="modal-title"><%= @pitch.subtitle %> &nbsp;  - &nbsp;  <%= date.strftime("%d/%m") %> &nbsp; - &nbsp; <%= time_slot[:start_time].strftime("%H:%M") %> às <%= time_slot[:end_time].strftime("%H:%M") %></h5>
                                   </div>
                                   <div class="modal-body">
-                                    <h4>Nome</h4>
+                                    <p>Nome</p>
                                     <%= time_slot[:booking].player_name %>
-                                    <h4>Telefone</h4>
+                                    <p>Telefone</p>
                                     <%= time_slot[:booking].player_phone %>
                                   </div>
-                                  <div class="modal-footer">
+<!--                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  </div>
+                                  </div> -->
                                 </div>
 
                               </div>
@@ -232,4 +207,10 @@
   </div>
 </div>
 
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    document.querySelector("a[data-toggle='modal']").click()
+  });
+</script>
+ -->
 
