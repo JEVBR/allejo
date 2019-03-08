@@ -300,6 +300,103 @@ users:
 
 pitches:
 
+  - title: Playball
+    user_id: 3
+    category_id: 1
+    subtitle: Campo 01
+    address: Av. Luis Ignácio de Anhaia Melo, 3003
+    cep: 03154-100
+    cnpj: 45.543.915/0001-81
+    price: 650
+    photo:
+    opening_time: 08
+    closing_time: 23
+
+  - title: Tapetão
+    user_id: 5
+    category_id: 1
+    subtitle: Campo Azul
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 19
+
+  - title: Tapetão
+    user_id: 5
+    category_id: 1
+    subtitle: Campo Verde
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 19
+
+  - title: Tapetão
+    user_id: 5
+    category_id: 1
+    subtitle: Campo Rosa
+    address: Rua Augusto Ferreira de Morais, 259
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo:
+    opening_time: 07
+    closing_time: 19
+
+  - title: Campo do Marcelo
+    user_id: 3
+    category_id: 1
+    subtitle: Campo 01
+    address: Rua Mourato Coelho, 1060 São Paulo
+    cep: 05417-001
+    cnpj: 04.800.040/0001-22
+    price: 560
+    photo:
+    opening_time: 10
+    closing_time: 23
+
+  - title: Campo do Japa
+    user_id: 3
+    category_id: 1
+    subtitle: Campinho
+    address: Rua Paracuê, 141 São Paulo
+    cep: 01257-050
+    cnpj: 04.800.040/9999-22
+    price: 580
+    photo:
+    opening_time: 10
+    closing_time: 23
+
+  - title: Campo do Pastel
+    user_id: 3
+    category_id: 1
+    subtitle: Campo de Carne
+    address: R. Agostinho Cantu, 129 São Paulo
+    cep: 05501-010
+    cnpj: 04.900.040/9999-22
+    price: 610
+    photo:
+    opening_time: 09
+    closing_time: 15
+
+  - title: Campo do Churrasco
+    user_id: 3
+    category_id: 1
+    subtitle: Campo da Maminha
+    address: R. Francisco Leitão, 272 São Paulo
+    cep: 05414-020
+    cnpj: 04.900.050/9999-22
+    price: 600
+    photo:
+    opening_time: 10
+    closing_time: 15
+
+
   - title: Top Society
     user_id: 5
     category_id: 2
@@ -339,28 +436,78 @@ pitches:
   - title: Rivelino
     user_id: 2
     category_id: 2
-    subtitle: Quadra 02
+    subtitle: Quadra Única
     address: Av. Roque Petroni Júnior, 759
     cep: 04707-160
     cnpj: 47.508.411/2154-38
     price: 550
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552062969/vzdfiu0un582p3f5ekvx.jpg"
     opening_time: 18
     closing_time: 23
 
-  - title: Playball
-    user_id: 3
-    category_id: 1
-    subtitle: Campo 01
-    address: Av. Luis Ignácio de Anhaia Melo, 3003
-    cep: 03154-100
-    cnpj: 45.543.915/0001-81
-    price: 650
-    photo:
-    opening_time: 08
-    closing_time: 23
+  - title: Dutch Society
+    user_id: 4
+    category_id: 2
+    subtitle: Quadra Players
+    address: Rua Wisard, 149 São Paulo
+    cep: 05434-010
+    cnpj: 04.999.040/0001-22
+    price: 400
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066310/lsfeqztxmikecjm2quzh.jpg"
+    opening_time: 11
+    closing_time: 20
 
-  - title: SilverGold Academia de Futsal
+  - title: German Society
+    user_id: 4
+    category_id: 2
+    subtitle: Quadra Uber
+    address: R. Valdir Niemeyer, 67 São Paulo
+    cep: 01257-080
+    cnpj: 04.999.040/8888-22
+    price: 420
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066468/pc66y4rqtaouepsqe6ul.jpg"
+    opening_time: 11
+    closing_time: 20
+
+
+  - title: Venlo Society
+    user_id: 4
+    category_id: 2
+    subtitle: Quadra do Murinho
+    address: Av. Lineu de Paula Machado, 599 São Paulo
+    cep: 03178-200
+    cnpj: 04.700.040/8888-22
+    price: 420
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066696/jahax3ziecfp6t7mhznn.jpg"
+    opening_time: 12
+    closing_time: 21
+
+  - title: Beck Society
+    user_id: 4
+    category_id: 2
+    subtitle: Campo The Wall
+    address: R. João Moura, 871 São Paulo
+    cep: 05412-001
+    cnpj: 04.700.060/8888-22
+    price: 415
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066842/bqupe8zukix717la11ig.jpg"
+    opening_time: 13
+    closing_time: 21
+
+  - title: Beck Society
+    user_id: 4
+    category_id: 2
+    subtitle: Campo The Roof
+    address: R. João Moura, 871 São Paulo
+    cep: 05412-001
+    cnpj: 04.700.060/8888-22
+    price: 415
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066984/epnwkbtdkdewag91rctx.jpg"
+    opening_time: 13
+    closing_time: 21
+
+
+  - title: Academia de Futsal
     user_id: 4
     category_id: 3
     subtitle: Quadra 02
@@ -371,42 +518,6 @@ pitches:
     photo:
     opening_time: 19
     closing_time: 23
-
-  - title: Tapetão
-    user_id: 5
-    category_id: 1
-    subtitle: Campo Azul
-    address: Rua Augusto Ferreira de Morais, 259
-    cep: 04763-000
-    cnpj: 10.456.016/0002-48
-    price: 550
-    photo:
-    opening_time: 07
-    closing_time: 19
-
-  - title: Tapetão
-    user_id: 5
-    category_id: 1
-    subtitle: Campo Verde
-    address: Rua Augusto Ferreira de Morais, 259
-    cep: 04763-000
-    cnpj: 10.456.016/0002-48
-    price: 550
-    photo:
-    opening_time: 07
-    closing_time: 19
-
-  - title: Tapetão
-    user_id: 5
-    category_id: 1
-    subtitle: Campo Rosa
-    address: Rua Augusto Ferreira de Morais, 259
-    cep: 04763-000
-    cnpj: 10.456.016/0002-48
-    price: 550
-    photo:
-    opening_time: 07
-    closing_time: 19
 
   - title: AREA SPORTS
     user_id: 5
@@ -432,182 +543,74 @@ pitches:
     opening_time: 10
     closing_time: 16
 
-  - title: Campo do Marcelo
-    user_id: 3
-    category_id: 1
-    subtitle: Campo 01
-    address: Rua Mourato Coelho, 1060 São Paulo
-    cep: 05417-001
-    cnpj: 04.800.040/0001-22
-    price: 560
-    photo:
-    opening_time: 10
-    closing_time: 23
-
-  - title: Dutch Society
-    user_id: 4
-    category_id: 2
-    subtitle: Quadra Amstel
-    address: Rua Wisard, 149 São Paulo
-    cep: 05434-010
-    cnpj: 04.999.040/0001-22
-    price: 400
-    photo:
-    opening_time: 11
-    closing_time: 20
-
   - title: FutSalvaro
     user_id: 1
     category_id: 3
-    subtitle: Quadra Verde
+    subtitle: Quadra Central
     address: R. dos Pinheiros, 585 São Paulo
     cep: 05422-011
     cnpj: 04.999.040/0003-44
     price: 370
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056623/hmgupvx2cpztquownoqg.jpg"
     opening_time: 08
-    closing_time: 20
-
-  - title: Campo do Japa
-    user_id: 3
-    category_id: 1
-    subtitle: Campinho
-    address: Rua Paracuê, 141 São Paulo
-    cep: 01257-050
-    cnpj: 04.800.040/9999-22
-    price: 580
-    photo:
-    opening_time: 10
-    closing_time: 23
-
-  - title: German Society
-    user_id: 4
-    category_id: 2
-    subtitle: Quadra D
-    address: R. Valdir Niemeyer, 67 São Paulo
-    cep: 01257-080
-    cnpj: 04.999.040/8888-22
-    price: 420
-    photo:
-    opening_time: 11
     closing_time: 20
 
   - title: FutSalveme
     user_id: 1
     category_id: 3
-    subtitle: Quadra Cruz
+    subtitle: Quadra da Bola
     address: R. Padre Carvalho, 30 São Paulo
     cep: 05429-040
     cnpj: 04.999.040/7777-44
     price: 340
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056844/dahijzydf6hqxdi92gxh.jpg"
     opening_time: 08
     closing_time: 20
-
-  - title: Campo do Pastel
-    user_id: 3
-    category_id: 1
-    subtitle: Campo de Carne
-    address: R. Agostinho Cantu, 129 São Paulo
-    cep: 05501-010
-    cnpj: 04.900.040/9999-22
-    price: 610
-    photo:
-    opening_time: 09
-    closing_time: 15
-
-  - title: Venlo Society
-    user_id: 4
-    category_id: 2
-    subtitle: Quadra V
-    address: Av. Lineu de Paula Machado, 599 São Paulo
-    cep: 03178-200
-    cnpj: 04.700.040/8888-22
-    price: 420
-    photo:
-    opening_time: 12
-    closing_time: 21
 
   - title: FutSalveme
     user_id: 1
     category_id: 3
-    subtitle: Quadra Espada
+    subtitle: Quadra Funda
     address: Rua Groenlândia, 1828 São Paulo
     cep: 01434-100
     cnpj: 04.300.040/7777-44
     price: 340
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056960/kppg7k7r2bbi9zfypl50.jpg"
     opening_time: 07
     closing_time: 17
 
-  - title: Campo do Churrasco
-    user_id: 3
-    category_id: 1
-    subtitle: Campo da Maminha
-    address: R. Francisco Leitão, 272 São Paulo
-    cep: 05414-020
-    cnpj: 04.900.050/9999-22
-    price: 600
-    photo:
-    opening_time: 10
-    closing_time: 15
-
-  - title: Beck Society
-    user_id: 4
-    category_id: 2
-    subtitle: Campo da Ponta
-    address: R. João Moura, 871 São Paulo
-    cep: 05412-001
-    cnpj: 04.700.060/8888-22
-    price: 415
-    photo:
-    opening_time: 13
-    closing_time: 21
-
-  - title: Beck Society
-    user_id: 4
-    category_id: 2
-    subtitle: Campo da Seda
-    address: R. João Moura, 871 São Paulo
-    cep: 05412-001
-    cnpj: 04.700.060/8888-22
-    price: 415
-    photo:
-    opening_time: 13
-    closing_time: 21
-
   - title: FutSol
     user_id: 1
     category_id: 3
-    subtitle: Quadra Rá
+    subtitle: Quadra Vermelha
     address: R. Medeiros de Albuquerque, 471 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 300
-    photo:
+    photo:"https://res.cloudinary.com/dpkbckolo/image/upload/v1552061921/eopsbppudr7cd6uxgrnz.jpg"
     opening_time: 08
     closing_time: 17
 
   - title: FutSol
     user_id: 1
     category_id: 3
-    subtitle: Quadra Zon
+    subtitle: Quadra Elite
     address: R. Medeiros de Albuquerque, 471 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 300
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552062122/bbmqvcrzmfgj2rpz4t8l.jpg"
     opening_time: 08
     closing_time: 17
 
   - title: FutSol
     user_id: 1
     category_id: 3
-    subtitle: Quadra Isís
+    subtitle: Quadra Azul
     address: R. Medeiros de Albuquerque, 471 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 300
-    photo:
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552062362/ervwwmydddqq8m7krxrj.jpg"
     opening_time: 08
     closing_time: 17
