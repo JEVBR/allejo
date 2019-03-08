@@ -98,6 +98,7 @@ const addMarkersToMap = (map, markers) => {
       markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
+      map.panTo([ marker.lng, marker.lat ]);
       addCircleToMarker(map,marker);
       oldmarkers.push(markerTemp);
     }
@@ -119,7 +120,6 @@ const initMapbox = () => {
       // get the markers from html
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(window.map, markers);
-
     });
     // when mouse is in the polygon disable click to prevent deletion of the popup
     window.map.on('mouseenter', 'polygon', function(e) { window.StopClick = true;  });
