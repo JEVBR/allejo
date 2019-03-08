@@ -1,19 +1,3 @@
-
-//var zap = document.getElementById('map');
-
-//onsole.log(map);
-
 markers=`<%= @markers.to_json.html_safe %>`;
 
-console.log(map);
-
-//sayHello();
-
-var test= JSON.parse(markers)
-// console.log(test);
-
-// test =[{lng: -46.69587023549286, lat: -23.528469191402024, home: false}];
-window.addMarkersAfterClick(window.map,test);
-//window.addMarkersToMap(window.map, test);
-
-
+window.addMarkersAfterClick(window.map,JSON.parse(markers));

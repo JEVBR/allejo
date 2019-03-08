@@ -83,8 +83,13 @@
             <!-- Pitch -->
             <div class="col-md-4">
               <div class="bookings-show-white-card-pitch">
-                <%= link_to 'Confirmar Presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
-          method: 'post' %>
+                <% if @booking.participants.find_by(user: current_user).confirmed? %>
+                  <%= link_to 'Cancelar Presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
+                        method: 'post' %>
+                <% else %>
+                  <%= link_to 'Confirmar Presença', change_confirm_path(@booking.participants.find_by(user: current_user)),
+                        method: 'post' %>
+                <% end %>
 
               <span class="card-pitch-type"><i class="fas fa-futbol"></i> <%= @booking.pitch.subtitle %></span>
               <span class="card-pitch-time"><i class="far fa-clock"></i> <%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></span>
@@ -113,7 +118,7 @@
                     method: 'post' %> </p>
                     <% end %>
 
-                    <% if policy(@booking).organizer? %>
+                    <% if policy(@booking).organizer? && !policy(participant).current_user? %>
                     <%=  link_to 'x', booking_participant_path(@booking, participant),
                     method: :delete,
                     data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %> </h5>

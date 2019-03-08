@@ -28,7 +28,6 @@ const mapBoxSetup = () => {
       style: 'mapbox://styles/mapbox/navigation-guidance-day-v4',
       zoom: 12,
       center: [-46.741735, -23.55762]
-
     }
   )
 };
@@ -60,47 +59,41 @@ const buildMap = () => {
 };
 
 const addCircleToMarker =(map, marker) => {
-  console.log("Adding circle to map at:" + marker);
-  // const radiusInKm = parseInt(max_dist.value);
-  const radiusInKm = parseInt(2);
-  //console.log(parseInt(max_dist.value));
+
+  if ( isNaN( max_dist.value )){ max_dist.value = 3 }; // sorry overwrites text in box
+  if (max_dist.value < 0 || max_dist.value > 10) {max_dist.value = 10};
+  const radiusInKm = parseInt(max_dist.value);
+
+  // remove old polygon:
   if(typeof map.getLayer('polygon') !== 'undefined') {
     map.removeLayer('polygon').removeSource('polygon');
   }
-
+  // make a new polygon:
   map.addSource("polygon", createGeoJSONCircle([marker.lng, marker.lat], radiusInKm, 64));
   map.addLayer(polygonLayer);
 }
 
- const addMarkersToMap = (map, markers) => {
-   //console.log("markers:" + markers);
-  // console.log(map);
+const addMarkersToMap = (map, markers) => {
+  removeOldMarkers();
+  window.oldmarkers = [];
 
-  if(typeof map.getLayer('marker') !== 'undefined') {
-    map.removeLayer('marker').removeSource('marker');
-    }
   markers.forEach((marker) => {
-    console.log(marker);
+  // place makers of available items:
     if (marker.home) {
       const popup = new mapboxgl.Popup().setHTML(markerPopUp(marker));
-      new mapboxgl.Marker(markerOptions)
+      var markerTemp = new mapboxgl.Marker(markerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
-      //map.jumpTo({ center: [ marker.lng, marker.lat ] });
-
-    } else{
+      oldmarkers.push(markerTemp);
+    // place the central marker:
+    } else {
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
-      new mapboxgl.Marker(whereAmIMarkerOptions)
+      markerTemp = new mapboxgl.Marker(whereAmIMarkerOptions)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
-        addCircleToMarker(map,marker);
-    //  const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
-    //  addCircleToMarker(window.map,place);
-    //  window.map.panTo([e.lngLat.lng, e.lngLat.lat]);
-
-
-     // map.jumpTo({ center: [ marker.lng, marker.lat ] });
+      addCircleToMarker(map,marker);
+      oldmarkers.push(markerTemp);
     }
   });
 };
@@ -111,28 +104,26 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, mapBounds);
 };
 
-
 const initMapbox = () => {
 
   if (mapElement) {
     window.map = buildMap();
-
+    window.StopClick = false;
     window.map.on('load', function() {
-      //const markers = JSON.parse(mapElement.dataset.markers);
-      //addMarkersToMap(window.map, markers);
+      // get the markers from html
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(window.map, markers);
+
     });
-// draw a circle on window.map where clicked:
-     window.map.on('click', function(e) {
-// Move:
-    //  const place = { lng: e.lngLat.lng, lat: e.lngLat.lat};
-    //  addCircleToMarker(window.map,place);
-    //  window.map.panTo([e.lngLat.lng, e.lngLat.lat]);
-// x
+    // when mouse is in the polygon disable click to prevent deletion of the popup
+    window.map.on('mouseenter', 'polygon', function(e) { window.StopClick = true;  });
 
-      //console.log([e.lngLat.lng, e.lngLat.lat]);
+    window.map.on('mouseleave', 'polygon', function(e) { window.StopClick = false; });
 
-      const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}`;
-      //const myData = {lat:21, lng: 30};
+    window.map.on('click', function(e) {
+      if( window.StopClick ) { return;}
+
+      const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}&max_dist=${max_dist.value}`;
 
       Rails.ajax({
                 type: "GET",
@@ -141,21 +132,25 @@ const initMapbox = () => {
                 contentType: "application/json",
                 dataType: 'script',
               success: function (form) {
-                //console.log("successs");
+                //console.log("succes");
               }
        });
     });
   }
 };
 
-function onSuccess(result) {
-  //console.log(result.Response.View[0].Result[0]);
+function onSuccess(result) {};
+
+const removeOldMarkers = () => {
+  if (typeof window.oldmarkers !== 'undefined'){
+    window.oldmarkers.forEach((marker) => { marker.remove(); });
+  }
 };
 
 window.addMarkersAfterClick = (map,markers) => {
+  // entry point from AjAX return (.JS.ERB)
   addMarkersToMap(map,markers)
 };
-
 
 var createGeoJSONCircle = function(center, radiusInKm, points) {
     if(!points) points = 64;

@@ -12,6 +12,8 @@ class Friendship < ApplicationRecord
   end
 
   def self.friends?(user1, user2)
+    return true if user1 == user2
+
     Friendship.where(user_id: user1.id, friend_id: user2.id).present?
   end
 end
