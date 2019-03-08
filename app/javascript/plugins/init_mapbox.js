@@ -106,7 +106,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
       markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        //.setPopup(popup)
         .addTo(map);
       map.panTo([ marker.lng, marker.lat ]);
       addCircleToMarker(map,marker);
@@ -119,7 +119,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(friendPopUp(marker));
       markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        //.setPopup(popup)
         .addTo(map);
       oldmarkers.push(markerTemp);
     }
