@@ -12,7 +12,7 @@ const markerPopUp = (marker) => {
   )
 };
 
-// not used now
+
 const whereAmIPopUp = (marker) => {
   return (
     `<a href ="${marker.pitch_link}">
@@ -21,7 +21,7 @@ const whereAmIPopUp = (marker) => {
   )
 };
 
-// not used now
+
 const friendPopUp = (marker) => {
   return (
     `<h6>Seu Amigo esta aqui</h6>`
@@ -106,6 +106,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(whereAmIPopUp(marker));
       markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(map);
       map.panTo([ marker.lng, marker.lat ]);
       addCircleToMarker(map,marker);
@@ -118,6 +119,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(friendPopUp(marker));
       markerTemp = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(map);
       oldmarkers.push(markerTemp);
     }
