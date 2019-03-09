@@ -60,6 +60,7 @@ seeds["pitches"].each do |pitch|
                               "address",
                               "user_id",
                               "description",
+                              "phone",
                               "title",
                               "subtitle",
                               "price",

@@ -179,6 +179,6 @@ class PitchesController < ApplicationController
   end
 
   def pitch_params
-    params.require(:pitch).permit(:address, :title, :subtitle, :price, :cep, :cnpj, :category_id, :photo, :opening_time, :closing_time)
+    params.require(:pitch).permit(:address, :title, :subtitle, :price, :cep, :cnpj, :category_id, :photo, :opening_time, :closing_time, :description, :phone)
   end
 end

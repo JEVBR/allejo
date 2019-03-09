@@ -110,7 +110,7 @@ users:
     first_name: Lionel
     phone: 011-999993421
     nickname: La Pulga
-    address: "R. Delfina, 163 São Paulo"
+    address: "Rua Delfina, 163 São Paulo"
     cpf: 099.555.022.22
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552081391/njbblrog6unxxcdszgs2.jpg"
     owner: false
@@ -122,7 +122,7 @@ users:
     first_name: Juca
     phone: 011-999993433
     nickname: Juquinha
-    address: "R. Arapiraca, 152 São Paulo"
+    address: "Rua Arapiraca, 152 São Paulo"
     cpf: 099.555.138.25
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552081549/uydbxqzll5zuedmtokju.jpg"
     owner: false
@@ -194,7 +194,7 @@ users:
     first_name: Rogerio
     phone: 011-999990356
     nickname: Mito01
-    address: "R. Teodoro Sampaio, 2901 São Paulo"
+    address: "Rua Teodoro Sampaio, 2901 São Paulo"
     cpf: 015.088.124.29
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552082779/uzgdvxansmmytxvt2upi.jpg"
     owner: false
@@ -230,7 +230,7 @@ users:
     first_name: Ronaldo
     phone: 011-983444569
     nickname: Fenômeno
-    address: "R. Marambaia, 200 São Paulo"
+    address: "Rua Marambaia, 200 São Paulo"
     cpf: 014.088.338.13
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552084184/rxfltogzgpgucionf8c2.jpg"
     owner: false
@@ -254,7 +254,7 @@ users:
     first_name: Walter
     phone: 011-983431019
     nickname: Casão
-    address: "R. Nossa Sra. da Lapa, 449 São Paulo"
+    address: "Rua Nossa Sra. da Lapa, 449 São Paulo"
     cpf: 014.776.338.13
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552084448/ugwcr4qopxfj92mnyuym.jpg"
     owner: false
@@ -315,49 +315,97 @@ pitches:
     user_id: 3
     category_id: 1
     subtitle: Anhanguera
-    address: R. Wisard, 489 São Paulo
+    address: Rua Wisard, 489 São Paulo
     cep: 03154-100
     cnpj: 45.543.915/0001-81
     price: 650
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552073214/mz13fgvegihs9jimxwrq.jpg"
     opening_time: 08
     closing_time: 23
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Redondão
-    address: R. Delfina, 163 São Paulo
+    address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
     price: 550
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552076564/zvluh6nga2hmxb3hs2kv.jpg"
     opening_time: 07
     closing_time: 19
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Campo Céu Azul
-    address: R. Delfina, 163 São Paulo
+    address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
     price: 550
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552077801/inowm6dlkzggzms7lsyy.jpg"
     opening_time: 07
     closing_time: 19
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Fazendão
-    address: R. Delfina, 163 São Paulo
+    address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
     price: 550
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552077944/aaqxj42us3fjvmmpigl7.jpg"
     opening_time: 07
     closing_time: 19
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Campo do Marcelo
     user_id: 3
@@ -370,42 +418,90 @@ pitches:
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074324/bianz5kuluaoovfla3fm.jpg"
     opening_time: 10
     closing_time: 23
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Campo do Japa
     user_id: 3
     category_id: 1
     subtitle: Monte Fuji
-    address: R. Aspicuelta, 567 São Paulo
+    address: Rua Aspicuelta, 567 São Paulo
     cep: 01257-050
     cnpj: 04.800.040/9999-22
     price: 580
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074551/c59qogdiedp6dbrfo4tj.jpg"
     opening_time: 10
     closing_time: 23
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Campo de Mentira
     user_id: 3
     category_id: 1
     subtitle: Fake Field
-    address: R. Agostinho Cantu, 129 São Paulo
+    address: Rua Agostinho Cantu, 129 São Paulo
     cep: 05501-010
     cnpj: 04.900.040/9999-22
     price: 610
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074811/klsfw3t7x6n0jabngesq.jpg"
     opening_time: 09
     closing_time: 15
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Bola & Churrasco
     user_id: 3
     category_id: 1
     subtitle: Campo da Fraldinha
-    address: R. Francisco Leitão, 272 São Paulo
+    address: Rua Francisco Leitão, 272 São Paulo
     cep: 05414-020
     cnpj: 04.900.050/9999-22
     price: 600
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552075110/e1xbqadz0skx6sbsriww.jpg"
     opening_time: 10
     closing_time: 15
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
 
 
@@ -413,49 +509,97 @@ pitches:
     user_id: 2
     category_id: 2
     subtitle: Rede Total
-    address: R. Aspicuelta, 644 São Paulo
+    address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
     price: 350
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552078114/xewcmw3cafrdaq6ivlfw.jpg"
     opening_time: 10
     closing_time: 22
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Top Society
     user_id: 2
     category_id: 2
     subtitle: Campo Marrom
-    address: R. Aspicuelta, 644 São Paulo
+    address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
     price: 350
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552079540/ca8j9bbpbklyeg1ggf1n.jpg"
     opening_time: 10
     closing_time: 22
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Top Society
     user_id: 2
     category_id: 2
     subtitle: Carpetão
-    address: R. Aspicuelta, 644 São Paulo
+    address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
     price: 350
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552079688/rod8ht6rgoewlavdysgb.jpg"
     opening_time: 10
     closing_time: 22
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Rivelino
     user_id: 2
     category_id: 2
     subtitle: Quadra Única
-    address: R. Delfina, 66 São Paulo
+    address: Rua Delfina, 66 São Paulo
     cep: 04707-160
     cnpj: 47.508.411/2154-38
     price: 550
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552062969/vzdfiu0un582p3f5ekvx.jpg"
     opening_time: 18
     closing_time: 23
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Dutch Society
     user_id: 4
@@ -468,18 +612,42 @@ pitches:
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552075401/kamshfigarn2og81k28k.jpg"
     opening_time: 11
     closing_time: 20
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: German Society
     user_id: 4
     category_id: 2
     subtitle: Quadra Uber
-    address: R. Arapiraca, 152 São Paulo
+    address: Rua Arapiraca, 152 São Paulo
     cep: 01257-080
     cnpj: 04.999.040/8888-22
     price: 420
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066468/pc66y4rqtaouepsqe6ul.jpg"
     opening_time: 11
     closing_time: 20
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Venlo Society
     user_id: 4
@@ -492,42 +660,90 @@ pitches:
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066696/jahax3ziecfp6t7mhznn.jpg"
     opening_time: 12
     closing_time: 21
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Beck Society
     user_id: 4
     category_id: 2
     subtitle: Campo The Wall
-    address: R. Girassol, 825 São Paulo
+    address: Rua Girassol, 825 São Paulo
     cep: 05412-001
     cnpj: 04.700.060/8888-22
     price: 415
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066842/bqupe8zukix717la11ig.jpg"
     opening_time: 13
     closing_time: 21
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: Beck Society
     user_id: 4
     category_id: 2
     subtitle: Campo The Roof
-    address: R. Girassol, 825 São Paulo
+    address: Rua Girassol, 825 São Paulo
     cep: 05412-001
     cnpj: 04.700.060/8888-22
     price: 415
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552066984/epnwkbtdkdewag91rctx.jpg"
     opening_time: 13
     closing_time: 21
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: AREA SPORTS
     user_id: 3
     category_id: 2
     subtitle: Borrachão
-    address: R. Pamplona, 1616 São Paulo
+    address: Rua Pamplona, 1616 São Paulo
     cep: 01405-002
     cnpj: 04.800.040/0001-79
     price: 300
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552076770/d4cbcyfnv7hbbosbify2.jpg"
     opening_time: 06
     closing_time: 22
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
 
 
@@ -535,94 +751,190 @@ pitches:
     user_id: 4
     category_id: 3
     subtitle: Quadra 02
-    address: R. Fradique Coutinho, 1070 São Paulo
+    address: Rua Fradique Coutinho, 1070 São Paulo
     cep: 05416-001
     cnpj: 10.456.016/0002-48
     price: 230
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552075656/otgfbkxwxjfkjgiyufzb.jpg"
     opening_time: 19
     closing_time: 23
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: ProSport
     user_id: 3
     category_id: 3
     subtitle: Módulo Azul
-    address: R. Fidalga, 242 São Paulo
+    address: Rua Fidalga, 242 São Paulo
     cep: 05432-070
     cnpj: 04.800.040/0001-11
     price: 260
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552077107/rwmnnuslmrdxhkg4ptpr.jpg"
     opening_time: 10
     closing_time: 16
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSalvaro
     user_id: 1
     category_id: 3
     subtitle: Quadra Central
-    address: R. dos Pinheiros, 585 São Paulo
+    address: Rua dos Pinheiros, 585 São Paulo
     cep: 05422-011
     cnpj: 04.999.040/0003-44
     price: 370
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056623/hmgupvx2cpztquownoqg.jpg"
     opening_time: 08
     closing_time: 20
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSalveme
     user_id: 1
     category_id: 3
     subtitle: Quadra da Bola
-    address: R. Inácio Pereira da Rocha, 112 São Paulo
+    address: Rua Inácio Pereira da Rocha, 112 São Paulo
     cep: 05432-001
     cnpj: 04.999.040/7777-44
     price: 340
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056844/dahijzydf6hqxdi92gxh.jpg"
     opening_time: 08
     closing_time: 20
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSalveme
     user_id: 1
     category_id: 3
     subtitle: Quadra Funda
-    address: R. Inácio Pereira da Rocha, 112 São Paulo
+    address: Rua Inácio Pereira da Rocha, 112 São Paulo
     cep: 01434-100
     cnpj: 04.300.040/7777-44
     price: 340
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552056960/kppg7k7r2bbi9zfypl50.jpg"
     opening_time: 07
     closing_time: 17
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSal QueNão
     user_id: 4
     category_id: 3
     subtitle: Coberta
-    address: R. Wisard, 489 São Paulo
+    address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 300
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552072892/w8hxxzy38euzp4v1o9gx.jpg"
     opening_time: 08
     closing_time: 17
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSal QueNão
     user_id: 4
     category_id: 3
     subtitle: Maracanãzinho
-    address: R. Wisard, 489 São Paulo
+    address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 500
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552072325/wod93m60wcqdzcwxjx41.jpg"
     opening_time: 08
     closing_time: 17
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
 
   - title: FutSal QueNão
     user_id: 1
     category_id: 3
     subtitle: Ginásio
-    address: R. Wisard, 489 São Paulo
+    address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
     price: 400
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552072079/wxm8u8qzsckebshvboru.jpg"
     opening_time: 08
     closing_time: 17
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
