@@ -7,28 +7,28 @@
           <div class="home-index-upper-box">
 
             <div class="home-index-title">
-              <h2>Seu trabalho é jogar futebol,  resto é com a gente. </h2>
+              <h2>Buscar Partidas</h2>
             </div>
-            <div>
+              <div>
                     <span class="home-index-search-bar">
                       <%= form_tag(pitches_path, method: :get) do %>
                       <%= text_field_tag  :location,
                       params[:location],
-                      :value => @searchfield,
+                      # :value => @searchfield,
                       :style => "width: 480px",
-                      :class => 'searchfield' %>
+                      # :class => 'searchfield',
+                      :placeholder => 'Digite aqui o endereço desejado' %>
 
-                      <%= select_tag :max_dist, options_for_select([ ["-", "-"],["5km","5"], ["10km", "10"], ["15km", "15"], ["30km", "30"]], params[:max_dist]), :style => "width: 120px" %>
+                      <%= select_tag :max_dist, options_for_select([ ["3km", "3"],["5km","5"], ["10km", "10"], ["15km", "15"], ["30km", "30"]], params[:max_dist]), :style => "width: 120px" %>
                       <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", params[:category_id]) %>
-                      <%= submit_tag 'Pesquisar' %>
+                      <%= submit_tag 'Pesquisar', :class => 'submit-tag-btn' %>
 
                       <% end %>
                     </span>
 
-
+              </div>
             </div>
           </div>
-        </div>
         <!-- End Upper Index -->
 
         <!-- Lower Wrapper -->
@@ -48,12 +48,7 @@
                   <%= form_tag(pitches_map_path, method: :get, remote: true) do %><% end %>
                   <!-- DO NOT REMOVE, this button starts the ajax communication-->
 
-
-
-
-
                 </div>
-
 
                 <div
                 id="map"
