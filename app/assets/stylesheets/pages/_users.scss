@@ -168,6 +168,7 @@
   }
   h2 {
     font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     color: white;
     font-size: 56px;
   }
@@ -262,6 +263,7 @@
   position: relative;
   h2 {
     font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     color: white;
     font-size: 56px;
   }
@@ -332,11 +334,14 @@
   }
 }
 
+
+
 .users-edit-photo-input {
   background-color: none;
   input {
     width: 400px;
     background-color: transparent;
+    box-shadow: none;
   }
   #user_photo {
   color: white;
@@ -402,6 +407,7 @@
   }
   h2 {
     font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     color: white;
     font-size: 56px;
   }
@@ -898,6 +904,9 @@
   color: $dark-gray;
   overflow: hidden;
   p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     font-size: 16px;
     padding: 4px 8px 0 16px;
   }

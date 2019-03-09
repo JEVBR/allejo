@@ -38,13 +38,15 @@
 }
 
 .pitches-left-photo-wrap {
+  position: relative;
   text-align: center;
   margin: 32px auto 0 auto;
   height: 320px;
   width: 480px;
   border-radius: 2px;
-  background-color: rgba(100,100,100,0.3);
+  background-color: rgba(100,100,100,0.1);
   img {
+  position: bottom;
   justify-content: center;
   border-radius: 1px;
   max-height: 320px;
@@ -53,6 +55,18 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  }
+  p {
+  position: absolute;
+  font-family: ubuntu;
+  color: white;
+  right: 16px;
+  bottom: 8px;
+  font-size: 32px;
+  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
   }
 }
 
@@ -77,20 +91,11 @@
     color: $heavy-green;
     text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
   }
-  p {
-  font-family: ubuntu;
-  color: white;
-  margin-top: -64px;
-  margin-right: 24px;
-  font-size: 32px;
-  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
-  }
 }
 
 .datepicker {
   border-radius: 2px;
   border-style: none;
-  // margin-left: 16px;
   width: 160px;
   height: 40px;
   background-color: white;
@@ -212,7 +217,7 @@
 
 .pitches-new-title {
   display: flex;
-  margin-bottom: 72px;
+  margin-bottom: 24px;
   justify-content: space-between;
   height: 80px;
   span {
@@ -221,6 +226,7 @@
   }
   h2 {
     font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     color: white;
     font-size: 56px;
   }
@@ -247,6 +253,10 @@
   box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
   }
   }
+  select {
+    border-style: none;
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
   label {
   margin-top: 8px;
   color: white;
@@ -256,6 +266,10 @@
   .form-control {
     color: $mint;
     font-size: 24px;
+    -webkit-appearance: none;
+    border: none;
+    background-color: rgba(250, 250, 250, 0.4);
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
   }
 }
 
@@ -329,3 +343,171 @@ select#pitch_category_id {
     color: black;
   }
 }
+
+
+// -=-=-= End Pitches New =-=-=- //
+
+// ------------------------------ //
+
+// -=-=-= Begin Pitches Edit =-=-=- //
+
+.pitches-edit-wrapper {
+  background-image: asset-url('field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 100vh;
+}
+
+.pitches-edit-box {
+  background-color: rgba(65,193,53,0.3);
+  min-height: 100vh;
+}
+
+.pitches-edit-title {
+  display: flex;
+  margin-bottom: 24px;
+  justify-content: space-between;
+  height: 80px;
+  span {
+    margin-top: 56px;
+    color: white;
+  }
+  h2 {
+    font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    color: white;
+    font-size: 56px;
+  }
+}
+
+.pitches-edit-middle-wrapper {
+}
+
+.pitches-edit-form-left {
+  padding: 32px;
+  input {
+  border-style: none;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  background-color: rgba(250,250,250,0.4);
+  caret-color: rgba(250,250,250,0.6);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
+  }
+  select {
+    border-style: none;
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 24px;
+    -webkit-appearance: none;
+    border: none;
+    background-color: rgba(250, 250, 250, 0.4);
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
+}
+
+.pitches-edit-form-right {
+  padding: 32px;
+  input {
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  border-style: none;
+  background-color: rgba(250,250,250,0.4);
+  caret-color: rgba(250,250,250,0.6);
+  &:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  border-color: $heavy-green;
+    }
+  &:active {
+  outline: none;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
+  }
+  label {
+  margin-top: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  }
+  .form-control {
+    color: $mint;
+    font-size: 24px;
+    -webkit-appearance: none;
+    border: none;
+    background-color: rgba(250, 250, 250, 0.4);
+    box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.7);
+  }
+}
+
+.pitches-edit-photo-input {
+  background-color: none;
+  input {
+    box-shadow: none;
+    width: 400px;
+    background-color: transparent;
+  }
+  #pitch_photo {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  }
+}
+
+.pitches-edit-submit-button {
+  text-align: center;
+  width: 100%;
+  margin: 20px 10px 40px 10px;
+  .btn {
+  height: 64px;
+  width: 240px;
+  font-size: 24px;
+  font-family: $geo;
+  background-color: rgba(250,250,250,0.8);
+  &:hover {
+  background-color: rgba(250,250,250,1.0);
+    }
+  }
+}
+
+
+select#pitch_category_id {
+  padding-top: 0;
+  background-color: rgba(250,250,250,0.4);
+  color: $mint;
+  option {
+    color: black;
+  }
+}
+
+.pitches-edit-lower-wrapper {
+  margin-bottom: 72px;
+}
+
+
+// -=-=-= End Pitches Edit =-=-=- //
+
+// ------------------------------ //
+
+// -=-=-=                  =-=-=- //
+
+
