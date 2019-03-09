@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'errors/show'
   # Sidekiq Web UI, only for admins.
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'
   end
-
-  get '/404', to: 'errors#not_found'
-  get '/422', to: 'errors#unacceptable'
-  get '/500', to: 'errors#internal_error'
 
   get 'users/show'
   post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
