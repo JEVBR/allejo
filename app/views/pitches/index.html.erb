@@ -1,27 +1,28 @@
-<div class="home-wrapper">
-  <div class="home-index-box">
+<div class="pitches-index-wrapper">
+  <div class="pitches-index-box">
     <div class="row">
       <div class="home-index-wrapper">
         <!-- Upper Index -->
-        <div class="home-index-upper-wrapper">
-          <div class="home-index-upper-box">
+        <div class="pitches-index-upper-wrapper">
+          <div class="pitches-index-upper-box">
 
-            <div class="home-index-title">
-              <h2>Buscar Partidas</h2>
+            <div class="pitches-index-title">
+              <div class="col-md-offset-2 col-md-6">
+                <h2>Buscar Partidas</h2>
+              </div>
             </div>
               <div>
-                    <span class="home-index-search-bar">
+                    <span class="pitches-index-search-bar">
                       <%= form_tag(pitches_path, method: :get) do %>
-                      <%= text_field_tag  :location,
-                      params[:location],
-                      # :value => @searchfield,
-                      :style => "width: 480px",
-                      :class => 'searchfield',
-                      :placeholder => 'Digite aqui o endereço desejado' %>
 
-                      <%= select_tag :max_dist, options_for_select([ ["3km", "3"],["5km","5"], ["10km", "10"], ["15km", "15"], ["30km", "30"]], params[:max_dist]), :style => "width: 120px" %>
-                      <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", params[:category_id]) %>
-                      <%= submit_tag 'Pesquisar', :class => 'submit-tag-btn' %>
+                      <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-5 col-xs-11">  <%= text_field_tag  :location,
+                      params[:location],
+                      :class => 'search-pitch',
+                      :placeholder => 'Digite aqui o endereço desejado' %> </div>
+
+                      <div class="col-md-2 col-sm-3 col-xs-4"> <%= select_tag :max_dist, options_for_select([ ["3km", "3"],["5km","5"], ["10km", "10"], ["15km", "15"], ["30km", "30"]], params[:max_dist]), :style => "width: 120px" %></div>
+                      <div class="col-md-2 col-sm-2 col-xs-4"> <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", params[:category_id]) %></div>
+                      <div class="col-xs-4 col-sm-offset-4 col-md-2 col-md-offset-0 "> <%= submit_tag 'Pesquisar', :class => 'submit-tag-btn' %></div>
 
                       <% end %>
                     </span>
@@ -33,16 +34,16 @@
 
         <!-- Lower Wrapper -->
 
-        <div class="home-index-middle-wrapper">
+        <div class="pitches-index-middle-wrapper">
           <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
 
             <!-- Map -->
-            <div class="home-index-map">
+            <div class="pitches-index-map">
               <!-- Map Div -->
 
               <div class="map-wrapper">
 
-                <div class="home-index-search">
+                <div class="pitches-index-search">
 
                   <!-- DO NOT REMOVE, this button starts the ajax communication-->
                   <%= form_tag(pitches_map_path, method: :get, remote: true) do %><% end %>
@@ -68,7 +69,7 @@
       </div>
       <!-- End Lower Wrapper -->
 
-      <div class="home-index-lower-wrapper">
+      <div class="pitches-index-lower-wrapper">
 
 
       </div>
