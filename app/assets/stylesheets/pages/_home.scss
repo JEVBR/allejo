@@ -127,14 +127,11 @@ body {
 }
 
 .mapbox-central-marker {
-  background-image: asset-url('here.png');
+  background-image: asset-url('pin.png');
   background-size: cover;
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-}
-.icon {
-  fill: red;
 }
 
 .mapbox-friends-marker {
@@ -149,6 +146,25 @@ body {
   height: 10px;
 }
 
+.mapboxgl-popup-content {
+  border: solid 1px lightgray;
+  img {
+    border: 1px solid lightgray;
+    min-height: 120px;
+    min-width: 120px;
+    background-image: asset-url('logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    objetc-fit: contain;
+  }
+  h6 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
 
 footer {
   background-color: $dark-gray;

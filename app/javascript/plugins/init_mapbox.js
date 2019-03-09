@@ -5,9 +5,9 @@ import mapboxgl from 'mapbox-gl';
 const markerPopUp = (marker) => {
   return (
     `<a href ="${marker.pitch_link}">
-    <h6>${marker.pitch_title} - R$${marker.pitch_price}</h6>
-    <p>${marker.pitch_address}</p>
-    <img src="${marker.pitch_photo}" alt="No photos" style="width:200px;height:200px;">
+    <h6>${marker.pitch_title}</h6>
+    <p> Preço: ${marker.pitch_price}/hr</p>
+    <img src="${marker.pitch_photo}" alt="" style="width:140px;height:120px;">
     </a>`
   )
 };
