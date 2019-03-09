@@ -2,10 +2,19 @@
 
 body {
   color: $dark-gray;
+
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+  }
 }
 
-.row {
-  width: 100%;
+
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .home-wrapper {
@@ -18,6 +27,9 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  .row {
+    width: 100%;
+  }
 }
 
 .home-index-upper-wrapper {
@@ -48,6 +60,7 @@ body {
 
 .home-index-search-bar {
     select {
+    background-color: white;
     border: none;
     border-radius: 2px;
     height: 40px;
@@ -56,9 +69,6 @@ body {
     width: 72px;
     padding-left: 4px;
     box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.7);
-    &:hover {
-      opacity: 0.9;
-    }
     }
     input {
     width: 120px;
@@ -75,30 +85,6 @@ body {
     }
 }
 
-.home-index-search {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  input {
-    opacity: 0.8;
-    border-radius: 2px;
-    border-style: none;
-  }
-  button {
-    opacity: 0.9;
-    height: 40px;
-    width: 80px;
-    border-radius: 2px;
-    border-style: none;
-    color: $mint;
-    background-color: $dark-gray;
-    font-family: $geo;
-    font-size: 24px;
-    &:hover {
-    opacity: 1.0;
-    }
-  }
-}
 
 .home-index-middle-wrapper {
   height: 540px;
@@ -112,6 +98,32 @@ body {
 }
 
 // Mapbox:
+
+.algolia-places-nostyle {
+  display: initial !important;
+  .ap-nostyle-dropdown-menu {
+  border-radius: 2px;
+  border: 1px solid lightgray;
+  background-color: white;
+  min-width: 100%;
+  }
+}
+
+.ap-nostyle-input-icon {
+  display: none;
+}
+
+.ap-nostyle-suggestion {
+  margin: 4px;
+}
+
+.ap-suggestion-icon {
+  margin-left: 4px;
+}
+
+.submit-tag-btn {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.7) !important;
+}
 
 #map {
   border-radius: 2px 2px 0 0;

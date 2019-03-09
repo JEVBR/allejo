@@ -10,25 +10,26 @@
       <div class="bookings-show-white-card-header">
         <div class="row">
           <div class="col-md-12">
+            <div class="bookings-show-white-card-header-content">
+              <span><%= @booking.pitch.address %> (<%= @booking.pitch.price %>/hr)</span>
 
-          <span><%= @booking.pitch.address %> (<%= @booking.pitch.price %>/hr)</span>
+              <!-- <h4>link da partida: <%= request.url %></h4> -->
 
-          <!-- <h4>link da partida: <%= request.url %></h4> -->
+              <%if policy(@booking).organizer? %>
+              <%=  link_to 'Cancelar reserva', booking_path(@booking),
+              method: :delete,
+              data: { confirm: "Você tem certeza que gostaria de cancelar essa reserva?"} %>
+              <% end %>
 
-          <%if policy(@booking).organizer? %>
-          <%=  link_to 'Cancelar reserva', booking_path(@booking),
-          method: :delete,
-          data: { confirm: "Are you sure?"} %>
-          <% end %>
-
-          <% unless policy(@booking).organizer? %>
-          <% if Participant.participant?(current_user, @booking) %>
+              <% unless policy(@booking).organizer? %>
+              <% if Participant.participant?(current_user, @booking) %>
 
 
-          <% else %>
-          <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
-          <% end %>
-          <% end %>
+              <% else %>
+              <%= link_to 'Participar', booking_participants_path(@booking, participant_id: current_user.id), method: 'post' %>
+              <% end %>
+              <% end %>
+            </div>
 
           </div>
         </div>

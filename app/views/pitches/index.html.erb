@@ -16,7 +16,7 @@
                       params[:location],
                       # :value => @searchfield,
                       :style => "width: 480px",
-                      # :class => 'searchfield',
+                      :class => 'searchfield',
                       :placeholder => 'Digite aqui o endereço desejado' %>
 
                       <%= select_tag :max_dist, options_for_select([ ["3km", "3"],["5km","5"], ["10km", "10"], ["15km", "15"], ["30km", "30"]], params[:max_dist]), :style => "width: 120px" %>

@@ -28,10 +28,10 @@
               required: true,
               autofocus: true,
               input_html: { autocomplete: "Price" } %>
-              <%= f.input :address,
+              <%= f.input :description, :as => :text,
               required: true,
               autofocus: true,
-              input_html: { autocomplete: "Rua Mourato Coelho" } %>
+              input_html: { :cols => 50, :rows => 3 } %>
             </div>
           </div>
           <!-- End Form left seccion -->
@@ -39,6 +39,10 @@
           <!-- Form middle seccion -->
           <div class="col col-md-4">
             <div class="pitches-new-form-right">
+              <%= f.input :address,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "Rua Mourato Coelho" } %>
               <%= f.input :cep,
               required: true,
               autofocus: true,
