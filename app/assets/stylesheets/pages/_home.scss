@@ -4,18 +4,29 @@ body {
   color: $dark-gray;
 }
 
-.home-index-upper-wrapper {
+.row {
+  width: 100%;
+}
+
+.home-wrapper {
   background-image: asset-url('grass.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
-  height: 400px;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.home-index-upper-box {
+.home-index-upper-wrapper {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-index-box {
   width: 100%;
   background-color: rgba(65,173,73,0.3);
   height: 100%;
@@ -26,27 +37,55 @@ body {
 .home-index-title {
   display: flex;
   align-items: center;
-  height: 160px;
+  height: 120px;
   color: white;
-  i {
-    font-size: 23px;
+  h2 {
+    font-family: $geo;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    font-size: 48px;
   }
 }
 
+.home-index-search-bar {
+    select {
+    border: none;
+    border-radius: 2px;
+    height: 40px;
+    margin-left: 24px;
+    -webkit-appearance: none;
+    width: 72px;
+    padding-left: 4px;
+    box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.7);
+    &:hover {
+      opacity: 0.9;
+    }
+    }
+    input {
+    width: 120px;
+    height: 40px;
+    box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.7);
+    margin-left: 32px;
+    border-radius: 2px;
+    border: none;
+    }
+    .submit-tag-btn {
+      &:hover {
+      background-color: rgba(245,245,245,0.9);
+      }
+    }
+}
+
 .home-index-search {
-  margin-top: 40px;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   input {
     opacity: 0.8;
-    margin-left: 8px;
-    height: 40px;
     border-radius: 2px;
     border-style: none;
   }
   button {
     opacity: 0.9;
-    margin-left: 24px;
     height: 40px;
     width: 80px;
     border-radius: 2px;
@@ -62,29 +101,69 @@ body {
 }
 
 .home-index-middle-wrapper {
-  height: 700px;
-  background-color: rgb(250,250,250);
+  height: 540px;
+  width: 100%;
 }
 
 .home-index-map {
-  height: 700px;
+  height: 100%;
   width:100%;
-  background-color: rgb(140,140,140);
+  margin: 0 auto;
+}
+
+// Mapbox:
+
+#map {
+  border-radius: 2px 2px 0 0;
+    box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.7);
+}
+
+.mapbox-pitch-marker {
+  background-image: asset-url('fut-field.png');
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.mapbox-central-marker {
+  background-image: asset-url('pin.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.mapbox-friends-marker {
+  background-image: asset-url('friend.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .home-index-lower-wrapper {
-  background-image: asset-url('goal.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
-  height: 300px;
+  height: 10px;
 }
 
-.home-index-lower-box {
-  background-color:  rgba(65,193,53,0.3);
-
-  height: 100%;
+.mapboxgl-popup-content {
+  border: solid 1px lightgray;
+  img {
+    border: 1px solid lightgray;
+    min-height: 120px;
+    min-width: 120px;
+    background-image: asset-url('logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    objetc-fit: contain;
+  }
+  h6 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
 }
 
 footer {
