@@ -142,8 +142,8 @@ users:
 
   - email: "alexsandro.souza@gmail.com"
     password: 123789
-    last_name: Sérgio
-    first_name: Zé
+    last_name: Souza
+    first_name: Alexsandro
     phone: 011-999993030
     nickname: Alex
     address: "Av. Paulista, 1374 São Paulo"
