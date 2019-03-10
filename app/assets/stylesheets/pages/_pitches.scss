@@ -209,8 +209,28 @@
   min-height: 100vh;
 }
 
+.pitches-show-title {
+  display: flex;
+  justify-content: flex-end;
+  p {
+    margin-top: 24px;
+    margin-right: 8px;
+  }
+  a {
+    font-family: geo;
+    color: white;
+    font-size: 24px;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: lightgray;
+    }
+  }
+}
+
 .pitches-upper-wrapper {
-  margin-top: 48px;
+  margin-top: 24px;
   margin-bottom: 48px;
 }
 

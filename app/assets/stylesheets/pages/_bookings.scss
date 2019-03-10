@@ -19,9 +19,26 @@
 
 .bookings-show-title {
   color: white;
+  display: flex;
+  justify-content: space-between;
   h1 {
   font-family: $geo;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+  }
+  p {
+    margin-top: 32px;
+    margin-right: 8px;
+  }
+  a {
+    font-family: geo;
+    color: white;
+    font-size: 24px;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: lightgray;
+    }
   }
 }
 

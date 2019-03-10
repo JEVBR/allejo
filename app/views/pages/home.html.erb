@@ -7,9 +7,7 @@
 
             <header>
               <div class="overlay"></div>
-              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="assets/football.mp4" type="video/mp4">
-              </video>
+              <%= video_tag 'football.mp4', class: 'header', autoplay: "", controls: false, loop: true, preload: true, muted: "true", type: "video/mp4"%>
               <div class="home-index-header">
                 <div class="container h-100">
                   <div class="d-flex h-100 text-center align-items-center">

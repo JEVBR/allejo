@@ -256,23 +256,30 @@
 
 .users-edit-title {
   display: flex;
-  margin-bottom: 48px;
-  justify-content: flex-start;
-  height: 80px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  height: 64px;
   min-width: 400px;
-  position: relative;
   h2 {
     font-family: $geo;
     text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
     color: white;
-    font-size: 56px;
+    font-size: 48px;
   }
-  p, a {
+  p {
+    margin-top: 24px;
+    margin-right: 8px;
+  }
+  a {
+    font-family: geo;
     color: white;
-    position: absolute;
-    font-family: $geo;
-    top: 48px;
-    left: 2px;
+    font-size: 24px;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: lightgray;
+    }
   }
 }
 
@@ -334,7 +341,9 @@
   }
 }
 
-
+.ap-input-icon {
+  display: none;
+}
 
 .users-edit-photo-input {
   background-color: none;
@@ -501,9 +510,26 @@
 .users-show-title {
   color: white;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+  display: flex;
+  justify-content: space-between;
   h2 {
   font-family: $geo;
   font-size: 48px;
+  }
+  p {
+    margin-top: 32px;
+    margin-right: 8px;
+  }
+  a {
+    font-family: geo;
+    color: white;
+    font-size: 24px;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: lightgray;
+    }
   }
 }
 
