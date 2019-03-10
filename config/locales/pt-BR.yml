@@ -18,6 +18,7 @@ pt-BR:
         title: Nome do local
         subtitle: Nome da quadra
         category_id: Tipo de quadra
+        description: Descrição
         price: Preço por hora
         address: Endereço
         cep: CEP
@@ -261,6 +262,14 @@ pt-BR:
           timeout: "Sua sessão expirou, por favor, efetue login novamente para continuar."
           unauthenticated: "Para continuar, efetue login ou registre-se."
           unconfirmed: "Antes de continuar, confirme a sua conta."
+      registrations:
+          destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+          signed_up: "O Allejo lhe dá as boas vindas! Sua conta foi criada com sucesso. Encontre quadras, convide seus contatos e jogue muito futebol!"
+          signed_up_but_inactive: "Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada."
+          signed_up_but_locked: "Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada."
+          signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para confirmar a sua conta."
+          update_needs_confirmation: "Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos."
+          updated: "Sua conta foi atualizada com sucesso."
       sessions:
           signed_in: "Login efetuado com sucesso!"
           signed_out: "Saiu com sucesso."
@@ -283,4 +292,3 @@ pt-BR:
   simple_form:
       error_notification:
         default_message: "Por gentileza, reveja o preenchimento das informações abaixo."
-
