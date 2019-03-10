@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  root to: 'pitches#index'
+  root to: 'pages#home'
 
   resources :pitches do
     resources :bookings, only: [:create]

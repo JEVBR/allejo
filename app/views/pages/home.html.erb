@@ -4,54 +4,51 @@
     <div class="home-index-upper-box">
       <div class="row">
         <div class="col col-md-12">
-          <!-- Title -->
-          <div class="home-index-title">
-            <h2>Seu trabalho é jogar futeb<i class="fas fa-futbol"></i>l,  resto é com a gente. </h2>
-          </div>
-          <!-- End Title -->
 
-          <!-- Search Input -->
-          <div class="home-index-search">
-            <input type="text" value=" Buscar quadras em São Paulo" style="width: 480px">
-            <input type="text" value="26/02/2018" style="width: 96px">
-            <input type="text" value="20:00 - 23:00" style="width: 120px">
-            <input type="text" value=" Society" style="width: 80px">
-            <button>Buscar</button>
-          </div>
-          <!-- End Search Input -->
+            <header>
+              <div class="overlay"></div>
+              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="assets/football.mp4" type="video/mp4">
+              </video>
+              <div class="home-index-header">
+                <div class="container h-100">
+                  <div class="d-flex h-100 text-center align-items-center">
+                    <div class="w-100">
+                      <!-- <h1 class="display-3">Seu trabalho é jogar futebol</h1> -->
+                    <div class="sp-container">
+
+                        <div class="sp-content">
+                          <div class="sp-globe"></div>
+                          <h2 class="frame-1">Encontre quadras</h2>
+                          <h2 class="frame-2">Marque suas partidas</h2>
+                          <h2 class="frame-3">Convide seus amigos</h2>
+                          <h2 class="frame-4">Allejo</h2>
+                          <h2 class="frame-5">
+                            <span>Seu único trabalho </span>
+                            <span>é jogar futebol!</span>
+                          </h2>
+
+                          <div class="home-index-buttons">
+                            <div class="home-index-in">
+                             <%= link_to 'Entrar', pitches_path %>
+                            </div>
+<!--                             <div class="home-index-up">
+                             <%= link_to 'Já tenho uma conta', new_user_session_path %>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </header>
+
+
         </div>
       </div>
     </div>
   </div>
-  <!-- End Upper Index -->
-
-  <!-- Lower Wrapper -->
-  <div class="home-index-middle-wrapper">
-    <div class="row">
-      <div class="col col-md-12">
-
-    <!-- Map -->
-          <div class="home-index-map">
-            <p>O Mapa vai aqui</p>
-          </div>
-    <!-- End Map -->
-      </div>
-    </div>
-  </div>
-  <!-- End Lower Wrapper -->
-
-  <div class="home-index-lower-wrapper">
-    <div class="home-index-lower-box">
-
-    </div>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <p>Copyright</p>
-    <div>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-  </footer>
 </div>
