@@ -164,6 +164,7 @@ class PitchesController < ApplicationController
   end
 
   def edit
+    @categories = policy_scope(Category).order(name: :asc)
   end
 
   def update
