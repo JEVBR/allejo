@@ -141,6 +141,7 @@ const initMapbox = () => {
       // get the markers from html
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(window.map, markers);
+      map.addControl(new mapboxgl.NavigationControl());
     });
     // when mouse is in the polygon disable click to prevent deletion of the popup
     window.map.on('mouseenter', 'polygon', function(e) { window.StopClick = true;  });
@@ -149,8 +150,9 @@ const initMapbox = () => {
 
     window.map.on('click', function(e) {
       if( window.StopClick ) { return;}
-
-      const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}&max_dist=${max_dist.value}`;
+      const modalInput = document.getElementById('category_id');
+      console.log(modalInput);
+      const myData =`lng=${e.lngLat.lng}&lat=${e.lngLat.lat}&max_dist=${max_dist.value}&category_id=${modalInput.value}`;
 
       Rails.ajax({
                 type: "GET",
