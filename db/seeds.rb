@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Seeding categories"
-Category.create(name: 'Society')
 Category.create(name: 'Campo')
+Category.create(name: 'Society')
 Category.create(name: 'Futsal')
 puts "Categories seeded"
 
