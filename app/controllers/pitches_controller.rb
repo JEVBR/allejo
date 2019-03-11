@@ -94,7 +94,7 @@ class PitchesController < ApplicationController
     coordinates_array = [lat, lng]
 
     # MAP:
-    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).near(coordinates_array, max_dist)
+    @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).where(category_id: params[:category_id].to_i).near(coordinates_array, max_dist)
 
     @markers = @mark_pitches.map do |pitch|
       {
