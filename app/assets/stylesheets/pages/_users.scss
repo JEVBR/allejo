@@ -784,7 +784,10 @@
   }
 }
 
-
+.modal-body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .modal-content {
   color: $dark-gray;
@@ -844,6 +847,15 @@
     background-color: $dark-gray;
     &:hover {
     background-color: rgba(51,51,51,0.75);
+    }
+  }
+  .btn-cancelar {
+    color: gray;
+    font-family: $geo;
+    font-size: 32px !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black;
+    &:hover {
+      color: $flame;
     }
   }
 }
