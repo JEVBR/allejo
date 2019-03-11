@@ -30,7 +30,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    organizer? || owner?(record)
+    organizer? || owner?(record.pitch)
   end
 
   def have_participants?
