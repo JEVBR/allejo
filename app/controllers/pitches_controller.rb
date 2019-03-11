@@ -89,7 +89,7 @@ class PitchesController < ApplicationController
     authorize Pitch
     lat = params[:lat]
     lng = params[:lng]
-
+    params[:category_id] = 2 if params[:category_id].nil?
     coordinates_hash = { lng: lng.to_f, lat: lat.to_f, type: 0 }
     coordinates_array = [lat, lng]
 
