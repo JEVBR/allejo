@@ -75,7 +75,7 @@
                 method: :delete,
                 data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %></h5>
 
-                R$<%= @booking.pitch.price / @confirmed_list.size %>/jogador
+                <p>Valor estimado por pessoa: R$<%= @booking.pitch.price / @confirmed_list.size %></p>
                 <% end %>
                 <% end %>
                 <% end %>

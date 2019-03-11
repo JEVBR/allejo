@@ -102,6 +102,16 @@
   max-width: 400px;
   border-radius: 4px;
   margin: 8px auto;
+  position: relative;
+  p {
+    color: white;
+    font-weight: lighter;
+    font-family: ubuntu;
+    font-size: 12px;
+    position: absolute;
+    top: -24px;
+    left: 16px;
+  }
   h3 {
     font-family: ubuntu;
     font-weight: lighter;
@@ -141,7 +151,6 @@
       }
     }
   }
-
 }
 
 .bookings-show-white-card-notconfirmedlist {

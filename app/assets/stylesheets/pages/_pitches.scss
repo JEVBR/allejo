@@ -10,8 +10,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
-  height: 100%;
-  width: 100%;
+  height: 120vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   .row {
@@ -70,7 +70,8 @@
     border: none;
     }
     .search-pitch {
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
       @media (max-width: 1000px) {
     margin-bottom: 24px;
     }
@@ -80,7 +81,6 @@
 .submit-tag-btn {
   width: 90%;
   min-width: 100px;
-  margin-left: 10%;
   background-color: rgba(250,250,250,0.8);
   &:hover {
     background-color: rgba(250,250,250,1.0);
@@ -88,8 +88,8 @@
 }
 
 .pitches-index-middle-wrapper {
-  height: 540px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   @media (max-width: 800px) {
   height: 720px;
   }
@@ -102,6 +102,10 @@
     @media (max-width: 1000px) {
     margin-top: 72px;
   }
+}
+
+.ap-nostyle-dropdown-menu {
+  margin-top: 24px;
 }
 
 // Mapbox:
@@ -184,9 +188,6 @@
   }
 }
 
-.pitches-index-lower-wrapper {
-  height: 10px;
-}
 
 // -=-=-= End Pitches Index =-=-=- //
 
