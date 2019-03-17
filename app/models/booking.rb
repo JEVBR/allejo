@@ -69,24 +69,31 @@ class Booking < ApplicationRecord
     end
   end
 
+  # This method will return the day schedule of a pitch, splitted into time slots with custom duration.
+  # it only works for slot_durations that are divider of 60 (60, 30, 15, 10...)
   def self.pitch_daily_schedule(day, pitch, slot_duration)
-    day = day.to_date.beginning_of_day
+    opening = day.to_date.beginning_of_day + pitch.opening_time.hours # opening time of the pitch
 
+    # instance a new booking
     booking = Booking.new
     booking.pitch = pitch
-    booking.user = User.first # random user, just to booking be valid
+    booking.user = User.first # random user to booking be valid
 
-    daily_schedule = []
+    daily_schedule = [] # array that will receive schedule infos
 
-    (pitch.opening_time..(pitch.closing_time - 1)).to_a.each do |slot| # minutes between 00h and (24h - last slot)
+    last = ((pitch.closing_time - pitch.opening_time) * (60 / slot_duration)) - 1 # number of slots requireds
+
+    (0..last).to_a.each do |slot|
       duration = slot_duration
 
-      init_time = day + (duration.minutes * slot)
-      end_time = day + (duration.minutes * (slot + 1))
+      init_time = opening + (duration.minutes * slot)
+      end_time = opening + (duration.minutes * (slot + 1))
 
+      # set booking parameters
       booking.start_time = init_time
       booking.end_time = end_time
 
+      # check if it is available, if not, get the booking at this time
       if booking.valid?
         available = true
       else
@@ -94,6 +101,7 @@ class Booking < ApplicationRecord
         booked = pitch.bookings.find_by("(? < start_time AND ? > end_time) OR (? > start_time AND ? < end_time)", init_time, end_time, end_time, init_time)
       end
 
+      # store slot informations
       daily_schedule << { start_time: init_time, end_time: end_time, available: available, booking: booked }
     end
     daily_schedule
