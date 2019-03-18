@@ -43,7 +43,11 @@ class BookingsController < ApplicationController
     BookingCanceledMailerJob.perform_now(@booking.id)
 
     @booking.destroy
-    redirect_to users_show_path
+    if current_user.owner?
+      redirect_to request.env["HTTP_REFERER"]
+    else
+      redirect_to users_show_path
+    end
   end
 
   def unblock_day
