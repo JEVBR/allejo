@@ -7,8 +7,11 @@ class UsersController < ApplicationController
     bookings = Booking.joins(:participants).where(participants: { user: current_user }) # get all bookings where current_user is a participant
     @guest_bookings = bookings.where('start_time > ?', DateTime.now).where.not(user: current_user).order(start_time: :asc)
     @host_bookings = bookings.where('start_time > ?', DateTime.now).where(user: current_user).order(start_time: :asc)
+
     params[:pitch].present? ? @pitch = Pitch.find(params[:pitch]) : @pitch = @pitches.first
-    params[:date].present? ? @date_select = params[:date].to_date : @date_select = Date.today
+
+    params[:date] = Date.today.strftime('%F') unless params[:date].present?
+    @date_select = params[:date].to_date
   end
 
   private
