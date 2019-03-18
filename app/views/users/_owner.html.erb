@@ -27,7 +27,7 @@
 
                           <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "subtitle", @pitch.id), :class => 'selecttag' %>
 
-                          <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker', value: Date.today %></span>
+                          <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %></span>
 
                          <span style="margin-left: 24px"><%= submit_tag 'Pesquisar', :class => 'pitchsearch' %></span>
                         <% end %>
