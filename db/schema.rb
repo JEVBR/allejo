@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_193407) do
+ActiveRecord::Schema.define(version: 2019_03_19_014902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2019_03_08_193407) do
     t.string "title"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.string "subtitle"
     t.string "address"
     t.string "cep"
     t.string "cnpj"
@@ -75,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_03_08_193407) do
     t.integer "closing_time"
     t.text "description"
     t.string "phone"
+    t.string "company"
     t.index ["category_id"], name: "index_pitches_on_category_id"
     t.index ["user_id"], name: "index_pitches_on_user_id"
   end
