@@ -14,7 +14,7 @@
           <div class="row">
                 <!-- Pitches Menu -->
                 <div class="users-show-pitch-white-card-title">
-                <h2><%= @pitch.title %></h2>
+                <h2><%= @pitch.company %></h2>
                 </div>
                 <div class="users-show-pitch-info">
                   <div class="col-md-6">
@@ -108,7 +108,7 @@
                                     blocked: true
                                   }),
                                   method: 'post',
-                                  data: { confirm: "Tem certeza que deseja bloquear #{@pitch.title} para o dia #{date.strftime("%d/%m")}"} %>
+                                  data: { confirm: "Tem certeza que deseja bloquear #{@pitch.company} para o dia #{date.strftime("%d/%m")}"} %>
                         <% end %> -->
 
 

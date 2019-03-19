@@ -56,7 +56,7 @@ class PitchesController < ApplicationController
         lat: pitch.latitude,
         infoWindow: pitch.address,
         # pitch_description: pitch.description,
-        pitch_title: pitch.title,
+        pitch_company: pitch.company,
         pitch_link: pitch_path(pitch),
         pitch_photo: pitch.photo.url,
         pitch_price: pitch.price,
@@ -102,7 +102,7 @@ class PitchesController < ApplicationController
         lat: pitch.latitude,
         infoWindow: pitch.address,
         # pitch_description: pitch.description,
-        pitch_title: pitch.title,
+        pitch_company: pitch.company,
         pitch_link: pitch_path(pitch),
         pitch_photo: pitch.photo.url,
         pitch_price: pitch.price,
@@ -180,6 +180,6 @@ class PitchesController < ApplicationController
   end
 
   def pitch_params
-    params.require(:pitch).permit(:address, :title, :subtitle, :price, :cep, :cnpj, :category_id, :photo, :opening_time, :closing_time, :description, :phone)
+    params.require(:pitch).permit(:address, :company, :subtitle, :price, :cep, :cnpj, :category_id, :photo, :opening_time, :closing_time, :description, :phone)
   end
 end

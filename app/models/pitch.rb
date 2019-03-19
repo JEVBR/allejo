@@ -10,7 +10,7 @@ class Pitch < ApplicationRecord
   validates :category, presence: true
   validates :user, presence: true
 
-  validates :title, presence: true
+  validates :company, presence: true
   validates :subtitle, presence: true
 
   validates :address, presence: true

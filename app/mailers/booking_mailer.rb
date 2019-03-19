@@ -11,7 +11,7 @@ class BookingMailer < ApplicationMailer
 
     @first_name = user.first_name
     @date = booking.start_time.strftime("%d/%m")
-    @pitch_title = pitch.title
+    @pitch_company = pitch.company
     @address = pitch.address
 
     mail(to: user.email, subject: 'Não esqueça do jogo amanhã')
@@ -24,7 +24,7 @@ class BookingMailer < ApplicationMailer
 
     @first_name = user.first_name
     @date = booking.start_time.strftime("%d/%m")
-    @pitch_title = pitch.title
+    @pitch_company = pitch.company
     @address = pitch.address
 
     mail(to: user.email, subject: 'Seu jogo foi cancelado')

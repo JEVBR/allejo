@@ -311,7 +311,7 @@ users:
 
 pitches:
 #1
-  - title: Playball
+  - company: Playball
     user_id: 3
     category_id: 1
     subtitle: Anhanguera
@@ -335,7 +335,7 @@ pitches:
 
 
 #2
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Redondão
@@ -359,7 +359,7 @@ pitches:
 
 
 #3
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Campo Céu Azul
@@ -383,7 +383,7 @@ pitches:
 
 
 #4
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
     subtitle: Fazendão
@@ -407,7 +407,7 @@ pitches:
 
 
 #5
-  - title: Campo do Marcelo
+  - company: Campo do Marcelo
     user_id: 3
     category_id: 1
     subtitle: Predinhos
@@ -431,7 +431,7 @@ pitches:
 
 
 #6
-  - title: Campo do Japa
+  - company: Campo do Japa
     user_id: 3
     category_id: 1
     subtitle: Monte Fuji
@@ -455,7 +455,7 @@ pitches:
 
 
 #7
-  - title: Campo de Mentira
+  - company: Campo de Mentira
     user_id: 3
     category_id: 1
     subtitle: Fake Field
@@ -479,7 +479,7 @@ pitches:
 
 
 #8
-  - title: Bola & Churrasco
+  - company: Bola & Churrasco
     user_id: 3
     category_id: 1
     subtitle: Campo da Fraldinha
@@ -505,7 +505,7 @@ pitches:
 
 
 #9
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
     subtitle: Rede Total
@@ -529,7 +529,7 @@ pitches:
 
 
 #10
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
     subtitle: Campo Marrom
@@ -553,7 +553,7 @@ pitches:
 
 
 #11
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
     subtitle: Carpetão
@@ -577,7 +577,7 @@ pitches:
 
 
 #12
-  - title: Rivelino
+  - company: Rivelino
     user_id: 2
     category_id: 2
     subtitle: Quadra Única
@@ -601,7 +601,7 @@ pitches:
 
 
 #13
-  - title: Dutch Society
+  - company: Dutch Society
     user_id: 4
     category_id: 2
     subtitle: Orange Field
@@ -625,7 +625,7 @@ pitches:
 
 
 #14
-  - title: German Society
+  - company: German Society
     user_id: 4
     category_id: 2
     subtitle: Quadra Uber
@@ -649,7 +649,7 @@ pitches:
 
 
 #15
-  - title: Venlo Society
+  - company: Venlo Society
     user_id: 4
     category_id: 2
     subtitle: Quadra do Murinho
@@ -673,7 +673,7 @@ pitches:
 
 
 #16
-  - title: Beck Society
+  - company: Beck Society
     user_id: 4
     category_id: 2
     subtitle: Campo The Wall
@@ -697,7 +697,7 @@ pitches:
 
 
 #17
-  - title: Beck Society
+  - company: Beck Society
     user_id: 4
     category_id: 2
     subtitle: Campo The Roof
@@ -721,7 +721,7 @@ pitches:
 
 
 #18
-  - title: AREA SPORTS
+  - company: AREA SPORTS
     user_id: 3
     category_id: 2
     subtitle: Borrachão
@@ -747,7 +747,7 @@ pitches:
 
 
 #19
-  - title: Academia de Futsal
+  - company: Academia de Futsal
     user_id: 4
     category_id: 3
     subtitle: Quadra 02
@@ -771,7 +771,7 @@ pitches:
 
 
 #20
-  - title: ProSport
+  - company: ProSport
     user_id: 3
     category_id: 3
     subtitle: Módulo Azul
@@ -795,7 +795,7 @@ pitches:
 
 
 #21
-  - title: FutSalvaro
+  - company: FutSalvaro
     user_id: 1
     category_id: 3
     subtitle: Quadra Central
@@ -819,7 +819,7 @@ pitches:
 
 
 #22
-  - title: FutSalveme
+  - company: FutSalveme
     user_id: 1
     category_id: 3
     subtitle: Quadra da Bola
@@ -843,7 +843,7 @@ pitches:
 
 
 #23
-  - title: FutSalveme
+  - company: FutSalveme
     user_id: 1
     category_id: 3
     subtitle: Quadra Funda
@@ -867,7 +867,7 @@ pitches:
 
 
 #24
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 4
     category_id: 3
     subtitle: Coberta
@@ -891,7 +891,7 @@ pitches:
 
 
 #25
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 4
     category_id: 3
     subtitle: Maracanãzinho
@@ -915,7 +915,7 @@ pitches:
 
 
 #26
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 1
     category_id: 3
     subtitle: Ginásio
