@@ -168,8 +168,11 @@ class PitchesController < ApplicationController
   end
 
   def update
-    @pitch.update(pitch_params)
-    redirect_to pitch_path(@pitch)
+    if @pitch.update(pitch_params)
+      redirect_to pitch_path(@pitch)
+    else
+      redirect_to request.env["HTTP_REFERER"], alert: 'Por favor, verifique os horários de abertura e fechamento'
+    end
   end
 
   private
