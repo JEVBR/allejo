@@ -18,6 +18,12 @@ class Pitch < ApplicationRecord
   validates :cnpj, presence: true
   validates :price, presence: true
 
+  validates :opening_time, presence: true
+  validates :opening_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  validates :closing_time, presence: true
+  validates :closing_time, numericality: { only_integer: true, less_than_or_equal_to: 24 }
+
   after_validation :geocode, if: :will_save_change_to_address?
 
   after_destroy do
