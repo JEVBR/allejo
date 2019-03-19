@@ -15,7 +15,7 @@ pt-BR:
         nickname: Apelido
         remember_me: Lembrar-me
       pitch:
-        title: Nome do local
+        company: Nome do local
         title: Nome da quadra
         category_id: Tipo de quadra
         description: Descrição
