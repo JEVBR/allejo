@@ -311,10 +311,10 @@ users:
 
 pitches:
 #1
-  - title: Playball
+  - company: Playball
     user_id: 3
     category_id: 1
-    subtitle: Anhanguera
+    title: Anhanguera
     address: Rua Wisard, 489 São Paulo
     cep: 03154-100
     cnpj: 45.543.915/0001-81
@@ -335,10 +335,10 @@ pitches:
 
 
 #2
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
-    subtitle: Redondão
+    title: Redondão
     address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
@@ -359,10 +359,10 @@ pitches:
 
 
 #3
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
-    subtitle: Campo Céu Azul
+    title: Campo Céu Azul
     address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
@@ -383,10 +383,10 @@ pitches:
 
 
 #4
-  - title: Tapetão
+  - company: Tapetão
     user_id: 1
     category_id: 1
-    subtitle: Fazendão
+    title: Fazendão
     address: Rua Delfina, 163 São Paulo
     cep: 04763-000
     cnpj: 10.456.016/0002-48
@@ -407,10 +407,10 @@ pitches:
 
 
 #5
-  - title: Campo do Marcelo
+  - company: Campo do Marcelo
     user_id: 3
     category_id: 1
-    subtitle: Predinhos
+    title: Predinhos
     address: Rua Mourato Coelho, 1060 São Paulo
     cep: 05417-001
     cnpj: 04.800.040/0001-22
@@ -431,10 +431,10 @@ pitches:
 
 
 #6
-  - title: Campo do Japa
+  - company: Campo do Japa
     user_id: 3
     category_id: 1
-    subtitle: Monte Fuji
+    title: Monte Fuji
     address: Rua Aspicuelta, 567 São Paulo
     cep: 01257-050
     cnpj: 04.800.040/9999-22
@@ -455,10 +455,10 @@ pitches:
 
 
 #7
-  - title: Campo de Mentira
+  - company: Campo de Mentira
     user_id: 3
     category_id: 1
-    subtitle: Fake Field
+    title: Fake Field
     address: Rua Agostinho Cantu, 129 São Paulo
     cep: 05501-010
     cnpj: 04.900.040/9999-22
@@ -479,10 +479,10 @@ pitches:
 
 
 #8
-  - title: Bola & Churrasco
+  - company: Bola & Churrasco
     user_id: 3
     category_id: 1
-    subtitle: Campo da Fraldinha
+    title: Campo da Fraldinha
     address: Rua Francisco Leitão, 272 São Paulo
     cep: 05414-020
     cnpj: 04.900.050/9999-22
@@ -505,10 +505,10 @@ pitches:
 
 
 #9
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
-    subtitle: Rede Total
+    title: Rede Total
     address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
@@ -529,10 +529,10 @@ pitches:
 
 
 #10
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
-    subtitle: Campo Marrom
+    title: Campo Marrom
     address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
@@ -553,10 +553,10 @@ pitches:
 
 
 #11
-  - title: Top Society
+  - company: Top Society
     user_id: 2
     category_id: 2
-    subtitle: Carpetão
+    title: Carpetão
     address: Rua Aspicuelta, 644 São Paulo
     cep: 02166-000
     cnpj: 17.398.679-01
@@ -577,10 +577,10 @@ pitches:
 
 
 #12
-  - title: Rivelino
+  - company: Rivelino
     user_id: 2
     category_id: 2
-    subtitle: Quadra Única
+    title: Quadra Única
     address: Rua Delfina, 66 São Paulo
     cep: 04707-160
     cnpj: 47.508.411/2154-38
@@ -601,10 +601,10 @@ pitches:
 
 
 #13
-  - title: Dutch Society
+  - company: Dutch Society
     user_id: 4
     category_id: 2
-    subtitle: Orange Field
+    title: Orange Field
     address: Rua Wisard, 149 São Paulo
     cep: 05434-010
     cnpj: 04.999.040/0001-22
@@ -625,10 +625,10 @@ pitches:
 
 
 #14
-  - title: German Society
+  - company: German Society
     user_id: 4
     category_id: 2
-    subtitle: Quadra Uber
+    title: Quadra Uber
     address: Rua Arapiraca, 152 São Paulo
     cep: 01257-080
     cnpj: 04.999.040/8888-22
@@ -649,10 +649,10 @@ pitches:
 
 
 #15
-  - title: Venlo Society
+  - company: Venlo Society
     user_id: 4
     category_id: 2
-    subtitle: Quadra do Murinho
+    title: Quadra do Murinho
     address: Av. Lineu de Paula Machado, 599 São Paulo
     cep: 03178-200
     cnpj: 04.700.040/8888-22
@@ -673,10 +673,10 @@ pitches:
 
 
 #16
-  - title: Beck Society
+  - company: Beck Society
     user_id: 4
     category_id: 2
-    subtitle: Campo The Wall
+    title: Campo The Wall
     address: Rua Girassol, 825 São Paulo
     cep: 05412-001
     cnpj: 04.700.060/8888-22
@@ -697,10 +697,10 @@ pitches:
 
 
 #17
-  - title: Beck Society
+  - company: Beck Society
     user_id: 4
     category_id: 2
-    subtitle: Campo The Roof
+    title: Campo The Roof
     address: Rua Girassol, 825 São Paulo
     cep: 05412-001
     cnpj: 04.700.060/8888-22
@@ -721,10 +721,10 @@ pitches:
 
 
 #18
-  - title: AREA SPORTS
+  - company: AREA SPORTS
     user_id: 3
     category_id: 2
-    subtitle: Borrachão
+    title: Borrachão
     address: Rua Pamplona, 1616 São Paulo
     cep: 01405-002
     cnpj: 04.800.040/0001-79
@@ -747,10 +747,10 @@ pitches:
 
 
 #19
-  - title: Academia de Futsal
+  - company: Academia de Futsal
     user_id: 4
     category_id: 3
-    subtitle: Quadra 02
+    title: Quadra 02
     address: Rua Fradique Coutinho, 1070 São Paulo
     cep: 05416-001
     cnpj: 10.456.016/0002-48
@@ -771,10 +771,10 @@ pitches:
 
 
 #20
-  - title: ProSport
+  - company: ProSport
     user_id: 3
     category_id: 3
-    subtitle: Módulo Azul
+    title: Módulo Azul
     address: Rua Fidalga, 242 São Paulo
     cep: 05432-070
     cnpj: 04.800.040/0001-11
@@ -795,10 +795,10 @@ pitches:
 
 
 #21
-  - title: FutSalvaro
+  - company: FutSalvaro
     user_id: 1
     category_id: 3
-    subtitle: Quadra Central
+    title: Quadra Central
     address: Rua dos Pinheiros, 585 São Paulo
     cep: 05422-011
     cnpj: 04.999.040/0003-44
@@ -819,10 +819,10 @@ pitches:
 
 
 #22
-  - title: FutSalveme
+  - company: FutSalveme
     user_id: 1
     category_id: 3
-    subtitle: Quadra da Bola
+    title: Quadra da Bola
     address: Rua Inácio Pereira da Rocha, 112 São Paulo
     cep: 05432-001
     cnpj: 04.999.040/7777-44
@@ -843,10 +843,10 @@ pitches:
 
 
 #23
-  - title: FutSalveme
+  - company: FutSalveme
     user_id: 1
     category_id: 3
-    subtitle: Quadra Funda
+    title: Quadra Funda
     address: Rua Inácio Pereira da Rocha, 112 São Paulo
     cep: 01434-100
     cnpj: 04.300.040/7777-44
@@ -867,10 +867,10 @@ pitches:
 
 
 #24
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 4
     category_id: 3
-    subtitle: Coberta
+    title: Coberta
     address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
@@ -891,10 +891,10 @@ pitches:
 
 
 #25
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 4
     category_id: 3
-    subtitle: Maracanãzinho
+    title: Maracanãzinho
     address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
@@ -915,10 +915,10 @@ pitches:
 
 
 #26
-  - title: FutSal QueNão
+  - company: FutSal QueNão
     user_id: 1
     category_id: 3
-    subtitle: Ginásio
+    title: Ginásio
     address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44

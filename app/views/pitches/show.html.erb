@@ -19,7 +19,7 @@
                 </div>
                 <div class="pitches-left-info-wrap">
                   <div class="pitches-left-info-title">
-                    <h3><%= @pitch.title %></h3>
+                    <h3><%= @pitch.company %></h3>
                   </div>
                     <div class="pitches-left-info-wrap-editdelete">
                       <% if policy(@pitch).edit? %>
@@ -44,7 +44,7 @@
               <div class="col-md-6">
                 <div class="pitches-right-seccion">
 
-                    <h5><%= @pitch.subtitle %></h5>
+                    <h5><%= @pitch.title %></h5>
                   <div class="pitches-show-schedule-search">
                     <%= form_tag(pitch_path(@pitch), method: :get) do |f| %>
 
@@ -75,7 +75,7 @@
                             end_time: time_slot[:end_time]
                           }),
                           method: 'post',
-                          data: { confirm: "Reservar #{@pitch.title} para o dia #{time_slot[:start_time].strftime("%d/%m")} entre as #{time_slot[:start_time].strftime("%Hh%Mm")} e #{time_slot[:end_time].strftime("%Hh%Mm")}"} %></p>
+                          data: { confirm: "Reservar #{@pitch.company} para o dia #{time_slot[:start_time].strftime("%d/%m")} entre as #{time_slot[:start_time].strftime("%Hh%Mm")} e #{time_slot[:end_time].strftime("%Hh%Mm")}"} %></p>
 
                           <% else %>
 

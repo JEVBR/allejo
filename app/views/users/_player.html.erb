@@ -47,7 +47,7 @@
               <div class="users-show-player-games-each">
                 <div class="users-show-player-games-each-details">
 
-                  <h5><%= booking.pitch.title %></h5>
+                  <h5><%= booking.pitch.company %></h5>
                   <p><i class="far fa-clock"></i> <strong><%= booking.start_time.strftime("%H:%M") %> - <%= booking.end_time.strftime("%H:%M") %></strong>   </p>
 
                   <%= link_to 'Ver jogo', booking_path(booking) %>
@@ -81,7 +81,7 @@
               <% @host_bookings.each do |booking| %>
               <div class="users-show-player-games-each">
                 <div class="users-show-player-games-each-details">
-                  <h5><%= booking.pitch.title %></h5>
+                  <h5><%= booking.pitch.company %></h5>
                   <p><i class="far fa-clock"></i> <strong><%= booking.start_time.strftime("%H:%M") %> - <%= booking.end_time.strftime("%H:%M") %></strong>   </p>
                   <p> <i class="fas fa-user" style="color: rgb(65,173,73);"></i> <%= booking.participants.where(confirmed: true).count %> <i class="far fa-user"></i> <%= booking.participants.where(confirmed: false).count %></p>
                   <%= link_to 'Ver detalhes', booking_path(booking) %>

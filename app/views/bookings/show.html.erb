@@ -3,7 +3,7 @@
     <div class="container">
       <div class="bookings-show-title">
         <!-- Booking Title -->
-        <h1><%= @booking.pitch.title %></h1>
+        <h1><%= @booking.pitch.company %></h1>
         <!-- <a href="https://web.whatsapp.com/send?text=<%= request.original_url %>" data-action="share/whatsapp/share" target='blank' >Compartilhar pelo whatsapp WEB</a> -->
         <!-- <a href="https://api.whatsapp.com/send?text=<%= request.original_url %>" data-action="share/whatsapp/share">Compartilhar pelo whatsapp MOBILE</a> -->
         <!-- End Booking Title -->
@@ -95,7 +95,7 @@
                         method: 'post' %>
                 <% end %>
 
-              <span class="card-pitch-type"><i class="fas fa-futbol"></i> <%= @booking.pitch.subtitle %></span>
+              <span class="card-pitch-type"><i class="fas fa-futbol"></i> <%= @booking.pitch.title %></span>
               <span class="card-pitch-time"><i class="far fa-clock"></i> <%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></span>
               <span class="card-pitch-hour"> <i class="far fa-calendar-alt"></i> <%= @booking.start_time.strftime("%d/%m") %></span>
 
