@@ -16,7 +16,7 @@ pt-BR:
         remember_me: Lembrar-me
       pitch:
         title: Nome do local
-        subtitle: Nome da quadra
+        title: Nome da quadra
         category_id: Tipo de quadra
         description: Descrição
         price: Preço por hora

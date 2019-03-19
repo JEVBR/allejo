@@ -95,7 +95,7 @@
                         method: 'post' %>
                 <% end %>
 
-              <span class="card-pitch-type"><i class="fas fa-futbol"></i> <%= @booking.pitch.subtitle %></span>
+              <span class="card-pitch-type"><i class="fas fa-futbol"></i> <%= @booking.pitch.title %></span>
               <span class="card-pitch-time"><i class="far fa-clock"></i> <%= @booking.start_time.strftime("%Hh%M") %> - <%= @booking.end_time.strftime("%Hh%M") %></span>
               <span class="card-pitch-hour"> <i class="far fa-calendar-alt"></i> <%= @booking.start_time.strftime("%d/%m") %></span>
 

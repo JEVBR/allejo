@@ -23,7 +23,7 @@ puts "Positions added"
 # puts "Test user created"
 
 # puts "Creating test Pitch"
-# Pitch.create(title: 'Campo do Ze', user_id: 1, category_id: 1, subtitle: 'vem jogar', cep: 12341234, cnpj: 1111111, address: 'rua mourato coelho 1404 Sao Paulo', price:80)
+# Pitch.create(title: 'Campo do Ze', user_id: 1, category_id: 1, title: 'vem jogar', cep: 12341234, cnpj: 1111111, address: 'rua mourato coelho 1404 Sao Paulo', price:80)
 # puts "Test pitch created"
 
 
@@ -62,7 +62,7 @@ seeds["pitches"].each do |pitch|
                               "description",
                               "phone",
                               "title",
-                              "subtitle",
+                              "title",
                               "price",
                               "cep",
                               "description",

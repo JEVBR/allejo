@@ -20,12 +20,12 @@
                   <div class="col-md-6">
                     <div class="users-show-pitch-info-filters">
                       <div class="users-show-pitch-info-filters-title">
-                        <h3>Agenda <%= @pitch.subtitle %></h3>
+                        <h3>Agenda <%= @pitch.title %></h3>
                       </div>
                       <div class="users-show-pitch-info-filters-selectdatepick">
                         <%= form_tag(users_show_path, method: :get) do |f| %>
 
-                          <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "subtitle", @pitch.id), :class => 'selecttag' %>
+                          <%= select_tag :pitch, options_from_collection_for_select(@pitches, "id", "title", @pitch.id), :class => 'selecttag' %>
 
                           <span style="margin-left: 24px"><%= date_field_tag :date, params[:date], "data-provide" => 'datepicker', :class => 'datepicker' %></span>
 
@@ -60,7 +60,7 @@
                     </div>
 
 
-                    <h4><%= @pitch.subtitle %></h4>
+                    <h4><%= @pitch.title %></h4>
 
                     <h6><%= link_to 'Editar', edit_pitch_path(@pitch) %></h6>
                   </div>
@@ -170,7 +170,7 @@
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h5 class="modal-title"><%= @pitch.subtitle %> &nbsp;  - &nbsp;  <%= date.strftime("%d/%m") %> &nbsp; - &nbsp; <%= time_slot[:start_time].strftime("%H:%M") %> às <%= time_slot[:end_time].strftime("%H:%M") %></h5>
+                                    <h5 class="modal-title"><%= @pitch.title %> &nbsp;  - &nbsp;  <%= date.strftime("%d/%m") %> &nbsp; - &nbsp; <%= time_slot[:start_time].strftime("%H:%M") %> às <%= time_slot[:end_time].strftime("%H:%M") %></h5>
                                   </div>
                                   <div class="modal-body">
                                     <p>Nome</p>
