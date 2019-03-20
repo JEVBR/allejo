@@ -43,6 +43,12 @@
               <!-- Right Seccion -->
               <div class="col-md-6">
                 <div class="pitches-right-seccion">
+                  <% if @last_pitch != @next_pitch %>
+                    <%= link_to 'anterior', pitch_path(@last_pitch) %>
+                  <% end %>
+                  <% if @next_pitch.present? %>
+                    <%= link_to 'próximo', pitch_path(@next_pitch) %>
+                  <% end %>
 
                     <h5><%= @pitch.title %></h5>
                   <div class="pitches-show-schedule-search">
