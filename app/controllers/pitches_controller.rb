@@ -135,6 +135,13 @@ class PitchesController < ApplicationController
     params[:date] = Date.today.strftime("%F") if params[:date].to_s.empty?
     date = params[:date].to_datetime
 
+    company_pitches = @pitch.user.pitches.where(company: @pitch.company)
+    @company_pitches_filtered = company_pitches.where(category: @pitch.category)
+
+    @pitch_index = @company_pitches_filtered.index(@pitch)
+    @next_pitch = @company_pitches_filtered[@pitch_index + 1]
+    @last_pitch = @company_pitches_filtered[(@pitch_index - 1).abs]
+
     @daily_schedule = Booking.pitch_daily_schedule(date, @pitch, 60)
   end
 
