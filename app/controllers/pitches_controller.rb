@@ -138,6 +138,9 @@ class PitchesController < ApplicationController
     company_pitches = @pitch.user.pitches.where(company: @pitch.company)
     @company_pitches_filtered = company_pitches.where(category: @pitch.category)
 
+    # Uncomment this line for tests
+    # @company_pitches_filtered = @pitch.user.pitches
+
     @pitch_index = @company_pitches_filtered.index(@pitch)
     @next_pitch = @company_pitches_filtered[@pitch_index + 1]
     @last_pitch = @company_pitches_filtered[(@pitch_index - 1).abs]
