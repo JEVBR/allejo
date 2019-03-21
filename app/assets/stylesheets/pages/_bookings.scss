@@ -47,6 +47,7 @@
   border-radius: 2px;
   min-height: 480px;
   max-height: auto;
+  margin-bottom: 72px;
 }
 
 .bookings-show-white-card-header {
@@ -68,6 +69,14 @@
 .bookings-show-white-card-header-content {
   display: flex;
   justify-content: space-between;
+}
+
+#bookings-show-white-card-subheader-text {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: lighter;
+  padding: 4px;
 }
 
 .bookings-show-white-card-subheader {
@@ -119,7 +128,7 @@
     color: white;
     text-align: center;
   }
-  h5 {
+  h4 {
     margin:4px 16px 4px 16px;
     padding: 10px;
     background-color: rgba(107,230,137,0.5);
@@ -153,6 +162,20 @@
   }
 }
 
+.position {
+  background-color: rgb(51,51,51);
+  color: white;
+  text-align: center;
+  width: 48px;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 1px hsla(0, 0%, 0%, 0.4);
+  position: absolute;
+  right: 36px;
+  top: 12px;
+}
+
 .bookings-show-white-card-notconfirmedlist {
   min-height: 160px;
   min-width: 240px;
@@ -167,7 +190,7 @@
     color: white;
     text-align: center;
   }
-  h5 {
+  h4 {
     margin:4px 16px 4px 16px;
     padding: 10px;
     background-color: rgba(195,195,195,0.5);
