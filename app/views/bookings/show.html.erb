@@ -40,6 +40,10 @@
         <!-- SubHeader (confirm + search) -->
         <div class="bookings-show-white-card-subheader">
 
+        <div id="bookings-show-white-card-subheader-text">
+          Escolha os contatos que gostaria de convidar para esse jogo: <br>
+          (ou adicione novos contatos em seu perfil para convidá-los)
+        </div>
 
           <div class="col-md-12 text-center">
 
@@ -67,13 +71,13 @@
                 <% if policy(@booking).have_participants? %>
                 <% @confirmed_list.each do |participant| %>
 
-                <h5><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
-
+                <h4><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
+                <div class="position"> <%= participant.user.position.name.first(3).upcase %> </div>
 
                 <% if policy(@booking).organizer? && !policy(participant).current_user? %>
                 <%=  link_to 'x', booking_participant_path(@booking, participant),
                 method: :delete,
-                data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %></h5>
+                data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %></h4>
 
                 <p>Valor estimado por pessoa: R$<%= @booking.pitch.price / @confirmed_list.size %></p>
                 <% end %>
@@ -112,8 +116,8 @@
 
                 <% if @not_confirmed_list.present? %>
                 <% @not_confirmed_list.each do |participant| %>
-                <h5><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
-
+                <h4><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
+                <div class="position"> <%= participant.user.position.name.first(3).upcase %> </div>
 
                   <!-- Not Confirmed Player Edit -->
                   <p> <% unless Friendship.friends?(current_user, participant.user) %>
@@ -125,7 +129,7 @@
                     <% if policy(@booking).organizer? && !policy(participant).current_user? %>
                     <%=  link_to 'x', booking_participant_path(@booking, participant),
                     method: :delete,
-                    data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %> </h5>
+                    data: { confirm: "Tem certeza que deseja remover #{participant.user.full_name} da partida?"} %> </h4>
 
 
                     <% end %>
