@@ -117,7 +117,7 @@
                 <% if @not_confirmed_list.present? %>
                 <% @not_confirmed_list.each do |participant| %>
                 <h4><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
-                <div class="position"> <%= participant.user.position.name[0..2].upcase %> </div>
+                <div class="position"> <%= participant.user.position.name.first(3).upcase %> </div>
 
                   <!-- Not Confirmed Player Edit -->
                   <p> <% unless Friendship.friends?(current_user, participant.user) %>
