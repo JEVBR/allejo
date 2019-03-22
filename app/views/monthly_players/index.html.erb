@@ -1,1 +1,7 @@
-Mensalistas
+<div style="color:white">
+  <h1>MENSALISTAS</h1>
+
+  <% @monthly_players.each do |monthly_player| %>
+    <%= monthly_player.player_name %>
+  <% end %>
+</div>
