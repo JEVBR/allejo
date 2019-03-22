@@ -72,7 +72,7 @@
                 <% @confirmed_list.each do |participant| %>
 
                 <h4><%= participant.user.first_name.first.upcase %>. <%= participant.user.last_name.upcase %>
-                <div class="position"> <%= participant.user.position.name[0..2].upcase %> </div>
+                <div class="position"> <%= participant.user.position.name.first(3).upcase %> </div>
 
                 <% if policy(@booking).organizer? && !policy(participant).current_user? %>
                 <%=  link_to 'x', booking_participant_path(@booking, participant),
