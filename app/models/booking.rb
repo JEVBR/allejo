@@ -72,7 +72,7 @@ class Booking < ApplicationRecord
   # This method will return the day schedule of a pitch, splitted into time slots with custom duration.
   # it only works for slot_durations that are divider of 60 (60, 30, 15, 10...)
   def self.pitch_daily_schedule(day, pitch, slot_duration)
-    opening = day.to_date.beginning_of_day + pitch.opening_time.hours # opening time of the pitch
+    opening = day.to_date.beginning_of_day + (pitch.opening_time.to_f / 60).ceil.hours # opening time of the pitch
 
     # instance a new booking
     booking = Booking.new
@@ -81,7 +81,7 @@ class Booking < ApplicationRecord
 
     daily_schedule = [] # array that will receive schedule infos
 
-    last = ((pitch.closing_time - pitch.opening_time) * (60 / slot_duration)) - 1 # number of slots requireds
+    last = (((pitch.closing_time - pitch.opening_time).to_f / 60).floor * (60 / slot_duration)) - 1 # number of slots requireds
 
     (0..last).to_a.each do |slot|
       duration = slot_duration
