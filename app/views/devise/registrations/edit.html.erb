@@ -67,6 +67,10 @@
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "Squarepants" } %>
+                <%= f.input :position_id, collection: Position.all,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Atacante" } %>
                 <%= f.input :address,
                 required: true,
                 autofocus: true,

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :position, optional: true
+  belongs_to :position, optional: false
 
   has_many :pitches, dependent: :destroy
   has_many :bookings, dependent: :destroy
@@ -21,7 +21,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :phone, presence: true
   validates :address, presence: true
-  # validates :cpf, presence: true
+  #validates :cpf, presence: true
+
   after_validation :geocode, if: :will_save_change_to_address?
 
   after_save do

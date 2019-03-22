@@ -51,10 +51,10 @@
           <!-- Form middle seccion -->
           <div class="col col-md-4">
             <div class="users-signup-form-right">
-<!--               <%= f.input :position, collection: 1..3,
+              <%= f.input :position_id, collection: Position.all,
               required: true,
               autofocus: true,
-              input_html: { autocomplete: "Atacante" } %> -->
+              input_html: { autocomplete: "Atacante" } %>
               <%= f.input :nickname,
               required: false,
               autofocus: true,
