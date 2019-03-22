@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
                                  :email,
                                  :password,
                                  :password_confirmation,
-                                 :position,
+                                 :position_id,
                                  :photo)
   end
 
@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
                                  :cpf,
                                  :address,
                                  :email,
-                                 :position,
+                                 :position_id,
                                  :password,
                                  :password_confirmation,
                                  :current_password,
