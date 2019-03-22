@@ -4,4 +4,8 @@ class MonthlyPlayerPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def new?
+    user.owner?
+  end
 end

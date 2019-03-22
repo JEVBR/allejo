@@ -1,0 +1,12 @@
+<div style="color: white">
+  NOVO
+  <%= simple_form_for [@pitch, @monthly_player] do |f| %>
+    <%= f.input :player_name %>
+    <%= f.input :player_phone %>
+    <%= f.input :player_email %>
+    <%= f.input :day_of_the_week, as: :radio_buttons, collection: [['Domingo', 0], ['Segunda', 1], ['Terça', 2], ['Quarta', 3], ['Quinta', 4], ['Sexta', 5], ['Sábado', 6]] %>
+    <%= f.input :start_time, collection: @time_options %>
+    <%= f.input :end_time, collection: @time_options %>
+    <%= f.button :submit, 'Adicionar mensalista' %>
+  <% end %>
+</div>
