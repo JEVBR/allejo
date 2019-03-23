@@ -5,6 +5,11 @@ class MonthlyPlayerPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    pitch = Pitch.find(record.pitch_id)
+    pitch.user == user
+  end
+
   def new?
     user.owner?
   end

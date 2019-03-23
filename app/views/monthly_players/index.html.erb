@@ -2,6 +2,11 @@
   <h1>MENSALISTAS</h1>
 
   <% @monthly_players.each do |monthly_player| %>
+    <%= monthly_player.pitch.title %>
     <%= monthly_player.player_name %>
+    <%= monthly_player.player_phone %>
+    <%= monthly_player.day_of_the_week %>
+    <%= monthly_player.start_time %>
+    <%= monthly_player.end_time %>
   <% end %>
 </div>

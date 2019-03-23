@@ -57,8 +57,8 @@ class Booking < ApplicationRecord
   end
 
   def check_business_hours
-    opening_time = start_time.to_date.beginning_of_day + pitch.opening_time.hours
-    closing_time = start_time.to_date.beginning_of_day + pitch.closing_time.hours
+    opening_time = start_time.to_date.beginning_of_day + pitch.opening_time.minutes
+    closing_time = start_time.to_date.beginning_of_day + pitch.closing_time.minutes
 
     if start_time < opening_time || start_time >= closing_time
       errors.add(:start_time, "start_time should be included in business_hours")
