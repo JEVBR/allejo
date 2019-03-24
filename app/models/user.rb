@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :friendships, foreign_key: :user_id
   has_many :friends, through: :friendships
 
+  has_many :monthly_players, through: :pitches
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :phone, presence: true

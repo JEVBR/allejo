@@ -1,9 +1,9 @@
 class MonthlyPlayersController < ApplicationController
-  before_action :set_pitch_params, only: [:index, :new, :create, :edit]
+  before_action :set_pitch_params, only: [:new, :create, :edit]
   before_action :set_monthly_player_params, only: [:destroy, :edit, :update]
 
   def index
-    @monthly_players = policy_scope(MonthlyPlayer).order(player_name: :desc).where(pitch_id: @pitch.id)
+    @monthly_players = policy_scope(MonthlyPlayer).joins(:pitch).where(pitches: { user_id: current_user.id })
   end
 
   def destroy
