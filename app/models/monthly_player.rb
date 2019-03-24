@@ -54,6 +54,7 @@ class MonthlyPlayer < ApplicationRecord
         )
         unless booking.valid?
           errors.add(:start_time, "Existe uma reserva no dia #{day}, às #{(start_time / 60).hours}")
+          break
         end
       end
     end
