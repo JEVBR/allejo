@@ -1,9 +1,14 @@
 class MonthlyPlayersController < ApplicationController
-  before_action :set_pitch_params, only: [:new, :create]
-  before_action :set_monthly_player_params, only: [:destroy]
+  before_action :set_pitch_params, only: [:new, :create, :edit]
+  before_action :set_monthly_player_params, only: [:destroy, :edit, :update]
 
   def index
     @monthly_players = policy_scope(MonthlyPlayer).order(player_name: :desc)
+  end
+
+  def destroy
+    @monthly_player.destroy
+    redirect_to pitch_monthly_players_path(@monthly_player.pitch)
   end
 
   def new
@@ -19,15 +24,25 @@ class MonthlyPlayersController < ApplicationController
 
     if @monthly_player.valid?
       @monthly_player.save
-      redirect_to request.env["HTTP_REFERER"], notice: 'Mensalista criado com sucesso!'
+      redirect_to monthly_players_path, notice: 'Mensalista criado com sucesso!'
     else
       render :new
     end
   end
 
-  def destroy
-    @monthly_player.destroy
-    redirect_to pitch_monthly_players_path(@monthly_player.pitch)
+  def edit
+  end
+
+  def update
+    # @monthly_player.destroy
+    # monthly_player = MonthlyPlayer.new(monthly_player_params)
+
+    # if monthly_player.valid?
+    #   monthly_player.save
+    #   redirect_to pitch_monthly_players_path
+    # else
+    #   raise
+    # end
   end
 
   private

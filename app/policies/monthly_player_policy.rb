@@ -17,4 +17,12 @@ class MonthlyPlayerPolicy < ApplicationPolicy
   def destroy?
     create?
   end
+
+  def edit?
+    create?
+  end
+
+  def update?
+    edit?
+  end
 end

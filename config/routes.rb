@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :monthly_players, only: [:index, :new, :create]
   end
 
+  resources :monthly_players, only: [:edit, :update]
+
   resources :monthly_players, only: [:destroy]
 
   resources :bookings, only: [:show, :destroy] do

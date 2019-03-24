@@ -9,6 +9,7 @@
       <%= monthly_player.day_of_the_week %>
       <%= monthly_player.start_time %>
       <%= monthly_player.end_time %>
+      <%= link_to "Editar", edit_monthly_player_path(monthly_player, pitch_id: monthly_player.pitch.id) %>
       <%= link_to "Deletar", monthly_player_path(monthly_player), method: :delete %>
     </div>
   <% end %>

@@ -1,6 +1,6 @@
 <div style="color: white">
   NOVO MENSALISTA - <%= @pitch.title %>
-  <%= simple_form_for [@pitch, @monthly_player] do |f| %>
+  <%= simple_form_for @monthly_player do |f| %>
     <%= f.input :player_name,
                 required: true,
                 autofocus: true %>
