@@ -31,6 +31,10 @@ class MonthlyPlayersController < ApplicationController
   end
 
   def edit
+    @time_options.each do |option|
+      @start_time = option if option[1] == @monthly_player.start_time
+      @end_time = option if option[1] == @monthly_player.end_time
+    end
   end
 
   def update
