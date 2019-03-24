@@ -13,4 +13,8 @@ class MonthlyPlayerPolicy < ApplicationPolicy
   def new?
     user.owner?
   end
+
+  def destroy?
+    create?
+  end
 end

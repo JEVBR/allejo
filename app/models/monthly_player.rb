@@ -31,6 +31,25 @@ class MonthlyPlayer < ApplicationRecord
     end
   end
 
+  after_destroy do
+    start_day = Date.today + 1.days
+    end_day = Date.today.month <= 6 ? Date.new(Date.today.year, 6, 30) : Date.new(Date.today.year, 12, 31)
+
+    (start_day..end_day).to_a.each do |day|
+      if day.wday == day_of_the_week.to_i
+        booking = Booking.find_by(
+          pitch_id: pitch.id,
+          start_time: day + start_time.minutes,
+          end_time: day + end_time.minutes,
+          user_id: pitch.user.id,
+          player_name: player_name,
+          player_phone: player_phone
+        )
+        booking.destroy
+      end
+    end
+  end
+
   def check_end_time_greater_start_time
     if start_time >= end_time
       errors.add(:start_time, "start_time can't be greater than end_time")

@@ -1,5 +1,6 @@
 class MonthlyPlayersController < ApplicationController
   before_action :set_pitch_params, only: [:new, :create]
+  before_action :set_monthly_player_params, only: [:destroy]
 
   def index
     @monthly_players = policy_scope(MonthlyPlayer).order(player_name: :desc)
@@ -25,7 +26,8 @@ class MonthlyPlayersController < ApplicationController
   end
 
   def destroy
-
+    @monthly_player.destroy
+    redirect_to pitch_monthly_players_path(@monthly_player.pitch)
   end
 
   private
@@ -45,5 +47,10 @@ class MonthlyPlayersController < ApplicationController
     (opening_time..closing_time).step(0.5) do |time|
       @time_options << ["#{time.floor}:#{format('%02d', ((time * 60) % 60))}", time * 60]
     end
+  end
+
+  def set_monthly_player_params
+    @monthly_player = MonthlyPlayer.find(params[:id])
+    authorize @monthly_player
   end
 end
