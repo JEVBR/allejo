@@ -6,11 +6,12 @@
       <%= monthly_player.pitch.title %>
       <%= monthly_player.player_name %>
       <%= monthly_player.player_phone %>
-      <%= monthly_player.day_of_the_week %>
-      <%= monthly_player.start_time %>
-      <%= monthly_player.end_time %>
+      <%= MonthlyPlayer.day_name(monthly_player.day_of_the_week) %>
+      <%= MonthlyPlayer.hour_format(monthly_player.start_time) %>
+      <%= MonthlyPlayer.hour_format(monthly_player.end_time) %>
       <%= link_to "Editar", edit_monthly_player_path(monthly_player, pitch_id: monthly_player.pitch.id) %>
       <%= link_to "Deletar", monthly_player_path(monthly_player), method: :delete %>
     </div>
   <% end %>
 </div>
+

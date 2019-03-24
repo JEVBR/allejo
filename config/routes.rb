@@ -21,9 +21,7 @@ Rails.application.routes.draw do
     resources :monthly_players, only: [:index, :new, :create]
   end
 
-  resources :monthly_players, only: [:edit, :update]
-
-  resources :monthly_players, only: [:destroy]
+  resources :monthly_players, only: [:destroy, :edit, :update]
 
   resources :bookings, only: [:show, :destroy] do
     resources :participants, only: [:create, :destroy]

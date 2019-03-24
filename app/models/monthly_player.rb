@@ -112,4 +112,20 @@ class MonthlyPlayer < ApplicationRecord
       end
     end
   end
+
+  def self.day_name(day_number)
+    days = ["Domingo",
+            "Segunda-feira",
+            "Terça-Feira",
+            "Quarta-feira",
+            "Quinta-feira",
+            "Sexta-Feira",
+            "Sábado"]
+
+    days[day_number.to_i]
+  end
+
+  def self.hour_format(minutes)
+    "#{(minutes / 60).floor}:#{format('%02d', ((minutes) % 60))}"
+  end
 end
