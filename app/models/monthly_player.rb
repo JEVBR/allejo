@@ -1,7 +1,7 @@
 class MonthlyPlayer < ApplicationRecord
   belongs_to :pitch
 
-  has_many :bookings, dependent: :destroy
+  has_many :bookings
 
   validates :start_time, presence: true
   validates :end_time, presence: true
@@ -34,24 +34,31 @@ class MonthlyPlayer < ApplicationRecord
     end
   end
 
-  after_destroy do
-    start_day = Date.today + 1.days
-    end_day = Date.today.month <= 6 ? Date.new(Date.today.year, 6, 30) : Date.new(Date.today.year, 12, 31)
-
-    (start_day..end_day).to_a.each do |day|
-      if day.wday == day_of_the_week.to_i
-        booking = Booking.find_by(
-          pitch_id: pitch.id,
-          start_time: day + start_time.minutes,
-          end_time: day + end_time.minutes,
-          user_id: pitch.user.id,
-          player_name: player_name,
-          player_phone: player_phone
-        )
-        booking.destroy
-      end
-    end
+  before_destroy do
+    self.bookings.where('start_time > ?', Date.today).destroy_all
+    self.bookings.where('start_time < ?', Date.today).update_all("monthly_player_id = null")
   end
+
+  # after_destroy do
+    # start_day = Date.today + 1.days
+    # end_day = Date.today.month <= 6 ? Date.new(Date.today.year, 6, 30) : Date.new(Date.today.year, 12, 31)
+
+    # (start_day..end_day).to_a.each do |day|
+    #   if day.wday == day_of_the_week.to_i
+    #     booking = Booking.find_by(
+    #       pitch_id: pitch.id,
+    #       start_time: day + start_time.minutes,
+    #       end_time: day + end_time.minutes,
+    #       user_id: pitch.user.id,
+    #       player_name: player_name,
+    #       player_phone: player_phone
+    #     )
+    #     booking.destroy
+    #   end
+    # end
+  #   raise
+  #   self.bookings.destroy_all.where()
+  # end
 
   def check_end_time_greater_start_time
     if start_time >= end_time

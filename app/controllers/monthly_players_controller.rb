@@ -24,7 +24,7 @@ class MonthlyPlayersController < ApplicationController
 
     if @monthly_player.valid?
       @monthly_player.save
-      redirect_to monthly_players_path, notice: 'Mensalista criado com sucesso!'
+      redirect_to pitch_monthly_players_path, notice: 'Mensalista criado com sucesso!'
     else
       render :new
     end
