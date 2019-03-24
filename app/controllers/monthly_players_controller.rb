@@ -4,6 +4,7 @@ class MonthlyPlayersController < ApplicationController
 
   def index
     @monthly_players = policy_scope(MonthlyPlayer).joins(:pitch).where(pitches: { user_id: current_user.id })
+    @pitches = current_user.pitches
   end
 
   def destroy
@@ -24,7 +25,7 @@ class MonthlyPlayersController < ApplicationController
 
     if @monthly_player.valid?
       @monthly_player.save
-      redirect_to pitch_monthly_players_path(@pitch), notice: 'Mensalista criado com sucesso!'
+      redirect_to monthly_players_path, notice: 'Mensalista criado com sucesso!'
     else
       render :new
     end

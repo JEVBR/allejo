@@ -1,17 +1,21 @@
 <div style="color:white">
   <h1>MENSALISTAS</h1>
 
-  <% @monthly_players.each do |monthly_player| %>
-    <div>
-      <%= monthly_player.pitch.title %>
-      <%= monthly_player.player_name %>
-      <%= monthly_player.player_phone %>
-      <%= MonthlyPlayer.day_name(monthly_player.day_of_the_week) %>
-      <%= MonthlyPlayer.hour_format(monthly_player.start_time) %>
-      <%= MonthlyPlayer.hour_format(monthly_player.end_time) %>
-      <%= link_to "Editar", edit_monthly_player_path(monthly_player, pitch_id: monthly_player.pitch.id) %>
-      <%= link_to "Deletar", monthly_player_path(monthly_player), method: :delete %>
-    </div>
+  <% @pitches.each do |pitch| %>
+  <h4><%= pitch.title %> (<%= pitch.monthly_players.size %>) - <%= pitch.category.name %></h4>
+  <%= link_to 'Adicionar novo mensalista',
+          new_pitch_monthly_player_path(pitch) %>
+    <% pitch.monthly_players.each do |monthly_player| %>
+      <div>
+        <%= monthly_player.player_name %>
+        <%= monthly_player.player_phone %>
+        <%= MonthlyPlayer.day_name(monthly_player.day_of_the_week) %>
+        <%= MonthlyPlayer.hour_format(monthly_player.start_time) %>
+        <%= MonthlyPlayer.hour_format(monthly_player.end_time) %>
+        <%= link_to "Editar", edit_monthly_player_path(monthly_player, pitch_id: monthly_player.pitch.id) %>
+        <%= link_to "Deletar", monthly_player_path(monthly_player), method: :delete %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
