@@ -1,6 +1,8 @@
 class MonthlyPlayer < ApplicationRecord
   belongs_to :pitch
 
+  has_many :bookings, dependent: :destroy
+
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :player_name, presence: true
@@ -24,7 +26,8 @@ class MonthlyPlayer < ApplicationRecord
           user_id: pitch.user.id,
           date: day,
           player_name: player_name,
-          player_phone: player_phone
+          player_phone: player_phone,
+          monthly_player_id: self.id
         )
           booking.save
       end

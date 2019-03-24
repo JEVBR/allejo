@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :pitch
   belongs_to :user
+  belongs_to :monthly_player, optional: true
 
   has_many :participants, dependent: :destroy
   has_many :users, through: :participants

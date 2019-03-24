@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_022003) do
+ActiveRecord::Schema.define(version: 2019_03_24_023941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_03_21_022003) do
     t.string "player_phone"
     t.boolean "blocked", default: false
     t.string "match_day_mailer_job_id"
+    t.bigint "monthly_player_id"
+    t.index ["monthly_player_id"], name: "index_bookings_on_monthly_player_id"
     t.index ["pitch_id"], name: "index_bookings_on_pitch_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_022003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "monthly_players"
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
