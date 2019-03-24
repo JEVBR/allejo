@@ -51,7 +51,7 @@ class MonthlyPlayersController < ApplicationController
     end
 
     if @monthly_player.update(monthly_player_params.merge(pitch_id: @pitch.id))
-      redirect_to pitch_monthly_players_path(@pitch.id)
+      redirect_to monthly_players_path
     else
       render :edit
     end
