@@ -35,13 +35,24 @@ class Booking < ApplicationRecord
     new_booking_start_time = start_time
     new_booking_end_time = end_time
 
-    if pitch.bookings.where(
-      "? < start_time AND ? > end_time", new_booking_start_time, new_booking_end_time).size.positive?
-      errors.add(:start_time, "there is a game in this time")
+    if monthly_player.to_s.empty?
+      if pitch.bookings.where(
+        "? < start_time AND ? > end_time", new_booking_start_time, new_booking_end_time).size.positive?
+        errors.add(:start_time, "there is a game in this time")
 
-    elsif pitch.bookings.where(
-      "? > start_time AND ? < end_time", new_booking_end_time, new_booking_start_time).size.positive?
-      errors.add(:end_time, "there is a game in this time")
+      elsif pitch.bookings.where(
+        "? > start_time AND ? < end_time", new_booking_end_time, new_booking_start_time).size.positive?
+        errors.add(:end_time, "there is a game in this time")
+      end
+    else
+      if pitch.bookings.where(
+        "? < start_time AND ? > end_time AND NOT monthly_player_id = ?", new_booking_start_time, new_booking_end_time, monthly_player.id).size.positive?
+        errors.add(:start_time, "there is a game in this time")
+
+      elsif pitch.bookings.where(
+        "? > start_time AND ? < end_time AND NOT monthly_player_id = ?", new_booking_end_time, new_booking_start_time, monthly_player.id).size.positive?
+        errors.add(:end_time, "there is a game in this time")
+      end
     end
   end
 
