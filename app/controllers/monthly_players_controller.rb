@@ -24,7 +24,7 @@ class MonthlyPlayersController < ApplicationController
 
     if @monthly_player.valid?
       @monthly_player.save
-      redirect_to pitch_monthly_players_path, notice: 'Mensalista criado com sucesso!'
+      redirect_to pitch_monthly_players_path(@pitch), notice: 'Mensalista criado com sucesso!'
     else
       render :new
     end
@@ -34,15 +34,29 @@ class MonthlyPlayersController < ApplicationController
   end
 
   def update
-    # @monthly_player.destroy
+    pitch_id = @monthly_player.pitch.id
+
+    if @monthly_player.update(monthly_player_params.merge(pitch_id: pitch_id))
+      # new_monthly = MonthlyPlayer.new(monthly_player_params)
+      # new_monthly.pitch_id = @monthly_player.pitch_id
+
+      # @monthly_player.destroy
+
+      # if new_monthly.valid?
+      #   new_monthly.save
+      #   redirect_to pitch_monthly_players_path(new_monthly.pitch), notice: 'Mensalista criado com sucesso!'
+      # else
+      #   @monthly_player = MonthlyPlayer.create(@monthly_player.attributes)
+      #   render :new
+      # end
     # monthly_player = MonthlyPlayer.new(monthly_player_params)
 
     # if monthly_player.valid?
     #   monthly_player.save
-    #   redirect_to pitch_monthly_players_path
-    # else
-    #   raise
-    # end
+      redirect_to pitch_monthly_players_path(pitch_id)
+    else
+      raise
+    end
   end
 
   private
