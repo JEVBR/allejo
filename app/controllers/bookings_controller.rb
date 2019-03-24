@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.valid?
       @booking.save
 
-      send_email_time = @booking.start_time.to_datetime - 1.days
+      # send_email_time = @booking.start_time.to_datetime - 1.days
       # job_id = MatchDayMailerJob.set(wait_until: send_email_time).perform_later(@booking.id).job_id
       # @booking.update_column(:match_day_mailer_job_id, job_id)
 
@@ -32,15 +32,15 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    job_id = @booking.match_day_mailer_job_id
-    find_jid = Sidekiq::ScheduledSet.new.find { |a| job_id }
+    # job_id = @booking.match_day_mailer_job_id
+    # find_jid = Sidekiq::ScheduledSet.new.find { |a| job_id }
 
-    if find_jid.to_s.present?
-      jid = find_jid.item["jid"]
-      Sidekiq::ScheduledSet.new.find_job(jid).delete
-    end
+    # if find_jid.to_s.present?
+    #   jid = find_jid.item["jid"]
+    #   Sidekiq::ScheduledSet.new.find_job(jid).delete
+    # end
 
-    BookingCanceledMailerJob.perform_now(@booking.id)
+    # BookingCanceledMailerJob.perform_now(@booking.id)
 
     @booking.destroy
     if current_user.owner?
