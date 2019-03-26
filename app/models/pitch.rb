@@ -7,6 +7,8 @@ class Pitch < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
 
+  has_many :monthly_players, dependent: :destroy
+
   validates :category, presence: true
   validates :user, presence: true
 

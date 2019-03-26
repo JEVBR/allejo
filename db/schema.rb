@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_015432) do
+ActiveRecord::Schema.define(version: 2019_03_24_023941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_015432) do
     t.string "player_phone"
     t.boolean "blocked", default: false
     t.string "match_day_mailer_job_id"
+    t.bigint "monthly_player_id"
+    t.index ["monthly_player_id"], name: "index_bookings_on_monthly_player_id"
     t.index ["pitch_id"], name: "index_bookings_on_pitch_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -45,6 +47,19 @@ ActiveRecord::Schema.define(version: 2019_03_19_015432) do
     t.string "name"
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "monthly_players", force: :cascade do |t|
+    t.bigint "pitch_id"
+    t.integer "start_time"
+    t.integer "end_time"
+    t.string "day_of_the_week"
+    t.string "player_name"
+    t.string "player_phone"
+    t.string "player_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_monthly_players_on_pitch_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -111,9 +126,11 @@ ActiveRecord::Schema.define(version: 2019_03_19_015432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "monthly_players"
   add_foreign_key "bookings", "pitches"
   add_foreign_key "bookings", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "monthly_players", "pitches"
   add_foreign_key "participants", "bookings"
   add_foreign_key "participants", "users"
   add_foreign_key "pitches", "categories"

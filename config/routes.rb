@@ -18,8 +18,10 @@ Rails.application.routes.draw do
 
   resources :pitches do
     resources :bookings, only: [:create]
+    resources :monthly_players, only: [:new, :create]
   end
 
+  resources :monthly_players, only: [:index, :destroy, :edit, :update]
 
   resources :bookings, only: [:show, :destroy] do
     resources :participants, only: [:create, :destroy]

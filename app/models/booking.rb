@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :pitch
   belongs_to :user
+  belongs_to :monthly_player, optional: true
 
   has_many :participants, dependent: :destroy
   has_many :users, through: :participants
@@ -34,13 +35,24 @@ class Booking < ApplicationRecord
     new_booking_start_time = start_time
     new_booking_end_time = end_time
 
-    if pitch.bookings.where(
-      "? < start_time AND ? > end_time", new_booking_start_time, new_booking_end_time).size.positive?
-      errors.add(:start_time, "there is a game in this time")
+    if monthly_player.to_s.empty?
+      if pitch.bookings.where(
+        "? < start_time AND ? > end_time", new_booking_start_time, new_booking_end_time).size.positive?
+        errors.add(:start_time, "there is a game in this time")
 
-    elsif pitch.bookings.where(
-      "? > start_time AND ? < end_time", new_booking_end_time, new_booking_start_time).size.positive?
-      errors.add(:end_time, "there is a game in this time")
+      elsif pitch.bookings.where(
+        "? > start_time AND ? < end_time", new_booking_end_time, new_booking_start_time).size.positive?
+        errors.add(:end_time, "there is a game in this time")
+      end
+    else
+      if pitch.bookings.where(
+        "? < start_time AND ? > end_time AND NOT monthly_player_id = ?", new_booking_start_time, new_booking_end_time, monthly_player.id).size.positive?
+        errors.add(:start_time, "there is a game in this time")
+
+      elsif pitch.bookings.where(
+        "? > start_time AND ? < end_time AND NOT monthly_player_id = ?", new_booking_end_time, new_booking_start_time, monthly_player.id).size.positive?
+        errors.add(:end_time, "there is a game in this time")
+      end
     end
   end
 
@@ -57,8 +69,8 @@ class Booking < ApplicationRecord
   end
 
   def check_business_hours
-    opening_time = start_time.to_date.beginning_of_day + pitch.opening_time.hours
-    closing_time = start_time.to_date.beginning_of_day + pitch.closing_time.hours
+    opening_time = start_time.to_date.beginning_of_day + pitch.opening_time.minutes
+    closing_time = start_time.to_date.beginning_of_day + pitch.closing_time.minutes
 
     if start_time < opening_time || start_time >= closing_time
       errors.add(:start_time, "start_time should be included in business_hours")
@@ -72,7 +84,7 @@ class Booking < ApplicationRecord
   # This method will return the day schedule of a pitch, splitted into time slots with custom duration.
   # it only works for slot_durations that are divider of 60 (60, 30, 15, 10...)
   def self.pitch_daily_schedule(day, pitch, slot_duration)
-    opening = day.to_date.beginning_of_day + pitch.opening_time.hours # opening time of the pitch
+    opening = day.to_date.beginning_of_day + (pitch.opening_time.to_f / 60).ceil.hours # opening time of the pitch
 
     # instance a new booking
     booking = Booking.new
@@ -81,7 +93,7 @@ class Booking < ApplicationRecord
 
     daily_schedule = [] # array that will receive schedule infos
 
-    last = ((pitch.closing_time - pitch.opening_time) * (60 / slot_duration)) - 1 # number of slots requireds
+    last = (((pitch.closing_time - pitch.opening_time).to_f / 60).floor * (60 / slot_duration)) - 1 # number of slots requireds
 
     (0..last).to_a.each do |slot|
       duration = slot_duration

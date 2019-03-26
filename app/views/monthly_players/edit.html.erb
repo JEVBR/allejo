@@ -1,0 +1,26 @@
+<div style="color: white">
+  NOVO MENSALISTA - <%= @pitch.title %>
+  <%= simple_form_for @monthly_player do |f| %>
+    <%= f.input :player_name,
+                required: true,
+                autofocus: true %>
+    <%= f.input :player_phone,
+                required: true,
+                autofocus: true %>
+    <%= f.input :player_email,
+                required: false,
+                autofocus: true %>
+    <%= f.input :day_of_the_week,
+                as: :radio_buttons,
+                collection: [['Domingo', 0], ['Segunda', 1], ['Terça', 2], ['Quarta', 3], ['Quinta', 4], ['Sexta', 5], ['Sábado', 6]],
+                required: true,
+                autofocus: true %>
+    <%= f.input :start_time, collection: @time_options, selected: @start_time,
+                required: true,
+                autofocus: true %>
+    <%= f.input :end_time, collection: @time_options, selected: @end_time,
+                required: true,
+                autofocus: true %>
+    <%= f.button :submit, 'Adicionar mensalista' %>
+  <% end %>
+</div>
