@@ -126,6 +126,9 @@ class PitchesController < ApplicationController
 
     @markers << coordinates_hash
 
+    ActionCable.server.broadcast("ws_#{current_user.id}", "tests")
+    ActionCable.server.broadcast("ws_2", "tests_u2")
+    ActionCable.server.broadcast("ws_5", "tests_u5")
   end
 
   def show
