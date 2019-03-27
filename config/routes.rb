@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root to: 'pages#home'
+  mount ActionCable.server, at: '/cable'
 
   resources :pitches do
     resources :bookings, only: [:create]
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
   end
 
   resources :friendships, only: [:create, :destroy]
+
+  mount ActionCable.server => "/cable"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
