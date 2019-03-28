@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-before_action :set_friendships, only: [:destroy]
+  before_action :set_friendships, only: [:destroy]
 
   def create
     friend = User.find_by(email: params[:email])
@@ -22,7 +22,6 @@ before_action :set_friendships, only: [:destroy]
       redirect_to request.env["HTTP_REFERER"], alert: "#{params[:email]} não foi encontrado ou já adicionado"
     end
   end
-
   def destroy
     @friendship2.destroy
     @friendship.destroy

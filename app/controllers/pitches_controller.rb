@@ -45,43 +45,12 @@ class PitchesController < ApplicationController
     end
 
     coordinates_hash = { lng: lng, lat: lat, type: 0 }
+
     coordinates_array = [lat, lng]
-
-    # MAP:
     @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).where(category_id: params[:category_id].to_i).near(coordinates_array, max_dist)
-
-    @markers = @mark_pitches.map do |pitch|
-      {
-        lng: pitch.longitude,
-        lat: pitch.latitude,
-        infoWindow: pitch.address,
-        # pitch_description: pitch.description,
-        pitch_company: pitch.company,
-        pitch_link: pitch_path(pitch),
-        pitch_photo: pitch.photo.url,
-        pitch_price: pitch.price,
-        type: 1
-      }
-    end
-
-    if user_signed_in?
-      @mark_friends = current_user.friends
-
-      if @mark_friends.present?
-        @mark_friends.each do |friend|
-          @markers << {
-                        lat: friend.latitude,
-                        lng: friend.longitude,
-                        type: 2
-                      }
-        end
-      end
-    end
-
-    #End of MAP
-
+    add_pitch_markers
+    add_friend_markers
     @markers << coordinates_hash
-
   end
 
   def map
@@ -90,18 +59,34 @@ class PitchesController < ApplicationController
     lat = params[:lat]
     lng = params[:lng]
     params[:category_id] = 2 if params[:category_id].nil?
+
     coordinates_hash = { lng: lng.to_f, lat: lat.to_f, type: 0 }
+
+    # this is double:
     coordinates_array = [lat, lng]
-
-    # MAP:
     @mark_pitches = Pitch.where.not(latitude: nil, longitude: nil).where(category_id: params[:category_id].to_i).near(coordinates_array, max_dist)
+    add_pitch_markers
+    add_friend_markers
+    @markers << coordinates_hash
+  end
 
+  def add_friend_markers
+    return unless user_signed_in?
+
+    @mark_friends = current_user.friends
+    return unless @mark_friends.present?
+
+    @mark_friends.each do |friend|
+      @markers << { lat: friend.latitude, lng: friend.longitude, type: 2 }
+    end
+  end
+
+  def add_pitch_markers
     @markers = @mark_pitches.map do |pitch|
       {
         lng: pitch.longitude,
         lat: pitch.latitude,
         infoWindow: pitch.address,
-        # pitch_description: pitch.description,
         pitch_company: pitch.company,
         pitch_link: pitch_path(pitch),
         pitch_photo: pitch.photo.url,
@@ -109,23 +94,6 @@ class PitchesController < ApplicationController
         type: 1
       }
     end
-
-    if user_signed_in?
-      @mark_friends = current_user.friends
-
-      if @mark_friends.present?
-        @mark_friends.each do |friend|
-          @markers << {
-                        lat: friend.latitude,
-                        lng: friend.longitude,
-                        type: 2
-                      }
-        end
-      end
-    end
-
-    @markers << coordinates_hash
-
   end
 
   def show
@@ -167,7 +135,7 @@ class PitchesController < ApplicationController
 
     if @pitch.valid?
       @pitch.save
-       redirect_to pitch_path(@pitch)
+      redirect_to pitch_path(@pitch)
     else
       render :new
     end

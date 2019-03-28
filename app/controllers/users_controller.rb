@@ -14,6 +14,13 @@ class UsersController < ApplicationController
     @date_select = params[:date].to_date
   end
 
+  # Here from AJAX call:
+  def owner_update
+    @user = current_user
+    authorize @user
+    @test_data = "This is going to the users page"
+  end
+
   private
 
   def user_params

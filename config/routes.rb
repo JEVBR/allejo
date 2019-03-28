@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'change_confirm', to: 'participants#change_confirm', as: :change_confirm
   delete 'unblock_day', to: 'bookings#unblock_day', as: :unblock_day
 
+  get '/users_owner_update', to: 'users#owner_update'
   get '/pitches_map', to: 'pitches#map'
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }

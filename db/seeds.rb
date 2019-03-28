@@ -46,7 +46,7 @@ seeds["users"].each do |user|
                                "cpf",
                                "position_id",
                                "owner")
-  temp.remote_photo_url = user.slice(Tag)[Tag.to_s]
+  #temp.remote_photo_url = user.slice(Tag)[Tag.to_s]
   temp.save
   p "saving:"
   p temp
@@ -71,10 +71,15 @@ seeds["pitches"].each do |pitch|
                               "opening_time",
                               "closing_time")
   #x.remote_photo_url = "http://res.cloudinary.com/dpkbckolo/image/upload/v1550847678/zgchnp4dlgst2hglh8go.jpg"
-  temp.remote_photo_url = pitch.slice(Tag)[Tag.to_s]
+  #temp.remote_photo_url = pitch.slice(Tag)[Tag.to_s]
   temp.save
   p "saving:"
   p temp
   p "------------------------------"
 end
+
+puts 'Creating Booking...'
+
+  temp = Booking.create!(pitch_id: 10, user_id:10)
+  temp.save
 
