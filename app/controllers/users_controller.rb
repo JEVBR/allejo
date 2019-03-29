@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   end
 
   def daily_checksum
+    return unless current_user.owner?
+
     @checksum = ""
     (0..3).to_a.each do |c|
       @day_schedule = Booking.pitch_daily_schedule(@date_select + c, @pitch, 60)
