@@ -420,8 +420,8 @@ pitches:
     cnpj: 04.800.040/0001-22
     price: 560
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074324/bianz5kuluaoovfla3fm.jpg"
-    opening_time: 10
-    closing_time: 23
+    opening_time: 0
+    closing_time: 1200
     phone: 011-23574621
     description: "Localizado em uma região privilegiada e de fácil acesso na cidade
     oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
@@ -444,8 +444,7 @@ pitches:
     cnpj: 04.800.040/9999-22
     price: 580
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074551/c59qogdiedp6dbrfo4tj.jpg"
-    opening_time: 10
-    closing_time: 23
+    opening_time: 01300
     phone: 011-23574621
     description: "Localizado em uma região privilegiada e de fácil acesso na cidade
     oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
@@ -902,7 +901,7 @@ pitches:
     address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
-    price: 500
+    price: 50
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552072325/wod93m60wcqdzcwxjx41.jpg"
     opening_time: 08
     closing_time: 17

@@ -12,13 +12,28 @@ class UsersController < ApplicationController
 
     params[:date] = Date.today.strftime('%F') unless params[:date].present?
     @date_select = params[:date].to_date
+    daily_checksum
   end
 
   # Here from AJAX call:
   def owner_update
     @user = current_user
     authorize @user
-    @test_data = "This is going to the users page"
+
+    @date_select = params[:date].to_date
+    @pitch = Pitch.find(params[:pitch_id])
+    daily_checksum
+  end
+
+  def daily_checksum
+    @checksum = ""
+    (0..3).to_a.each do |c|
+      @day_schedule = Booking.pitch_daily_schedule(@date_select + c, @pitch, 60)
+
+      @day_schedule.each do |b|
+        @checksum += b[:available] ? "Y" : "N"
+      end
+    end
   end
 
   private

@@ -7,10 +7,13 @@ const init_visualisation_poller = () => {
 
 // kindly ask for update on bookings:
 const request_owner_update = () => {
+  const current_user_id = document.getElementById('current_pitch_id');
+  const first_date  = document.getElementById('current_first_date');
+  const myData = `pitch_id=${current_pitch_id.innerHTML}&date=${first_date.innerHTML}`;
   Rails.ajax({
             type: "GET",
             url: "/users_owner_update",
-            data: "Are there any new bookings on my pitch",
+            data: myData,
             contentType: "application/json",
             dataType: 'script',
           success: function (form) {

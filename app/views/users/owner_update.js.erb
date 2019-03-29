@@ -1,10 +1,28 @@
 // app/views/users/owner_update.js.erb
+if ((document.getElementById('checksum').innerHTML) !== `<%= @checksum %>`) {
+  console.log("Scedule has changed");
+  location.reload(true);
+};
 
-var PayLoadToClient=`<%= @test_data %>`;
-console.log(PayLoadToClient);
+// FOR TEST: WORK IN PROGRESS:
+// var PayLoadToClient=`<%= @test_data %>`;
+// console.log(PayLoadToClient);
 
-PayLoadToClient=`<%= @host_bookings %>`;
-console.log(PayLoadToClient);
+// console.log("Pitch:");
+// var PayLoadToClient=`<%= @pitch.to_json.html_safe %>`;
+// console.log(PayLoadToClient);
 
-PayLoadToClient=`<%= @host_bookings %>`;
-console.log(PayLoadToClient);
+// var PayLoadToClient=`<%= @checksum.to_json.html_safe %>`;
+// console.log(PayLoadToClient);
+
+// console.log("Schedules:");
+
+// PayLoadToClient=`<%= @day_schedule1 %>`;
+// console.log(PayLoadToClient);
+// PayLoadToClient=`<%= @day_schedule2 %>`;
+// console.log(PayLoadToClient);
+// PayLoadToClient=`<%= @day_schedule3 %>`;
+// console.log(PayLoadToClient);
+// PayLoadToClient=`<%= @day_schedule4 %>`;
+// console.log(PayLoadToClient);
+
