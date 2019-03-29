@@ -1,4 +1,7 @@
 <% if current_user.owner  %>
+  <!-- Info for AJAX updater:-->
+  <%= render 'owner_ajax_info' %>
+  <!-- Page:-->
   <%= render 'owner' %>
 <% else %>
   <%= render 'player' %>

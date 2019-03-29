@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def owner_update?
+    true
+  end
+
   def have_friendships?
     record.friendships.present?
   end

@@ -2,7 +2,6 @@
   <div class="users-show-box">
     <div class="container">
       <div>
-
           <div class="users-show-title">
             <h2>Painel de Controle</h2>
             <p><%= link_to "Voltar", pitches_path %></p>
@@ -115,83 +114,83 @@
 
                         <% day_schedule.each do |time_slot| %>
                           <% if time_slot[:available] %>
-                          <div class="users-show-schedule-button">
+                            <div class="users-show-schedule-button">
 
-                          <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
-                          <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>">Reservar</a> <!-- BOTAO DO MODAL -->
+                            <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
+                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>">Reservar</a> <!-- BOTAO DO MODAL -->
 
-                            <!-- INICIO MODAL DE RESERVA -->
-                            <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
-                              <div class="modal-dialog">
+                              <!-- INICIO MODAL DE RESERVA -->
+                              <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
 
-                                <!-- Modal content-->
+                                  <!-- Modal content-->
 
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title"> Nova Reserva </h4> <p class="modal-hour"> <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %> </p>
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title"> Nova Reserva </h4> <p class="modal-hour"> <%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %> </p>
+                                    </div>
+                                    <div class="modal-body">
+                                      <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
+                                        <%= label_tag 'Nome'%>
+                                        <%= text_field_tag 'booking[player_name]', nil, required: true %>
+                                        <%= label_tag 'Telefone' %>
+                                        <%= text_field_tag 'booking[player_phone]', nil, required: true %>
+                                        <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
+                                        <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <%= submit_tag 'Reservar', :class => 'btn-reservar' %>
+                                    </div>
+                                      <% end %>
                                   </div>
-                                  <div class="modal-body">
-                                    <%= form_tag(pitch_bookings_path(pitch_id: @pitch.id)) do %>
-                                      <%= label_tag 'Nome'%>
-                                      <%= text_field_tag 'booking[player_name]', nil, required: true %>
-                                      <%= label_tag 'Telefone' %>
-                                      <%= text_field_tag 'booking[player_phone]', nil, required: true %>
-                                      <%= hidden_field_tag 'booking[start_time]', time_slot[:start_time] %>
-                                      <%= hidden_field_tag 'booking[end_time]', time_slot[:end_time] %>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <%= submit_tag 'Reservar', :class => 'btn-reservar' %>
-                                  </div>
-                                    <% end %>
+
                                 </div>
-
                               </div>
-                            </div>
-                            <!-- FIM DO MODAL DE RESERVA -->
+                              <!-- FIM DO MODAL DE RESERVA -->
 
                           <% else %>
 
-                          <div class="users-show-schedule-button" id="false">
-                          <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
+                            <div class="users-show-schedule-button" id="false">
+                            <p><%= time_slot[:start_time].strftime("%H:%M") %> - <%= time_slot[:end_time].strftime("%H:%M") %>
 
-                          <% if time_slot[:booking].present? %>
-                            <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><i class="fas fa-user"></i> <%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
-                          <% end %>
-                          </p>
+                            <% if time_slot[:booking].present? %>
+                              <a href="" data-toggle="modal" data-target="#Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>"><i class="fas fa-user"></i> <%= time_slot[:booking].player_name %></a> <!-- BOTAO DO MODAL -->
+                            <% end %>
+                            </p>
 
 
-                          <!-- INICIO MODAL DE INFORMAÇÕES DE RESERVA -->
-                          <% if time_slot[:booking].present? %>
-                            <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
-                              <div class="modal-dialog">
+                            <!-- INICIO MODAL DE INFORMAÇÕES DE RESERVA -->
+                            <% if time_slot[:booking].present? %>
+                              <div id="Modal-<%= time_slot[:start_time].strftime('%d%m%Hh%Mm') %>" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
 
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h5 class="modal-title"><%= @pitch.title %> &nbsp;  - &nbsp;  <%= date.strftime("%d/%m") %> &nbsp; - &nbsp; <%= time_slot[:start_time].strftime("%H:%M") %> às <%= time_slot[:end_time].strftime("%H:%M") %></h5>
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h5 class="modal-title"><%= @pitch.title %> &nbsp;  - &nbsp;  <%= date.strftime("%d/%m") %> &nbsp; - &nbsp; <%= time_slot[:start_time].strftime("%H:%M") %> às <%= time_slot[:end_time].strftime("%H:%M") %></h5>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Nome</p>
+                                      <%= time_slot[:booking].player_name %>
+                                      <p>Telefone</p>
+                                      <%= time_slot[:booking].player_phone %>
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                      <%= link_to 'Cancelar reserva',
+                                            booking_path(time_slot[:booking]),
+                                            method: 'delete',
+                                            data: { confirm: "Tem certeza que deseja cancelar esta reserva?"}, :class => 'btn-cancelar' %>
+                                    </div>
                                   </div>
-                                  <div class="modal-body">
-                                    <p>Nome</p>
-                                    <%= time_slot[:booking].player_name %>
-                                    <p>Telefone</p>
-                                    <%= time_slot[:booking].player_phone %>
-                                  </div>
 
-
-                                  <div class="modal-footer">
-                                    <%= link_to 'Cancelar reserva',
-                                          booking_path(time_slot[:booking]),
-                                          method: 'delete',
-                                          data: { confirm: "Tem certeza que deseja cancelar esta reserva?"}, :class => 'btn-cancelar' %>
-                                  </div>
                                 </div>
-
                               </div>
-                            </div>
-                          <% end %>
-                            <!-- FIM DO MODAL DE INFORMAÇÕES DE RESERVA -->
+                            <% end %>
+                              <!-- FIM DO MODAL DE INFORMAÇÕES DE RESERVA -->
 
                           <% end %>
 

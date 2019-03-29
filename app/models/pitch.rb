@@ -24,7 +24,7 @@ class Pitch < ApplicationRecord
   validates :opening_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   validates :closing_time, presence: true
-  validates :closing_time, numericality: { only_integer: true, less_than_or_equal_to: 24 }
+  validates :closing_time, numericality: { only_integer: true, less_than_or_equal_to: 1440 }
 
   validate :check_closing_time_greater_opening_time
 

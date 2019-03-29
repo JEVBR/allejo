@@ -1,0 +1,88 @@
+users:
+
+  - email: "Alvaro@test.com"
+    password: 123456
+    last_name: Palermo
+    first_name: Alvaro
+    phone: 011-912345678
+    nickname: Alvarão
+    address: "Alameda Santos, 53 São Paulo"
+    cpf: 087.216.308.36
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986773/svi1wxidm4nfkev076jp.jpg"
+    owner: false
+    position_id: 1
+
+  - email: "Jeroen@test.com"
+    password: 123456
+    last_name: Haisma
+    first_name: Jeroen
+    phone: 011-712345678
+    nickname: Dutch King
+    address: "Alameda Santos, 54 São Paulo"
+    cpf: 000.000.000.00
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986763/a4vk6dpuguug199f1f6c.jpg"
+    owner: false
+    position_id: 1
+
+  - email: "Marcelo@test.com"
+    password: 123456
+    last_name: Miyachi
+    first_name: Marcelo
+    phone: 011-612345678
+    nickname: Master of Backend
+    address: "Alameda Santos, 55 São Paulo"
+    cpf: 111.222.333.44
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986763/zkrhjittwzea5jdbvkvl.jpg"
+    owner: true,
+    position_id: 1
+
+
+pitches:
+#1
+  - company: Playball
+    user_id: 3
+    category_id: 1
+    title: Anhanguera
+    address: Alameda Santos, 56 São Paulo
+    cep: 03154-100
+    cnpj: 45.543.915/0001-81
+    price: 650
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552073214/mz13fgvegihs9jimxwrq.jpg"
+    opening_time: 300
+    closing_time: 720
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+
+#2
+  - company: Tapetão
+    user_id: 3
+    category_id: 1
+    title: Redondão
+    address: Rua Delfina, 163 São Paulo
+    cep: 04763-000
+    cnpj: 10.456.016/0002-48
+    price: 550
+    photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552076564/zvluh6nga2hmxb3hs2kv.jpg"
+    opening_time: 600
+    closing_time: 1440
+    phone: 011-23574621
+    description: "Localizado em uma região privilegiada e de fácil acesso na cidade
+    oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
+    tipos de eventos: jogos, campeonatos, festas infantis, comemorações, treinamentos, etc.
+    São três quadras de futebol society, disponíveis para locação avulsa ou mensal, com horários
+    de funcionamento das 8h até às 23h. Tendo como principal missão reforçar a união das pessoas
+    por meio das práticas esportivas e do lazer, com um amplo e seguro espaço, além de
+    infraestrutura projetada especialmente para agradar aos jogadores e torcedores de
+    futebol mais exigentes, contamos com churrasqueiras, cantinas cobertas,
+    áreas ao ar livre e espaços para caminhada."
+
+

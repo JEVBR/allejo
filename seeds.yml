@@ -10,6 +10,7 @@ users:
     cpf: 087.216.308.36
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986773/svi1wxidm4nfkev076jp.jpg"
     owner: true
+    position_id: 1
 
   - email: "Jeroen@test.com"
     password: 123456
@@ -21,6 +22,7 @@ users:
     cpf: 000.000.000.00
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986763/a4vk6dpuguug199f1f6c.jpg"
     owner: true
+    position_id: 1
 
   - email: "Marcelo@test.com"
     password: 123456
@@ -31,7 +33,8 @@ users:
     address: "Alameda Santos, 53 São Paulo"
     cpf: 111.222.333.44
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551986763/zkrhjittwzea5jdbvkvl.jpg"
-    owner: true
+    owner: true,
+    position_id: 1
 
   - email: "Rafael@test.com"
     password: 123456
@@ -43,6 +46,7 @@ users:
     cpf: 555.666.777.88
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1551981888/ugl5y1icvbtyphrbwuaq.jpg"
     owner: true
+    position_id: 1
 
   - email: "julio.cesar@bol.com.br"
     password: 123789
@@ -416,8 +420,8 @@ pitches:
     cnpj: 04.800.040/0001-22
     price: 560
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074324/bianz5kuluaoovfla3fm.jpg"
-    opening_time: 10
-    closing_time: 23
+    opening_time: 0
+    closing_time: 1200
     phone: 011-23574621
     description: "Localizado em uma região privilegiada e de fácil acesso na cidade
     oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
@@ -440,8 +444,7 @@ pitches:
     cnpj: 04.800.040/9999-22
     price: 580
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552074551/c59qogdiedp6dbrfo4tj.jpg"
-    opening_time: 10
-    closing_time: 23
+    opening_time: 01300
     phone: 011-23574621
     description: "Localizado em uma região privilegiada e de fácil acesso na cidade
     oferecemos locação de quadras de futebol em São Paulo, e buscamos atender aos mais diversos
@@ -898,7 +901,7 @@ pitches:
     address: Rua Wisard, 489 São Paulo
     cep: 05415-300
     cnpj: 04.300.070/7777-44
-    price: 500
+    price: 50
     photo: "https://res.cloudinary.com/dpkbckolo/image/upload/v1552072325/wod93m60wcqdzcwxjx41.jpg"
     opening_time: 08
     closing_time: 17
